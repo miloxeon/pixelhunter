@@ -1,0 +1,24 @@
+:root {
+	--t-weaker: #d1d1d1;
+	--t-weak: #767676;
+	--t: #37352f;
+	--t-strong: #1d1c1b;
+	--t-stroger: #000000;
+
+	--b-weaker: #ffffff;
+	--b-weak: #f8f8f7;
+	--b: #f2f1ed;
+	--b-strong: #e8e7e0;
+	--b-stroger: #f2f1ed;
+
+	--a1-weaker: #a7e2bf;
+	--a1-weak: #71d099;
+	--a1: #3cb46e;
+	--a1-strong: #37a465;
+	--a1-stroger: #2a7e4d;
+
+	--a1-c: #ffffff;
+
+	--shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.04);
+	--bezier: cubic-bezier(.25, .8, .25, 1);
+}

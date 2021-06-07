@@ -3,11 +3,15 @@ import sizes from './sizes.json'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import Size from './components/size'
 
+const sizesForSimpleMode = sizes.filter(size => size.simple)
+
+// preview
+// tabs
+// download all
+// nice ui
+
 const App: React.FC = () => {
-
 	const [src, setSrc] = React.useState<string | null>(null)
-
-	const sizesForSimpleMode = sizes.filter(size => size.simple)
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		setSrc(fileInfo.cdnUrl)
 	}, [])

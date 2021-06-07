@@ -24,11 +24,11 @@ const Size: React.FC<Props> = props => {
 			<h2>
 				{props.app} — {props.name}
 			</h2>
-         <p>
-            {props.width}x{props.height}
-         </p>
+			<p>
+				{props.width}x{props.height}
+			</p>
 			<img
-            className={css.sizeImg}
+				className={css.sizeImg}
 				src={thisSizeSrc}
 				width={props.width}
 				height={props.height}

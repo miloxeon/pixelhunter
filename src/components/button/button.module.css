@@ -1,0 +1,33 @@
+.root {
+	background-color: var(--b-weaker);
+	border-radius: .3em;
+	border: 1px solid var(--t-weaker);
+	box-shadow: var(--shadow);
+	color: var(--t-weak);
+	font-weight: 500;
+	padding: .4em .8em;
+
+	transition-property: color, border-color;
+	transition-duration: .1s;
+	transition-timing-function: ease-in-out;
+}
+
+.root:hover {
+	color: var(--t);
+	border-color: var(--t-weak);
+}
+
+.accent {
+	composes: root;
+	color: var(--a1-c);
+	background-color: var(--a1);
+	border-color: var(--a1);
+	transition-property: color, border-color, background-color;
+	box-shadow: none;
+}
+
+.accent:hover {
+	color: var(--a1-c);
+	border-color: var(--a1-strong);
+	background-color: var(--a1-strong);
+}

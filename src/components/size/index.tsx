@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './size.module.css'
-import { SizeWithSrc } from '../types'
-import { getUrl } from '../helpers'
+import { SizeWithSrc } from '../../types'
+import { getUrl } from '../../helpers'
 
 const Size: React.FC<SizeWithSrc> = props => {
 	const url = getUrl(props.src, props.width, props.height)

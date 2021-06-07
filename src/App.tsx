@@ -1,8 +1,10 @@
 import React from 'react'
 import sizes from './sizes.json'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
-import Size from './components/size'
 import { getSizeKey, downloadSizes } from './helpers'
+
+import Size from './components/size'
+import Button from './components/button'
 
 const sizesForSimpleMode = sizes.filter(size => size.simple)
 
@@ -35,9 +37,9 @@ const App: React.FC = () => {
 			/>
 
 			{ src !== null && (
-				<button type="button" onClick={downloadAll} aria-busy={loading}>
+				<Button onClick={downloadAll} aria-busy={loading}>
 					{ loading ? 'Loading...' : 'Download all'}
-				</button>
+				</Button>
 			)}
 
 			{src !== null && sizesForSimpleMode.map(size => (

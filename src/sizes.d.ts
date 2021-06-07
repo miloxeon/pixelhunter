@@ -25,6 +25,6 @@ interface TargetApp {
 	simple?: boolean,
 }
 
-type Sizes = array<TargetApp>
+type Sizes = TargetApp[]
 
 export default Sizes

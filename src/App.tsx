@@ -13,16 +13,18 @@ const sizesForSimpleMode = sizes.filter(size => size.simple)
 
 const App: React.FC = () => {
 	const [src, setSrc] = React.useState<string | null>(null)
+	const [loading, setLoading] = React.useState<boolean>(false)
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		setSrc(fileInfo.cdnUrl)
 	}, [])
 
 	// demo
-	React.useEffect(() => {
+	const downloadAll = React.useCallback(() => {
 		if (!src) return
+		setLoading(true)
 		const sizesToDownload = sizes.map(size => ({ ...size, src }))
-		downloadSizes(sizesToDownload)
+		downloadSizes(sizesToDownload).finally(() => setLoading(false))
 	}, [src])
 
 	return (
@@ -31,6 +33,12 @@ const App: React.FC = () => {
 				publicKey='3828f4d78b7de9c98461'
 				onChange={uploadOnChange}
 			/>
+
+			{ src !== null && (
+				<button type="button" onClick={downloadAll} aria-busy={loading}>
+					{ loading ? 'Loading...' : 'Download all'}
+				</button>
+			)}
 
 			{src !== null && sizesForSimpleMode.map(size => (
 				<Size

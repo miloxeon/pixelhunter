@@ -1,0 +1,93 @@
+[{
+	"app": "Facebook",
+	"name": "Profile picture",
+	"width": 180,
+	"height": 180,
+	"simple": true
+}, {
+	"app": "Facebook",
+	"name": "Cover photo",
+	"width": 820,
+	"height": 312,
+	"simple": true
+}, {
+	"app": "Facebook",
+	"name": "Image post",
+	"width": 1200,
+	"height": 630,
+	"simple": true
+},
+
+{
+	"app": "Instagram",
+	"name": "Profile picture",
+	"width": 320,
+	"height": 320,
+	"simple": true
+}, {
+	"app": "Instagram",
+	"name": "Square post",
+	"width": 1080,
+	"height": 1080,
+	"simple": true
+}, {
+	"app": "Instagram",
+	"name": "Stories",
+	"width": 1080,
+	"height": 1920,
+	"simple": true
+},
+
+{
+	"app": "Twitter",
+	"name": "Profile photo",
+	"width": 400,
+	"height": 400,
+	"simple": true
+}, {
+	"app": "Twitter",
+	"name": "Header",
+	"width": 1500,
+	"height": 500,
+	"simple": true
+}, {
+	"app": "Twitter",
+	"name": "Post image",
+	"width": 1200,
+	"height": 675,
+	"simple": true
+},
+
+{
+	"app": "YouTube",
+	"name": "Profile picture",
+	"width": 800,
+	"height": 800,
+	"simple": true
+}, {
+	"app": "YouTube",
+	"name": "Banner",
+	"width": 2560,
+	"height": 1440,
+	"simple": true
+}, {
+	"app": "YouTube",
+	"name": "Thumbnail",
+	"width": 1280,
+	"height": 720,
+	"simple": true
+},
+
+{
+	"app": "TikTok",
+	"name": "Profile photo",
+	"width": 200,
+	"height": 200,
+	"simple": true
+}, {
+	"app": "TikTok",
+	"name": "Vertical video ad",
+	"width": 1080,
+	"height": 1920,
+	"simple": true
+}]

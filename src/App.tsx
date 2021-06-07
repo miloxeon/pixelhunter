@@ -2,6 +2,7 @@ import React from 'react'
 import sizes from './sizes.json'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import Size from './components/size'
+import { getSizeKey, downloadSizes } from './helpers'
 
 const sizesForSimpleMode = sizes.filter(size => size.simple)
 
@@ -12,9 +13,17 @@ const sizesForSimpleMode = sizes.filter(size => size.simple)
 
 const App: React.FC = () => {
 	const [src, setSrc] = React.useState<string | null>(null)
+
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		setSrc(fileInfo.cdnUrl)
 	}, [])
+
+	// demo
+	React.useEffect(() => {
+		if (!src) return
+		const sizesToDownload = sizes.map(size => ({ ...size, src }))
+		downloadSizes(sizesToDownload)
+	}, [src])
 
 	return (
 		<div>
@@ -25,7 +34,7 @@ const App: React.FC = () => {
 
 			{src !== null && sizesForSimpleMode.map(size => (
 				<Size
-					key={`${size.app}_${size.name}_${size.width}x${size.height}`}
+					key={getSizeKey(size)}
 					src={src}
 					app={size.app}
 					name={size.name}

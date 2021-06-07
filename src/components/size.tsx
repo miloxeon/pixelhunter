@@ -1,23 +1,10 @@
 import React from 'react'
 import css from './size.module.css'
+import { SizeWithSrc } from '../types'
+import { getUrl } from '../helpers'
 
-const ensureEndingWithSlash = (str: string) => {
-	const lastSymbol = str[str.length - 1]
-	if (lastSymbol === '/') return str
-	return `${str}/`
-}
-
-interface Props {
-	src: string,
-	app: string,
-	name: string,
-	width: number,
-	height: number,
-}
-
-const Size: React.FC<Props> = props => {
-	const srcWithSlash = ensureEndingWithSlash(props.src)
-	const thisSizeSrc = `${srcWithSlash}-/scale_crop/${props.width}x${props.height}/smart/-/quality/smart/`
+const Size: React.FC<SizeWithSrc> = props => {
+	const url = getUrl(props.src, props.width, props.height)
 
 	return (
 		<div>
@@ -29,7 +16,7 @@ const Size: React.FC<Props> = props => {
 			</p>
 			<img
 				className={css.sizeImg}
-				src={thisSizeSrc}
+				src={url}
 				width={props.width}
 				height={props.height}
 				alt={`${props.name} for ${props.app} (${props.width}x${props.height})`}

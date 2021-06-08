@@ -3,8 +3,12 @@ import css from './size.module.css'
 import { SizeWithSrc } from '../../types'
 import { getUrl } from '../../helpers'
 
-const Size: React.FC<SizeWithSrc> = props => {
-	const url = getUrl(props.src, props.width, props.height)
+interface Props extends SizeWithSrc {
+	compress: boolean
+}
+
+const Size: React.FC<Props> = props => {
+	const url = getUrl(props.src, props.width, props.height, props.compress)
 
 	return (
 		<div>

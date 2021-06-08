@@ -14,9 +14,9 @@ export const getUrl = (src: string, width: number, height: number, compress: boo
 		: `${srcWithSlash}-/scale_crop/${width}x${height}/smart/`
 }
 
-export const getSizeKey = (size: AbstractSize): string => `${size.app} ${size.name} ${size.width}x${size.height}`
+export const getSizeKey = (size: AbstractSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
-const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlob> => {
+export const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlob> => {
 	const url = getUrl(size.src, size.width, size.height, compress)
 	return fetch(url).then(response => response.blob()).then(blob => ({
 		...size,
@@ -24,13 +24,16 @@ const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlo
 	}))
 }
 
-const downloadFile = (base64content: string, filename: string): void => {
+export const downloadAbstractContent = (href: string, filename: string): void => {
 	const a = document.createElement('a')
-	a.href = `data:application/zip;base64,${base64content}`
+	a.href = href
 	a.setAttribute('download', filename)
 	a.setAttribute('_target', 'blank')
 	a.click()
 }
+
+export const downloadFile = (base64content: string, filename: string): void =>
+	downloadAbstractContent(`data:application/zip;base64,${base64content}`, filename)
 
 export const downloadSizes = (sizes: SizeWithSrc[], compress: boolean): Promise<void> => new Promise((resolve, reject) => {
 	const downloadSizeWithCompress =

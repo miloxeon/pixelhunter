@@ -2,7 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import './global.css'
+
+// @ts-ignore
+import butter from 'image-butter'
 // import reportWebVitals from './reportWebVitals'
+
+butter()
 
 ReactDOM.render(
 	<React.StrictMode>

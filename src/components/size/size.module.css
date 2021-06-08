@@ -1,5 +1,14 @@
+.root {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.heading {
+	display: inline-block;
+}
+
 .imageWrapper {
-	max-width: 40rem;
 	display: inline-block;
 	position: relative;
 	border-radius: .5em;
@@ -10,7 +19,10 @@
 	transition-timing-function: var(--elevate-bezier);
 	box-shadow: var(--elevate-before);
 
+	/* for vanilla-tilt in safari */
 	transform: translateZ(-100px);
+
+	max-width: 20rem;
 }
 
 .imageWrapper:focus-within,

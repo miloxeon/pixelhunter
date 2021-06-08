@@ -39,6 +39,87 @@
 	
 }
 
+/*! normilio v1.0.0 | BSL-1.0 License | https://github.com/mvoloskov/normilio */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	line-height: 1.5;
+	backface-visibility: hidden;
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
+:root {
+	font-variant-ligatures: common-ligatures;
+	text-rendering: optimizeLegibility;
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		"Fira Sans",
+		"Droid Sans",
+		"Helvetica Neue",
+		sans-serif,
+		"Apple Color Emoji",
+		"Segoe UI Emoji",
+		"Segoe UI Symbol";
+}
+
+code,
+pre {
+	tab-size: 4;
+	font-family: monospace;
+}
+
+body {
+	margin: 0;
+}
+
+img {
+	display: block;
+	height: auto;
+}
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+	max-width: 100%;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+input {
+	font-family: inherit;
+}
+
+textarea {
+	resize: vertical;
+}
+
+[aria-busy="true"] {
+	cursor: progress;
+}
+
+[disabled],
+[aria-disabled="true"] {
+	cursor: default;
+}
+
+[aria-controls] {
+	cursor: pointer;
+}
+
 button {
 	cursor: pointer;
 }

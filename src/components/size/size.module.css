@@ -13,8 +13,6 @@
 .imageWrapper {
 	display: inline-block;
 	position: relative;
-	border-radius: .5em;
-	overflow: hidden;
 
 	transition-property: box-shadow;
 	transition-duration: .5s;
@@ -30,6 +28,10 @@
 .imageWrapper:focus-within,
 .imageWrapper:hover {
 	box-shadow: var(--elevate-after);
+}
+
+.image {
+	border-radius: .5em;
 }
 
 .infoOverlay {

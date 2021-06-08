@@ -39,6 +39,7 @@ const Size: React.FC<Props> = props => {
 
 			<div className={css.imageWrapper} ref={imageWrapperRef}>
 				<img
+					className={css.image}
 					src={url}
 					width={props.width}
 					height={props.height}

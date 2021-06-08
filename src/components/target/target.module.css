@@ -8,3 +8,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
 	justify-content: start;
 }
+
+.description {
+	max-width: 30rem;
+}

@@ -20,7 +20,7 @@ const Target: React.FC<Props> = props => {
 			<h2>
 				{props.app}
 			</h2>
-			<p>
+			<p className={css.description}>
 				{props.description}
 			</p>
 

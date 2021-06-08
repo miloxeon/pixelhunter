@@ -17,8 +17,13 @@
 	--a1-strong: #37a465;
 	--a1-stroger: #2a7e4d;
 
+	--a1-translucent: #3cb46eaa;
 	--a1-c: #ffffff;
 
 	--shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.04);
 	--bezier: cubic-bezier(.25, .8, .25, 1);
+}
+
+button {
+	cursor: pointer;
 }

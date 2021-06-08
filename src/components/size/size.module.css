@@ -14,11 +14,6 @@
 	display: inline-block;
 	position: relative;
 
-	transition-property: box-shadow;
-	transition-duration: .5s;
-	transition-timing-function: var(--elevate-bezier);
-	box-shadow: var(--elevate-before);
-
 	/* for vanilla-tilt in safari */
 	transform: translateZ(-100px);
 
@@ -26,13 +21,18 @@
 	border-radius: .5em;
 }
 
-.imageWrapper:focus-within,
-.imageWrapper:hover {
-	box-shadow: var(--elevate-after);
-}
-
 .image {
 	border-radius: .5em;
+
+	box-shadow: var(--elevate-before);
+	transition-property: box-shadow;
+	transition-duration: .5s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+.imageWrapper:focus-within .image,
+.imageWrapper:hover .image {
+	box-shadow: var(--elevate-after);
 }
 
 .infoOverlay {

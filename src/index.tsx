@@ -5,6 +5,7 @@ import './global.css'
 
 // @ts-ignore
 import butter from 'image-butter'
+
 // import reportWebVitals from './reportWebVitals'
 
 butter()

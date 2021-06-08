@@ -36,7 +36,11 @@
 		0 9px 9px rgba(0, 0, 0, 0.02), 
 		0 13px 13px rgba(0, 0, 0, 0.02),
 		0 21px 21px rgba(0, 0, 0, 0.02);
-	
+}
+
+body {
+	color: var(--t);
+	background-color: var(--b);
 }
 
 /*! normilio v1.0.0 | BSL-1.0 License | https://github.com/mvoloskov/normilio */
@@ -122,4 +126,12 @@ textarea {
 
 button {
 	cursor: pointer;
+}
+
+.butter-loading {
+	filter: contrast(0%) brightness(150%) !important;
+}
+
+.butter-loading.butter-loaded {
+	filter: none !important;
 }

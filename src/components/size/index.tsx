@@ -50,14 +50,6 @@ const Size: React.FC<Props> = props => {
 		return () => current?.vanillaTilt?.destroy()
 	}, [isZoomed])
 
-	React.useEffect(() => {
-		document.querySelectorAll('div[data-rmiz-wrap] button[type="button"]').forEach(button => {
-			button.removeAttribute('aria-label')
-			button.setAttribute('z-index', '-1')
-			button.setAttribute('aria-hidden', 'true')
-		})
-	}, [])
-
 	return (
 		<div className={css.root}>
 			<h3 className={css.heading}>
@@ -73,7 +65,7 @@ const Size: React.FC<Props> = props => {
 					zoomMargin={30}
 				>
 					<img
-						className={isZoomed ? css.imageZoomed : css.image}
+						className={!isZoomed ? css.image : css.imageZoomed}
 						src={url}
 						width={props.width}
 						height={props.height}

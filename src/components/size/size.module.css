@@ -4,6 +4,17 @@
 	position: relative;
 	border-radius: .5em;
 	overflow: hidden;
+
+	transition-property: transform, box-shadow;
+	transition-duration: .5s;
+	transition-timing-function: var(--elevate-bezier);
+	box-shadow: var(--elevate-before);
+}
+
+.imageWrapper:focus-within,
+.imageWrapper:hover {
+	transform: scale(1.02);
+	box-shadow: var(--elevate-after);
 }
 
 .download {
@@ -16,7 +27,7 @@
 	opacity: .3;
 	transition-property: color, border-color, background-color, opacity;
 	transition-duration: .1s;
-	transition-timing-function: ease-in-out;
+	transition-timing-function: var(--elevate-bezier);
 }
 
 .infoOverlay {
@@ -38,10 +49,10 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background-image: radial-gradient(circle at top right, #000000aa, transparent);
+	background-image: radial-gradient(circle at top right, #ffffffcc, transparent);
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity .1s ease-in-out;
+	transition: opacity .5s var(--elevate-bezier);
 }
 
 .infoOverlayContent {
@@ -55,10 +66,10 @@
 .infoOverlayText {
 	margin-top: 0;
 	margin-bottom: 0;
-	color: var(--t-weaker);
+	color: var(--t-weak);
 	font-size: small;
 	opacity: 0;
-	transition: opacity .1s ease-in-out;
+	transition: opacity .1s var(--elevate-bezier);
 }
 
 .imageWrapper:focus-within .infoOverlay,

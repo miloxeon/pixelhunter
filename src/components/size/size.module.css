@@ -23,6 +23,7 @@
 	transform: translateZ(-100px);
 
 	max-width: 20rem;
+	border-radius: .5em;
 }
 
 .imageWrapper:focus-within,

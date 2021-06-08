@@ -1,4 +1,4 @@
-interface Size {
+export interface Size {
 	/**
 	 * @description  taget service: short description of this size: Avatar, Cover, etc. Should be unique.
 	 */
@@ -20,7 +20,7 @@ interface Size {
 	simple?: boolean,
 }
 
-interface TargetApp {
+export interface TargetApp {
 	/**
 	 * @description  taget service: Facebook, Instagram, etc. Case-sensitive. Should be unique.
 	 */

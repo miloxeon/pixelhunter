@@ -1,9 +1,9 @@
 import React from 'react'
-import { Target as TargetType } from '../../types'
 import { getSizeKey } from '../../helpers'
 import Size from '../size'
 import css from './target.module.css'
-interface Props extends TargetType {
+import { TargetApp } from '../../sizes'
+interface Props extends TargetApp {
 	compress: boolean,
 	src: string,
 }
@@ -15,11 +15,23 @@ const Target: React.FC<Props> = props => {
 		return (b.height / b.width) - (a.height / a.width)
 	})
 
+	const targetId = props.app
+
 	return (
-		<div className={css.root}>
-			<h2>
-				{props.app}
-			</h2>
+		<article className={css.root} aria-labelledby={targetId}>
+			<header className={css.header}>
+				<img
+					src={props.logoSrc}
+					width={40}
+					height={40}
+					alt=''
+					aria-hidden={true}
+				/>
+				<h2 className={css.heading} id={targetId}>
+					{props.app}
+				</h2>
+			</header>
+
 			<p className={css.description}>
 				{props.description}
 			</p>
@@ -41,7 +53,7 @@ const Target: React.FC<Props> = props => {
 					)
 				})}
 			</div>
-		</div>
+		</article>
 	)
 }
 

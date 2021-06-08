@@ -7,7 +7,7 @@
 	font-weight: 500;
 	padding: .4em .8em;
 
-	transition-property: color, border-color;
+	transition-property: color, border-color, background-color;
 	transition-duration: .1s;
 	transition-timing-function: ease-in-out;
 }
@@ -15,6 +15,12 @@
 .root:hover {
 	color: var(--t);
 	border-color: var(--t-weak);
+}
+
+.root:focus,
+.root:active {
+	outline: 3px solid var(--a1-translucent);
+	border-color: transparent;
 }
 
 .accent {

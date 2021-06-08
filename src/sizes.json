@@ -1,7 +1,7 @@
 [{
 	"app": "Facebook",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
-	"logoSrc": "facebook.svg",
+	"logoSrc": "logos/facebook.svg",
 	"sizes": [{
 		"name": "Profile picture",
 		"width": 180,
@@ -21,7 +21,7 @@
 }, {
 	"app": "Instagram",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
-	"logoSrc": "instagram.svg",
+	"logoSrc": "logos/instagram.svg",
 	"sizes": [{
 		"name": "Profile picture",
 		"width": 320,
@@ -41,7 +41,7 @@
 }, {
 	"app": "Twitter",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
-	"logoSrc": "twitter.svg",
+	"logoSrc": "logos/twitter.svg",
 	"sizes": [{
 		"name": "Profile photo",
 		"width": 400,
@@ -61,7 +61,7 @@
 }, {
 	"app": "YouTube",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
-	"logoSrc": "YouTube.svg",
+	"logoSrc": "logos/youtube.svg",
 	"sizes": [{
 		"name": "Profile picture",
 		"width": 800,
@@ -81,7 +81,7 @@
 }, {
 	"app": "TikTok",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
-	"logoSrc": "TikTok.svg",
+	"logoSrc": "logos/tiktok.svg",
 	"sizes": [{
 		"name": "Profile photo",
 		"width": 200,

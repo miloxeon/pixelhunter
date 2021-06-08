@@ -5,7 +5,8 @@ import { SizeWithSrc } from '../../types'
 import { getUrl, getSizeKey } from '../../helpers'
 
 interface Props extends SizeWithSrc {
-	compress: boolean
+	compress: boolean,
+	app: string,
 }
 
 const Size: React.FC<Props> = props => {
@@ -14,9 +15,9 @@ const Size: React.FC<Props> = props => {
 
 	return (
 		<div>
-			<h2>
-				{props.app} — {props.name}
-			</h2>
+			<h3>
+				{props.name}
+			</h3>
 
 			<div className={css.imageWrapper}>
 				<img

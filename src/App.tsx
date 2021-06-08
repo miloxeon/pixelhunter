@@ -1,13 +1,11 @@
 import React from 'react'
 import sizes from './sizes.json'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
-import { getSizeKey, downloadSizes } from './helpers'
+import { downloadSizes } from './helpers'
 
-import Size from './components/size'
 import Button from './components/button'
 import Container from './components/container'
-
-const sizesForSimpleMode = sizes.filter(size => size.simple)
+import Target from './components/target'
 
 // preview
 // tabs
@@ -15,7 +13,8 @@ const sizesForSimpleMode = sizes.filter(size => size.simple)
 // nice ui
 
 const App: React.FC = () => {
-	const [src, setSrc] = React.useState<string | null>(null)
+	// const [src, setSrc] = React.useState<string | null>(null)
+	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
 
@@ -27,7 +26,13 @@ const App: React.FC = () => {
 	const downloadAll = React.useCallback(() => {
 		if (!src) return
 		setLoading(true)
-		const sizesToDownload = sizes.map(size => ({ ...size, src }))
+		const sizesForSimpleMode = sizes.map(target => [...target.sizes.map(
+			size => ({
+				...size,
+				app: target.app
+			})
+		)]).flat()
+		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
 		downloadSizes(sizesToDownload, compress).finally(() => setLoading(false))
 	}, [compress, src])
 
@@ -55,17 +60,16 @@ const App: React.FC = () => {
 				)}
 			</div>
 
-			{src !== null && sizesForSimpleMode.map(size => (
-				<Size
-					key={getSizeKey(size)}
-					src={src}
-					compress={compress}
-					app={size.app}
-					name={size.name}
-					width={size.width}
-					height={size.height}
-				/>
-			))}
+			{ src !== null && sizes.map(target => {
+				return (
+					<Target
+						key={target.app}
+						compress={compress}
+						src={src}
+						{...target}
+					/>
+				)
+			})}
 		</Container>
 	)
 }

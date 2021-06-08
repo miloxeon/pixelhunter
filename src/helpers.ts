@@ -1,5 +1,5 @@
 import JSZip from 'jszip'
-import { AbstractSize, SizeWithSrc, SizeWithBlob } from './types'
+import { StandaloneSize, SizeWithSrc, SizeWithBlob } from './types'
 
 const ensureEndingWithSlash = (str: string): string => {
 	const lastSymbol = str[str.length - 1]
@@ -14,7 +14,7 @@ export const getUrl = (src: string, width: number, height: number, compress: boo
 		: `${srcWithSlash}-/scale_crop/${width}x${height}/smart/`
 }
 
-export const getSizeKey = (size: AbstractSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
+export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
 export const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlob> => {
 	const url = getUrl(size.src, size.width, size.height, compress)

@@ -22,7 +22,7 @@ interface Size {
 
 interface TargetApp {
 	/**
-	 * @description  taget service: Facebook, Instagram, etc. Case-sensitive.
+	 * @description  taget service: Facebook, Instagram, etc. Case-sensitive. Should be unique.
 	 */
 	app: string,
 

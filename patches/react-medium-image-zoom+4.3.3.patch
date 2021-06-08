@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-medium-image-zoom/dist/esm/Controlled.js b/node_modules/react-medium-image-zoom/dist/esm/Controlled.js
-index 856b526..86762b7 100644
+index 856b526..005af1c 100644
 --- a/node_modules/react-medium-image-zoom/dist/esm/Controlled.js
 +++ b/node_modules/react-medium-image-zoom/dist/esm/Controlled.js
 @@ -114,7 +114,7 @@ var ControlledActivated = function (_a) {
@@ -7,7 +7,7 @@ index 856b526..86762b7 100644
          ? createPortal(React.createElement("div", { "aria-modal": true, "data-rmiz-overlay": true, role: "dialog", style: overlayStyle },
              React.createElement("div", { "data-rmiz-modal-content": true, style: contentStyle }, children),
 -            React.createElement("button", { "aria-label": closeText, "data-rmiz-btn-close": true, onClick: handleClick, ref: btnRef, type: "button" })), portalEl)
-+            React.createElement("button", { "aria-hidden": "true", "tabindex": "-1", "data-rmiz-btn-close": true, onClick: handleClick, ref: btnRef, type: "button" })), portalEl)
++            React.createElement("button", { "aria-hidden": "true", "tabIndex": "-1", "data-rmiz-btn-close": true, onClick: handleClick, ref: btnRef, type: "button" })), portalEl)
          : null;
  };
  var ControlledActivated$1 = memo(ControlledActivated);
@@ -16,7 +16,7 @@ index 856b526..86762b7 100644
          React.createElement(WrapElement, { "data-rmiz-wrap": wrapType, ref: wrapRef, style: wrapStyle },
              children,
 -            React.createElement("button", { "aria-label": openText, "data-rmiz-btn-open": true, onClick: handleClickTrigger, ref: btnRef, type: "button" }),
-+            React.createElement("button", { "aria-hidden": "true", "tabindex": "-1", "data-rmiz-btn-open": true, onClick: handleClickTrigger, ref: btnRef, type: "button" }),
++            React.createElement("button", { "aria-hidden": "true", "tabIndex": "-1", "data-rmiz-btn-open": true, onClick: handleClickTrigger, ref: btnRef, type: "button" }),
              typeof window !== 'undefined' && (React.createElement(ControlledActivated$1, { closeText: closeText, isActive: isActive, onLoad: handleChildLoad, onUnload: handleChildUnload, onZoomChange: onZoomChange, overlayBgColorEnd: overlayBgColorEnd, overlayBgColorStart: overlayBgColorStart, parentRef: wrapRef, portalEl: portalEl, scrollableEl: scrollableEl, transitionDuration: transitionDuration, zoomMargin: zoomMargin, zoomZindex: zoomZindex }, children)))));
  };
  var Controlled$1 = memo(Controlled);

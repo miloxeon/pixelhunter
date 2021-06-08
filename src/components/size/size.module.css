@@ -21,12 +21,15 @@
 	border-radius: .5em;
 }
 
-.image {
+.imageZoomed {
 	border-radius: .5em;
-
 	box-shadow: var(--elevate-before);
+}
+
+.image {
+	composes: imageZoomed;
 	transition-property: box-shadow;
-	transition-duration: .5s;
+	transition-duration: 5s;
 	transition-timing-function: var(--elevate-bezier);
 }
 
@@ -100,10 +103,13 @@
 
 .imageWrapper:focus-within .infoOverlay,
 .imageWrapper:hover .infoOverlay,
-.imageWrapper:focus-within .infoOverlayText,
-.imageWrapper:hover .infoOverlayText,
 .download:focus,
 .imageWrapper:hover .download {
+	opacity: 1;
+}
+
+.infoOverlay:focus-within .infoOverlayText,
+.imageWrapper:hover .infoOverlayText {
 	opacity: 1;
 }
 

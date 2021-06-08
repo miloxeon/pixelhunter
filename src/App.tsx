@@ -14,7 +14,13 @@ import Target from './components/target'
 
 const App: React.FC = () => {
 	// const [src, setSrc] = React.useState<string | null>(null)
-	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
+
+	// bright
+	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
+
+	// dim
+	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
+	
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
 

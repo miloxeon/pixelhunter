@@ -1,4 +1,5 @@
 import React from 'react'
+import Tilt from 'vanilla-tilt'
 import { FiArrowDown } from 'react-icons/fi'
 import css from './size.module.css'
 import { SizeWithSrc } from '../../types'
@@ -9,9 +10,29 @@ interface Props extends SizeWithSrc {
 	app: string,
 }
 
+type TiltedElement = {
+	vanillaTilt: {
+		destroy: () => void
+	}
+}
+
 const Size: React.FC<Props> = props => {
 	const url = getUrl(props.src, props.width, props.height, props.compress)
 	const alt = getSizeKey(props)
+	const imageWrapperRef = React.useRef<HTMLDivElement & TiltedElement>(null)
+
+	React.useEffect(() => {
+		const current = imageWrapperRef.current
+		if (!current) return
+		Tilt.init(current, {
+			max: 3,
+			perspective: 2000,
+			scale: 1.02,
+			easing: 'cubic-bezier(.17, .67, .24, 1.01)',
+		})
+
+		return () => current && current.vanillaTilt?.destroy()
+	}, [])
 
 	return (
 		<div>
@@ -19,7 +40,7 @@ const Size: React.FC<Props> = props => {
 				{props.name}
 			</h3>
 
-			<div className={css.imageWrapper}>
+			<div className={css.imageWrapper} ref={imageWrapperRef}>
 				<img
 					className={css.image}
 					src={url}

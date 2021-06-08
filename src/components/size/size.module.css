@@ -5,7 +5,7 @@
 	border-radius: .5em;
 	overflow: hidden;
 
-	transition-property: transform, box-shadow;
+	transition-property: box-shadow;
 	transition-duration: .5s;
 	transition-timing-function: var(--elevate-bezier);
 	box-shadow: var(--elevate-before);
@@ -13,7 +13,6 @@
 
 .imageWrapper:focus-within,
 .imageWrapper:hover {
-	transform: scale(1.02);
 	box-shadow: var(--elevate-after);
 }
 
@@ -49,7 +48,7 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background-image: radial-gradient(circle at top right, #ffffffcc, transparent);
+	background-image: radial-gradient(circle at calc(100% - 1.5rem) 1.5rem, #ffffffee, transparent);
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity .5s var(--elevate-bezier);
@@ -66,7 +65,7 @@
 .infoOverlayText {
 	margin-top: 0;
 	margin-bottom: 0;
-	color: var(--t-weak);
+	color: var(--t);
 	font-size: small;
 	opacity: 0;
 	transition: opacity .1s var(--elevate-bezier);
@@ -74,11 +73,19 @@
 
 .imageWrapper:focus-within .infoOverlay,
 .imageWrapper:hover .infoOverlay,
-.imageWrapper:focus-within .gradient,
-.imageWrapper:hover .gradient,
 .imageWrapper:focus-within .infoOverlayText,
 .imageWrapper:hover .infoOverlayText,
 .download:focus,
 .imageWrapper:hover .download {
 	opacity: 1;
+}
+
+.imageWrapper:focus-within .gradient,
+.imageWrapper:hover .gradient {
+	opacity: .8;
+}
+
+.download:focus,
+.imageWrapper:hover .download {
+	color: var(--t);
 }

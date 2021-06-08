@@ -11,14 +11,17 @@
 }
 
 .imageWrapper {
-	display: inline-block;
 	position: relative;
-
-	/* for vanilla-tilt in safari */
-	transform: translateZ(-100px);
+	display: inline-block;
 
 	max-width: 20rem;
 	border-radius: .5em;
+}
+
+.imgTiltWrapper {
+	position: relative;
+	/* for vanilla-tilt in safari */
+	transform: translateZ(-100px);
 }
 
 .imageZoomed {
@@ -36,6 +39,20 @@
 .imageWrapper:focus-within .image,
 .imageWrapper:hover .image {
 	box-shadow: var(--elevate-after);
+}
+
+.fakeImage {
+	composes: imageZoomed;
+	opacity: 0;
+	transition: opacity 0s;
+	transition-delay: .3s;
+	pointer-events: none;
+}
+
+.fakeImageZoomed {
+	composes: imageZoomed;
+	opacity: 1;
+	pointer-events: none;
 }
 
 .infoOverlay {

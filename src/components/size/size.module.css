@@ -1,3 +1,73 @@
-.sizeImg {
+.imageWrapper {
 	max-width: 40rem;
+	display: inline-block;
+	position: relative;
+	border-radius: .5em;
+	overflow: hidden;
+}
+
+.download {
+	composes: root from '../button/button.module.css';
+	text-decoration: none;
+	display: inline-block;
+	padding: .3em;
+	line-height: 0;
+
+	opacity: .3;
+	transition-property: color, border-color, background-color, opacity;
+	transition-duration: .1s;
+	transition-timing-function: ease-in-out;
+}
+
+.infoOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: .5rem;
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+
+.gradient {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-image: radial-gradient(circle at top right, black, transparent);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .1s ease-in-out;
+}
+
+.infoOverlayContent {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: .5rem;
+	align-items: center;
+	z-index: 2;
+}
+
+.infoOverlayText {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: var(--t-weaker);
+	font-size: small;
+	opacity: 0;
+	transition: opacity .1s ease-in-out;
+}
+
+.imageWrapper:focus-within .infoOverlay,
+.imageWrapper:hover .infoOverlay,
+.imageWrapper:focus-within .gradient,
+.imageWrapper:hover .gradient,
+.imageWrapper:focus-within .infoOverlayText,
+.imageWrapper:hover .infoOverlayText,
+.download:focus,
+.imageWrapper:hover .download {
+	opacity: 1;
 }

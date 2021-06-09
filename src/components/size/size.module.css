@@ -18,6 +18,11 @@
 	border-radius: .5em;
 }
 
+.imageWrapperGhost {
+	composes: imageWrapper;
+	pointer-events: none;
+}
+
 .imgTiltWrapper {
 	position: relative;
 }

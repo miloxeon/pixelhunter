@@ -21,6 +21,7 @@ const Size: React.FC<Props> = props => {
 	const tiltWrapperRef = React.useRef<HTMLDivElement & HTMLVanillaTiltElement>(null)
 
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
+	const [loaded, setLoaded] = React.useState<boolean>(false)
 
 	const handleZoomChange = React.useCallback(shouldZoom => {
 		setIsZoomed(shouldZoom)
@@ -54,13 +55,21 @@ const Size: React.FC<Props> = props => {
 		return () => current?.vanillaTilt?.destroy()
 	}, [isZoomed, id])
 
+	const detectButterLoading = React.useCallback(e => {
+		const classList = e.target.classList
+		const imgLoaded =
+			classList.contains('butter-loaded') ||
+			!classList.contains('butter-loading')
+		setLoaded(imgLoaded)
+	}, [])
+
 	return (
 		<div className={css.root}>
 			<h3 className={css.heading}>
 				{props.name}
 			</h3>
 
-			<div className={css.imageWrapper} id={id}>
+			<div className={loaded ? css.imageWrapper : css.imageWrapperGhost} id={id}>
 				<div className={css.imgTiltWrapper} ref={tiltWrapperRef} data-tilt>
 					<div
 						ref={zoomRef as React.Ref<HTMLDivElement>}
@@ -81,6 +90,7 @@ const Size: React.FC<Props> = props => {
 						width={props.width}
 						height={props.height}
 						alt={alt}
+						onAnimationEnd={detectButterLoading}
 					/>
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>

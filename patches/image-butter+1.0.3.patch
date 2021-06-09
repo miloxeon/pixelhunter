@@ -1,0 +1,13 @@
+diff --git a/node_modules/image-butter/src/handleImages.js b/node_modules/image-butter/src/handleImages.js
+index 6f025d7..dd0096b 100644
+--- a/node_modules/image-butter/src/handleImages.js
++++ b/node_modules/image-butter/src/handleImages.js
+@@ -6,7 +6,7 @@ export default cb => {
+     const imagesLoaded = imagesArray.map(() => false)
+ 
+     const queue = new Metameta({
+-        interval: config.appearDuration,
++        interval: 100,
+         bias: 2
+     })
+ 

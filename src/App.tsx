@@ -23,6 +23,12 @@ enum Tabs {
 	custom,
 }
 
+const timeouts = {
+	appear: 2000,
+	enter: 500,
+	exit: 500,
+}
+
 const simpleModeImages = sizes.map(target => ({
 	...target,
 	sizes: target.sizes.filter(size => size.simple)
@@ -124,7 +130,7 @@ const App: React.FC = () => {
 					<CSSTransition
 						classNames="tab"
 						in={activeTab === Tabs.simple}
-						timeout={500}
+						timeout={timeouts}
 						appear
 					>
 						<Container className={css.tab}>
@@ -144,7 +150,7 @@ const App: React.FC = () => {
 					<CSSTransition
 						classNames="tab"
 						in={activeTab === Tabs.advanced}
-						timeout={500}
+						timeout={timeouts}
 						appear
 					>
 						<Container className={css.tab}>

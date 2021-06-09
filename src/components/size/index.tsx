@@ -4,7 +4,7 @@ import { useImageZoom } from 'react-medium-image-zoom'
 import { FiArrowDown } from 'react-icons/fi'
 import css from './size.module.css'
 import { SizeWithSrc } from '../../types'
-import { getUrl, getSizeKey } from '../../helpers'
+import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
 
 interface Props extends SizeWithSrc {
 	compress: boolean,
@@ -16,12 +16,13 @@ const tiltSpeed = zoomDuration
 
 const Size: React.FC<Props> = props => {
 	const url = getUrl(props.src, props.width, props.height, props.compress)
+	const previewUrl = getCrookedUrl(props.src, props.width, props.height, props.compress)
 	const alt = getSizeKey(props)
-	const id = `${props.app}${props.name}${props.width}x${props.height}`.replaceAll(' ', '')
+	const id = `${props.app}${props.name}${props.width}x${props.height}`.replaceAll(' ', '').replaceAll('(', '').replaceAll(')', '')
 	const tiltWrapperRef = React.useRef<HTMLDivElement & HTMLVanillaTiltElement>(null)
 
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
-	const [loaded, setLoaded] = React.useState<boolean>(false)
+	const [loaded, setLoaded] = React.useState<boolean>(true)
 
 	const { ref: zoomRef } = useImageZoom({
 		onZoomChange: setIsZoomed,
@@ -73,18 +74,18 @@ const Size: React.FC<Props> = props => {
 					>
 						<img
 							className={css.fakeImage}
-							src={url}
-							width={props.width}
-							height={props.height}
+							src={previewUrl}
+							width={props.width + 1}
+							height={props.height + 1}
 							alt=''
 							aria-hidden={true}
 						/>
 					</div>
 					<img
 						className={css.image}
-						src={url}
-						width={props.width}
-						height={props.height}
+						src={previewUrl}
+						width={props.width + 1}
+						height={props.height + 1}
 						alt={alt}
 						onAnimationEnd={detectButterLoading}
 					/>

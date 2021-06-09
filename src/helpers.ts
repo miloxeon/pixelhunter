@@ -14,6 +14,8 @@ export const getUrl = (src: string, width: number, height: number, compress: boo
 		: `${srcWithSlash}-/scale_crop/${width}x${height}/smart/`
 }
 
+export const getCrookedUrl = (src: string, width: number, height: number, compress: boolean) => getUrl(src, width + 1, height + 1, compress)
+
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
 export const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlob> => {

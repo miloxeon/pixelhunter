@@ -9,13 +9,13 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 
+// image fallback
 // text info about simple mode sizes
 // simple mode sizes' positions
 // tabs
 // checkboxes
 // download all
 // footer
-// good example image (local)
 
 enum Tabs {
 	simple,
@@ -29,16 +29,15 @@ const simpleModeImages = sizes.map(target => ({
 })).filter(target => target.sizes.length > 0)
 
 const App: React.FC = () => {
-	// const [src, setSrc] = React.useState<string | null>(null)
-
 	// bright
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
 
 	// dim
-	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
+	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
 
-	// const [touched, setTouched] = React.useState<boolean>(false)
-	
+	// demo (cat on blue background)
+	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
+
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
 	const [extension, setExtension] = React.useState<string>('jpg')
@@ -63,10 +62,6 @@ const App: React.FC = () => {
 		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
 		downloadSizes(sizesToDownload, compress).finally(() => setLoading(false))
 	}, [compress, src])
-
-	// React.useEffect(() => {
-
-	// }, [])
 
 	return (
 		<>

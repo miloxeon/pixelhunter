@@ -29,6 +29,8 @@
 }
 
 .image {
+	min-width: 10rem;
+	min-height: calc(1.73em + .5em * 2);
 	box-shadow: var(--elevate-before);
 	transition-property: box-shadow;
 	transition-duration: 5s;
@@ -41,7 +43,7 @@
 	box-shadow: var(--elevate-after);
 }
 
-.fakeImageWrapperInitial {
+.fakeImageWrapper {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -51,21 +53,15 @@
 	pointer-events: none;
 }
 
-.fakeImageWrapper {
-	composes: fakeImageWrapperInitial;
-	transition: opacity 0s;
-	transition-delay: .3s;
-}
-
 .fakeImageWrapperZoomed {
-	composes: fakeImageWrapperInitial;
+	composes: fakeImageWrapper;
 	opacity: 1;
-	pointer-events: none;
 	transform: translateZ(1100px);
 }
 
 .fakeImage {
 	border-radius: .5em;
+	width: 100%;
 }
 
 :global [data-rmiz-overlay],

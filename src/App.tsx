@@ -10,7 +10,6 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 
-// image fallback
 // text info about simple mode sizes
 // simple mode sizes' positions
 // tabs

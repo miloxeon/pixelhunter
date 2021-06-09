@@ -2,6 +2,7 @@ import React from 'react'
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import { useImageZoom } from 'react-medium-image-zoom'
 import { FiArrowDown } from 'react-icons/fi'
+import { IoCloudOfflineOutline } from 'react-icons/io5'
 import css from './size.module.css'
 import { SizeWithSrc, UCMeta } from '../../types'
 import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
@@ -17,6 +18,9 @@ const tiltSpeed = zoomDuration
 
 const Size: React.FC<Props> = props => {
 	const url = getUrl(props.src, props.width, props.height, props.ucMeta)
+	const fallbackUrl = getUrl(props.src, 10, 10, {
+		compress: false
+	})
 	const previewUrl = getCrookedUrl(props.src, props.width, props.height, props.ucMeta)
 	const alt = getSizeKey(props)
 	const id = `${props.app}${props.name}${props.width}x${props.height}`.replaceAll(' ', '').replaceAll('(', '').replaceAll(')', '')
@@ -108,9 +112,32 @@ const Size: React.FC<Props> = props => {
 					{ error && (
 						<div className={css.errorContainer} style={{
 							width: props.width,
-							paddingBottom: `${(props.height / props.width) * 100}%`
+							paddingBottom: `${(props.height / props.width) * 100}%`,
 						}}>
-							Error
+							<p className={css.errorContainerContent}>
+								<IoCloudOfflineOutline
+									className={css.errorContainerContentIcon}
+									aria-hidden={true}
+								/>
+								We're having trouble displaying that image. You can download it directly.
+								<span className={css.errorContainerButtonWrapper}>
+									<a
+										className={css.errorContainerButton}
+										href={url}
+										target='_blank'
+										rel='noreferrer'
+										download={`${alt}.${props.extension}`}
+										aria-label={`Download ${alt}.${props.extension}`}
+										title={`Download ${alt}.${props.extension}`}
+									>
+										<FiArrowDown aria-hidden={true} />
+									</a>
+								</span>
+							</p>
+							<div className={css.errorContainerBg} style={{
+								backgroundImage: `url(${fallbackUrl})`,
+							}} />
+							<div className={css.errorContainerBgFallback} />
 						</div>
 					)}
 					<div className={css.infoOverlay}>

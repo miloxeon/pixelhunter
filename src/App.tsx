@@ -1,6 +1,8 @@
 import React from 'react'
 import sizes from './sizes.json'
+import css from './app.module.css'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
+import { CSSTransition } from 'react-transition-group'
 import { downloadSizes, mimeToExtension } from './helpers'
 
 import Button from './components/button'
@@ -13,6 +15,7 @@ import Target from './components/target'
 // checkboxes
 // download all
 // footer
+// good example image (local)
 
 enum Tabs {
 	simple,
@@ -33,6 +36,8 @@ const App: React.FC = () => {
 
 	// dim
 	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
+
+	// const [touched, setTouched] = React.useState<boolean>(false)
 	
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
@@ -59,74 +64,111 @@ const App: React.FC = () => {
 		downloadSizes(sizesToDownload, compress).finally(() => setLoading(false))
 	}, [compress, src])
 
-	const currentSizes = activeTab === Tabs.simple ? simpleModeImages : sizes
+	// React.useEffect(() => {
+
+	// }, [])
 
 	return (
-		<Container>
-			<UploadcareUpload
-				publicKey='3828f4d78b7de9c98461'
-				onChange={uploadOnChange}
-			/>
-
-			<label>
-				<input
-					type='checkbox'
-					checked={compress}
-					onChange={e => setCompress(e.target.checked)}
+		<>
+			<Container>
+				<UploadcareUpload
+					publicKey='3828f4d78b7de9c98461'
+					onChange={uploadOnChange}
 				/>
-				Apply smart compression
-			</label>
 
-			<div>
-				<button
-					type="button"
-					onClick={() => setActiveTab(Tabs.simple)}
-					style={{
-						color: activeTab === Tabs.simple ? 'red' : 'black'
-					}}
-				>
-					Simple
-				</button>
-				<button
-					type="button"
-					onClick={() => setActiveTab(Tabs.advanced)}
-					style={{
-						color: activeTab === Tabs.advanced ? 'red' : 'black'
-					}}
-				>
-					Advanced
-				</button>
-				<button
-					type="button"
-					onClick={() => setActiveTab(Tabs.custom)}
-					style={{
-						color: activeTab === Tabs.custom ? 'red' : 'black'
-					}}
-				>
-					Custom
-				</button>
-			</div>
-
-			<div>
-				{ src !== null && (
-					<Button onClick={downloadAll} aria-busy={loading}>
-						{ loading ? 'Loading...' : 'Download all'}
-					</Button>
-				)}
-			</div>
-
-			{ src !== null && activeTab !== Tabs.custom && currentSizes.map(target => {
-				return (
-					<Target
-						key={target.app}
-						compress={compress}
-						src={src}
-						extension={extension}
-						{...target}
+				<label>
+					<input
+						type='checkbox'
+						checked={compress}
+						onChange={e => setCompress(e.target.checked)}
 					/>
-				)
-			})}
-		</Container>
+					Apply smart compression
+				</label>
+
+				<div className={css.tabsControls}>
+					<button
+						type="button"
+						onClick={() => setActiveTab(Tabs.simple)}
+						style={{
+							color: activeTab === Tabs.simple ? 'red' : 'black'
+						}}
+					>
+						Simple
+					</button>
+					<button
+						type="button"
+						onClick={() => setActiveTab(Tabs.advanced)}
+						style={{
+							color: activeTab === Tabs.advanced ? 'red' : 'black'
+						}}
+					>
+						Advanced
+					</button>
+					<button
+						type="button"
+						onClick={() => setActiveTab(Tabs.custom)}
+						style={{
+							color: activeTab === Tabs.custom ? 'red' : 'black'
+						}}
+					>
+						Custom
+					</button>
+				</div>
+
+				<div>
+					{ src !== null && (
+						<Button onClick={downloadAll} aria-busy={loading}>
+							{ loading ? 'Loading...' : 'Download all'}
+						</Button>
+					)}
+				</div>
+			</Container>
+			
+			{src !== null && (
+				<div className={css.tabsWrapper}>
+					<CSSTransition
+						classNames="tab"
+						in={activeTab === Tabs.simple}
+						timeout={500}
+						appear
+					>
+						<Container className={css.tab}>
+							{simpleModeImages.map(target => {
+								return (
+									<Target
+										key={target.app}
+										compress={compress}
+										src={src}
+										extension={extension}
+										{...target}
+									/>
+								)
+							})}
+						</Container>
+					</CSSTransition>
+					<CSSTransition
+						classNames="tab"
+						in={activeTab === Tabs.advanced}
+						timeout={500}
+						appear
+					>
+						<Container className={css.tab}>
+							{sizes.map(target => {
+								return (
+									<Target
+										key={target.app}
+										compress={compress}
+										src={src}
+										extension={extension}
+										{...target}
+									/>
+								)
+							})}
+						</Container>
+					</CSSTransition>
+				</div>
+			)}
+		</>
 	)
 }
 

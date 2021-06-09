@@ -1,0 +1,65 @@
+.tabsWrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.tab {
+	will-change: opacity;
+}
+
+:global .tab-appear,
+:global .tab-appear-active {
+	pointer-events: none;
+	opacity: 0;
+}
+
+:global .tab-appear-done {
+	transform: translateY(20px) scale(0.97);
+	opacity: 0;
+	filter: none;
+	animation:
+		appear-position 1s,
+		appear-opacity 2s;
+
+	animation-fill-mode: forwards;
+	animation-timing-function: var(--elevate-bezier);
+	animation-delay: .2s;
+}
+
+:global .tab-enter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+}
+
+:global .tab-enter-active {
+	opacity: 1;
+	transition: opacity .5s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+:global .tab-exit {
+	opacity: 1;
+}
+
+:global .tab-exit-active {
+	opacity: 0;
+	transition: opacity .5s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+:global .tab-exit-done {
+	display: none;
+}
+
+@keyframes appear-position {
+	from { transform: translateY(20px) scale(0.97) }
+	to   { transform: translateY(0) scale(1) }
+}
+
+@keyframes appear-opacity {
+	from { opacity: 0 } 
+	to   { opacity: 1 }
+}

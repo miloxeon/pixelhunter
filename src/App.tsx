@@ -12,6 +12,18 @@ import Target from './components/target'
 // tabs
 // checkboxes
 // download all
+// footer
+
+enum Tabs {
+	simple,
+	advanced,
+	custom,
+}
+
+const simpleModeImages = sizes.map(target => ({
+	...target,
+	sizes: target.sizes.filter(size => size.simple)
+})).filter(target => target.sizes.length > 0)
 
 const App: React.FC = () => {
 	// const [src, setSrc] = React.useState<string | null>(null)
@@ -25,6 +37,7 @@ const App: React.FC = () => {
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
 	const [extension, setExtension] = React.useState<string>('jpg')
+	const [activeTab, setActiveTab] = React.useState<Tabs>(Tabs.simple)
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		console.log(fileInfo)
@@ -46,6 +59,8 @@ const App: React.FC = () => {
 		downloadSizes(sizesToDownload, compress).finally(() => setLoading(false))
 	}, [compress, src])
 
+	const currentSizes = activeTab === Tabs.simple ? simpleModeImages : sizes
+
 	return (
 		<Container>
 			<UploadcareUpload
@@ -63,6 +78,36 @@ const App: React.FC = () => {
 			</label>
 
 			<div>
+				<button
+					type="button"
+					onClick={() => setActiveTab(Tabs.simple)}
+					style={{
+						color: activeTab === Tabs.simple ? 'red' : 'black'
+					}}
+				>
+					Simple
+				</button>
+				<button
+					type="button"
+					onClick={() => setActiveTab(Tabs.advanced)}
+					style={{
+						color: activeTab === Tabs.advanced ? 'red' : 'black'
+					}}
+				>
+					Advanced
+				</button>
+				<button
+					type="button"
+					onClick={() => setActiveTab(Tabs.custom)}
+					style={{
+						color: activeTab === Tabs.custom ? 'red' : 'black'
+					}}
+				>
+					Custom
+				</button>
+			</div>
+
+			<div>
 				{ src !== null && (
 					<Button onClick={downloadAll} aria-busy={loading}>
 						{ loading ? 'Loading...' : 'Download all'}
@@ -70,7 +115,7 @@ const App: React.FC = () => {
 				)}
 			</div>
 
-			{ src !== null && sizes.map(target => {
+			{ src !== null && activeTab !== Tabs.custom && currentSizes.map(target => {
 				return (
 					<Target
 						key={target.app}

@@ -1,7 +1,6 @@
 import React from 'react'
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import { useImageZoom } from 'react-medium-image-zoom'
-// import 'react-medium-image-zoom/dist/styles.css'
 import { FiArrowDown } from 'react-icons/fi'
 import css from './size.module.css'
 import { SizeWithSrc } from '../../types'
@@ -24,12 +23,10 @@ const Size: React.FC<Props> = props => {
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
 
 	const handleZoomChange = React.useCallback(shouldZoom => {
-		// if (shouldZoom) tiltWrapperRef.current?.vanillaTilt?.destroy()
 		setIsZoomed(shouldZoom)
 	}, [])
 
 	const { ref: zoomRef } = useImageZoom({
-		isZoomed,
 		onZoomChange: handleZoomChange,
 		transitionDuration: zoomDuration,
 		overlayBgColor: 'var(--b)',

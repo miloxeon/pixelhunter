@@ -7,7 +7,8 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 
-// parse sizes
+// support proper mime types
+// fix glare on tall images
 // preview
 // tabs
 // checkboxes

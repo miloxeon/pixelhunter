@@ -22,9 +22,10 @@
 	position: relative;
 }
 
-.imgTiltWrapper button {
+.imgTiltWrapper [data-rmiz-trigger] {
 	margin: 0 !important;
 	z-index: 3;
+	outline: none !important;
 }
 
 .image {

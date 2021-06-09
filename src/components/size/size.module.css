@@ -38,7 +38,7 @@
 	min-height: calc(1.73em + .5em * 2);
 	box-shadow: var(--elevate-before);
 	transition-property: box-shadow;
-	transition-duration: 5s;
+	transition-duration: .3s;
 	transition-timing-function: var(--elevate-bezier);
 	border-radius: .5em;
 }
@@ -67,6 +67,7 @@
 .fakeImage {
 	border-radius: .5em;
 	width: 100%;
+	box-shadow: var(--elevate-after);
 }
 
 :global [data-rmiz-overlay],

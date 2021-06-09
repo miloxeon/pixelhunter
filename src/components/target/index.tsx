@@ -3,12 +3,19 @@ import { getSizeKey } from '../../helpers'
 import Size from '../size'
 import css from './target.module.css'
 import { TargetApp } from '../../sizes'
+
+// @ts-ignore
+import butter from 'image-butter'
 interface Props extends TargetApp {
 	compress: boolean,
 	src: string,
 }
 
 const Target: React.FC<Props> = props => {
+
+	React.useEffect(() => {
+		butter()
+	}, [props.src])
 
 	// sort sizes by aspect ratio — taller ones come first
 	const sortedSizes = [...props.sizes].sort((a, b) => {

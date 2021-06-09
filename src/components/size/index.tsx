@@ -69,9 +69,10 @@ const Size: React.FC<Props> = props => {
 				<div className={css.imgTiltWrapper} ref={tiltWrapperRef} data-tilt>
 					<div
 						ref={zoomRef as React.Ref<HTMLDivElement>}
-						className={!isZoomed ? css.fakeImage : css.fakeImageZoomed}
+						className={!isZoomed ? css.fakeImageWrapper : css.fakeImageWrapperZoomed}
 					>
 						<img
+							// className={!isZoomed ? css.image : css.imageZoomed}
 							src={url}
 							width={props.width}
 							height={props.height}

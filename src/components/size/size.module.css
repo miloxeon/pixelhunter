@@ -27,16 +27,12 @@
 	z-index: 3;
 }
 
-.imageZoomed {
-	box-shadow: var(--elevate-before);
-}
-
 .image {
-	composes: imageZoomed;
-	border-radius: .5em;
+	box-shadow: var(--elevate-before);
 	transition-property: box-shadow;
 	transition-duration: 5s;
 	transition-timing-function: var(--elevate-bezier);
+	border-radius: .5em;
 }
 
 .imageWrapper:focus-within .image,
@@ -44,8 +40,7 @@
 	box-shadow: var(--elevate-after);
 }
 
-.fakeImageInitial {
-	composes: imageZoomed;
+.fakeImageWrapperInitial {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -55,14 +50,14 @@
 	pointer-events: none;
 }
 
-.fakeImage {
-	composes: fakeImageInitial;
+.fakeImageWrapper {
+	composes: fakeImageWrapperInitial;
 	transition: opacity 0s;
 	transition-delay: .3s;
 }
 
-.fakeImageZoomed {
-	composes: fakeImageInitial;
+.fakeImageWrapperZoomed {
+	composes: fakeImageWrapperInitial;
 	opacity: 1;
 	pointer-events: none;
 	transform: translateZ(1100px);

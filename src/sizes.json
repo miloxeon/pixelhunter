@@ -88,12 +88,12 @@
 			"height": 1200
 		},
 		{
-			"name": "Messenger image ad",
+			"name": "Messenger image",
 			"width": 1200,
 			"height": 628
 		},
 		{
-			"name": "Audience network link",
+			"name": "Audience link",
 			"width": 398,
 			"height": 208
 		}
@@ -103,112 +103,112 @@
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/google.svg",
 	"sizes": [{
-			"name": "Display skyscraper",
+			"name": "Skyscraper",
 			"width": 120,
 			"height": 600
 		},
 		{
-			"name": "Display leaderboard",
+			"name": "Leaderboard",
 			"width": 728,
 			"height": 90
 		},
 		{
-			"name": "Display mobile banner",
+			"name": "Mobile banner 1",
 			"width": 300,
 			"height": 50
 		},
 		{
-			"name": "Display banner",
+			"name": "Banner",
 			"width": 468,
 			"height": 60
 		},
 		{
-			"name": "Display portrait",
+			"name": "Portrait",
 			"width": 300,
 			"height": 1050
 		},
 		{
-			"name": "Display panorama",
+			"name": "Panorama",
 			"width": 980,
 			"height": 120
 		},
 		{
-			"name": "Display large mobile banner",
+			"name": "Mobile banner 2",
 			"width": 320,
 			"height": 100
 		},
 		{
-			"name": "Display billboard",
+			"name": "Billboard",
 			"width": 970,
 			"height": 250
 		},
 		{
-			"name": "Display vertical rectangle",
+			"name": "Vertical rectangle",
 			"width": 240,
 			"height": 400
 		},
 		{
-			"name": "Display half banner",
+			"name": "Half banner",
 			"width": 234,
 			"height": 60
 		},
 		{
-			"name": "Display small square",
+			"name": "Small square",
 			"width": 200,
 			"height": 200
 		},
 		{
-			"name": "Display wide skyscraper",
+			"name": "Wide skyscraper",
 			"width": 160,
 			"height": 600
 		},
 		{
-			"name": "Display large leaderboard",
+			"name": "Large leaderboard",
 			"width": 970,
 			"height": 90
 		},
 		{
-			"name": "Display large mobile banner",
+			"name": "Mobile banner 3",
 			"width": 320,
 			"height": 50
 		},
 		{
-			"name": "Display top banner",
+			"name": "Top banner",
 			"width": 930,
 			"height": 180
 		},
 		{
-			"name": "Display square",
+			"name": "Square",
 			"width": 250,
 			"height": 250
 		},
 		{
-			"name": "Display medium rectangle",
+			"name": "Medium rectangle",
 			"width": 300,
 			"height": 250
 		},
 		{
-			"name": "Display netboard",
+			"name": "Netboard",
 			"width": 580,
 			"height": 400
 		},
 		{
-			"name": "Display half-page ad",
+			"name": "Half-page ad",
 			"width": 300,
 			"height": 600
 		},
 		{
-			"name": "Display triple widescreen",
+			"name": "Triple widescreen",
 			"width": 250,
 			"height": 360
 		},
 		{
-			"name": "Display inline rectangle",
+			"name": "Inline rectangle",
 			"width": 300,
 			"height": 250
 		},
 		{
-			"name": "Display large rectangle",
+			"name": "Large rectangle",
 			"width": 336,
 			"height": 280
 		}
@@ -363,7 +363,7 @@
 			"height": 250
 		},
 		{
-			"name": "Companion banner ads",
+			"name": "Companion banner",
 			"width": 300,
 			"height": 60
 		},
@@ -378,17 +378,17 @@
 			"height": 1440
 		},
 		{
-			"name": "Channel Art desktop banner",
+			"name": "Channel Art PC",
 			"width": 2560,
 			"height": 423
 		},
 		{
-			"name": "Channel Art tablet banner",
+			"name": "Channel Art tablet",
 			"width": 1855,
 			"height": 423
 		},
 		{
-			"name": "Channel Art mobile banner",
+			"name": "Channel Art mobile",
 			"width": 1546,
 			"height": 423
 		}
@@ -408,17 +408,17 @@
 			"height": 1920,
 			"simple": true
 		}, {
-			"name": "In-feed ad image",
+			"name": "In-feed ad",
 			"width": 1080,
 			"height": 1080
 		},
 		{
-			"name": "Square video ad",
+			"name": "Square video",
 			"width": 1080,
 			"height": 1080
 		},
 		{
-			"name": "Horizontal video ad",
+			"name": "Horizontal video",
 			"width": 1920,
 			"height": 1080
 		}

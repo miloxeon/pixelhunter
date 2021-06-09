@@ -15,10 +15,11 @@
 }
 
 .grid {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
-	justify-content: start;
+	margin: -.5rem;
+}
+
+.grid > * {
+	margin: .5rem;
 }
 
 .description {

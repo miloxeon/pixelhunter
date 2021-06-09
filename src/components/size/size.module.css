@@ -8,6 +8,8 @@
 .heading {
 	display: inline-block;
 	margin-top: 0;
+	margin-bottom: .5em;
+	font-size: medium;
 }
 
 .imageWrapper {
@@ -15,6 +17,7 @@
 	display: inline-block;
 
 	max-width: 20rem;
+	width: 100%;
 	border-radius: .5em;
 }
 
@@ -25,6 +28,7 @@
 
 .imgTiltWrapper {
 	position: relative;
+	width: 100%;
 }
 
 .imgTiltWrapper [data-rmiz-trigger] {
@@ -36,6 +40,7 @@
 .image {
 	min-width: 10rem;
 	min-height: calc(1.73em + .5em * 2);
+	width: 100%;
 	box-shadow: var(--elevate-before);
 	transition-property: box-shadow;
 	transition-duration: .3s;

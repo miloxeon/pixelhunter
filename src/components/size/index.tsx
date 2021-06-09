@@ -60,6 +60,15 @@ const Size: React.FC<Props> = props => {
 		setLoaded(imgLoaded)
 	}, [])
 
+	const visibleImageCommonProps = {
+		width: props.width + 1,
+		height: props.height + 1,
+		src: previewUrl,
+		style: {
+			width: `${props.width + 1}px`,
+		}
+	}
+
 	return (
 		<div className={css.root}>
 			<h3 className={css.heading}>
@@ -73,19 +82,15 @@ const Size: React.FC<Props> = props => {
 						className={!isZoomed ? css.fakeImageWrapper : css.fakeImageWrapperZoomed}
 					>
 						<img
+							{...visibleImageCommonProps}
 							className={css.fakeImage}
-							src={previewUrl}
-							width={props.width + 1}
-							height={props.height + 1}
 							alt=''
 							aria-hidden={true}
 						/>
 					</div>
 					<img
+						{...visibleImageCommonProps}
 						className={css.image}
-						src={previewUrl}
-						width={props.width + 1}
-						height={props.height + 1}
 						alt={alt}
 						onAnimationEnd={detectButterLoading}
 					/>

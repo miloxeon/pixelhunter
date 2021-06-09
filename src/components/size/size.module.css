@@ -20,17 +20,20 @@
 
 .imgTiltWrapper {
 	position: relative;
-	/* for vanilla-tilt in safari */
-	transform: translateZ(-100px);
+}
+
+.imgTiltWrapper button {
+	margin: 0 !important;
+	z-index: 3;
 }
 
 .imageZoomed {
-	border-radius: .5em;
 	box-shadow: var(--elevate-before);
 }
 
 .image {
 	composes: imageZoomed;
+	border-radius: .5em;
 	transition-property: box-shadow;
 	transition-duration: 5s;
 	transition-timing-function: var(--elevate-bezier);
@@ -41,18 +44,37 @@
 	box-shadow: var(--elevate-after);
 }
 
-.fakeImage {
+.fakeImageInitial {
 	composes: imageZoomed;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	opacity: 0;
-	transition: opacity 0s;
-	transition-delay: .3s;
 	pointer-events: none;
 }
 
+.fakeImage {
+	composes: fakeImageInitial;
+	transition: opacity 0s;
+	transition-delay: .3s;
+}
+
 .fakeImageZoomed {
-	composes: imageZoomed;
+	composes: fakeImageInitial;
 	opacity: 1;
 	pointer-events: none;
+	transform: translateZ(1100px);
+}
+
+:global [data-rmiz-overlay] {
+	transform: translateZ(1000px);
+}
+
+:global [data-rmiz-overlay] > div:first-child {
+	opacity: 0;
+	transition: opacity .3s ease-in-out !important;
 }
 
 .infoOverlay {
@@ -60,7 +82,8 @@
 	top: 0;
 	right: 0;
 	padding: .5rem;
-
+	z-index: 4;
+	transform: translateZ(100px);
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-end;
@@ -78,7 +101,6 @@
 }
 
 .infoOverlayContent {
-	z-index: 2;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -94,8 +116,8 @@
 	font-size: small;
 	opacity: 0;
 	transition: opacity .1s var(--elevate-bezier);
-	z-index: 2;
 	pointer-events: none;
+	z-index: 2;
 }
 
 .download {

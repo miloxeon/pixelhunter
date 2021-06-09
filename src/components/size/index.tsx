@@ -1,7 +1,7 @@
 import React from 'react'
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
-import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
-import 'react-medium-image-zoom/dist/styles.css'
+import { useImageZoom } from 'react-medium-image-zoom'
+// import 'react-medium-image-zoom/dist/styles.css'
 import { FiArrowDown } from 'react-icons/fi'
 import css from './size.module.css'
 import { SizeWithSrc } from '../../types'
@@ -24,30 +24,39 @@ const Size: React.FC<Props> = props => {
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
 
 	const handleZoomChange = React.useCallback(shouldZoom => {
+		console.log(shouldZoom)
 		// if (shouldZoom) tiltWrapperRef.current?.vanillaTilt?.destroy()
 		setIsZoomed(shouldZoom)
 	}, [])
 
-	// React.useEffect(() => {
-	// 	const current = tiltWrapperRef.current
-	// 	if (!current) return
+	const { ref: zoomRef } = useImageZoom({
+		isZoomed,
+		onZoomChange: handleZoomChange,
+		transitionDuration: zoomDuration,
+		overlayBgColor: 'var(--b)',
+		zoomMargin: 30,
+	})
 
-	// 	if (!isZoomed && !current.vanillaTilt) {
-	// 		setTimeout(() => Tilt.init(current, {
-	// 			max: 3,
-	// 			perspective: 2000,
-	// 			scale: 1.02,
-	// 			easing: 'cubic-bezier(.17, .67, .24, 1.01)',
-	// 			glare: true,
-	// 			'max-glare': 0.5,
-	// 			'mouse-event-element': `#${id}`,
-	// 			speed: tiltSpeed,
-	// 			transition: false,
-	// 		}), zoomDuration)
-	// 	}
+	React.useEffect(() => {
+		const current = tiltWrapperRef.current
+		if (!current) return
 
-	// 	return () => current?.vanillaTilt?.destroy()
-	// }, [isZoomed, id])
+		if (!isZoomed && !current.vanillaTilt) {
+			setTimeout(() => Tilt.init(current, {
+				max: 3,
+				perspective: 2000,
+				scale: 1.02,
+				easing: 'cubic-bezier(.17, .67, .24, 1.01)',
+				glare: true,
+				'max-glare': 0.5,
+				'mouse-event-element': `#${id}`,
+				speed: tiltSpeed,
+				transition: false,
+			}), zoomDuration)
+		}
+
+		return () => current?.vanillaTilt?.destroy()
+	}, [isZoomed, id])
 
 	return (
 		<div className={css.root}>
@@ -56,31 +65,20 @@ const Size: React.FC<Props> = props => {
 			</h3>
 
 			<div className={css.imageWrapper} id={id}>
-				<ControlledZoom
-					isZoomed={isZoomed}
-					onZoomChange={handleZoomChange}
-					transitionDuration={zoomDuration}
-					overlayBgColorEnd='var(--b)'
-					zoomMargin={30}
-					wrapStyle={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						right: 0,
-						bottom: 0,
-						zIndex: 3,
-					}}
-				>
-					<img
+				
+				<div className={css.imgTiltWrapper} ref={tiltWrapperRef} data-tilt>
+					<div
+						ref={zoomRef as React.Ref<HTMLDivElement>}
 						className={!isZoomed ? css.fakeImage : css.fakeImageZoomed}
-						src={url}
-						width={props.width}
-						height={props.height}
-						alt=''
-						aria-hidden={true}
-					/>
-				</ControlledZoom>
-				<div className={css.imgTiltWrapper} ref={tiltWrapperRef}>
+					>
+						<img
+							src={url}
+							width={props.width}
+							height={props.height}
+							alt=''
+							aria-hidden={true}
+						/>
+					</div>
 					<img
 						className={css.image}
 						src={url}

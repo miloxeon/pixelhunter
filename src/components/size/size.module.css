@@ -74,7 +74,9 @@
 
 :global [data-rmiz-overlay] > div:first-child {
 	opacity: 0;
-	transition: opacity .3s ease-in-out !important;
+	transition-property: opacity !important;
+	transition-duration: .3s !important;
+	transition-timing-function: var(--elevate-bezier) !important;
 }
 
 .infoOverlay {

@@ -24,18 +24,18 @@
 
 	--elevate-bezier: cubic-bezier(.17, .67, .24, 1.01);
 	--elevate-before:
-		0 1px 1px rgba(0, 0, 0, 0.02),
-		0 2px 2px rgba(0, 0, 0, 0.02), 
-		0 4px 4px rgba(0, 0, 0, 0.02), 
-		0 8px 8px rgba(0, 0, 0, 0.02),
-		0 16px 16px rgba(0, 0, 0, 0.02);
+		0 1px 1px rgba(0, 0, 0, 0.05),
+		0 2px 2px rgba(0, 0, 0, 0.05), 
+		0 4px 4px rgba(0, 0, 0, 0.05), 
+		0 8px 8px rgba(0, 0, 0, 0.05),
+		0 16px 16px rgba(0, 0, 0, 0.05);
 
 	--elevate-after:
-		0 6px 6px rgba(0, 0, 0, 0.02),
-		0 7px 7px rgba(0, 0, 0, 0.02), 
-		0 9px 9px rgba(0, 0, 0, 0.02), 
-		0 13px 13px rgba(0, 0, 0, 0.02),
-		0 21px 21px rgba(0, 0, 0, 0.02);
+		0 6px 6px rgba(0, 0, 0, 0.05),
+		0 7px 7px rgba(0, 0, 0, 0.05), 
+		0 9px 9px rgba(0, 0, 0, 0.05), 
+		0 13px 13px rgba(0, 0, 0, 0.05),
+		0 21px 21px rgba(0, 0, 0, 0.05);
 }
 
 body {

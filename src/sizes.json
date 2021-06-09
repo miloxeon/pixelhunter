@@ -3,94 +3,578 @@
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/facebook.svg",
 	"sizes": [{
-		"name": "Profile picture",
-		"width": 180,
-		"height": 180,
-		"simple": true
-	}, {
-		"name": "Cover photo",
-		"width": 820,
-		"height": 312,
-		"simple": true
-	}, {
-		"name": "Image post",
-		"width": 1200,
-		"height": 630,
-		"simple": true
-	}] 
+			"name": "Profile picture",
+			"width": 180,
+			"height": 180,
+			"simple": true
+		}, {
+			"name": "Cover photo",
+			"width": 820,
+			"height": 312,
+			"simple": true
+		}, {
+			"name": "Image post",
+			"width": 1200,
+			"height": 630,
+			"simple": true
+		}, {
+			"name": "Marketplace",
+			"width": 1200,
+			"height": 1200
+		},
+		{
+			"name": "Stories",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Link image",
+			"width": 1200,
+			"height": 630
+		},
+		{
+			"name": "Event image",
+			"width": 1920,
+			"height": 1005
+		},
+		{
+			"name": "Instant articles",
+			"width": 1200,
+			"height": 1200
+		},
+		{
+			"name": "Right column",
+			"width": 1200,
+			"height": 1200
+		},
+		{
+			"name": "Group cover",
+			"width": 1640,
+			"height": 856
+		},
+		{
+			"name": "Highlighted image",
+			"width": 1200,
+			"height": 717
+		},
+		{
+			"name": "Feed",
+			"width": 1080,
+			"height": 1350
+		}
+	]
+}, {
+	"app": "Facebook Ads",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/facebook-ads.svg",
+	"sizes": [{
+			"name": "Image ad",
+			"width": 1200,
+			"height": 628
+		},
+		{
+			"name": "Story ad",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Audience network",
+			"width": 1200,
+			"height": 628
+		},
+		{
+			"name": "Carousel image",
+			"width": 1200,
+			"height": 1200
+		},
+		{
+			"name": "Messenger image ad",
+			"width": 1200,
+			"height": 628
+		},
+		{
+			"name": "Audience network link",
+			"width": 398,
+			"height": 208
+		}
+	]
+}, {
+	"app": "Google Banner Ads",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/google-network.svg",
+	"sizes": [{
+			"name": "Display skyscraper",
+			"width": 120,
+			"height": 600
+		},
+		{
+			"name": "Display leaderboard",
+			"width": 728,
+			"height": 90
+		},
+		{
+			"name": "Display mobile banner",
+			"width": 300,
+			"height": 50
+		},
+		{
+			"name": "Display banner",
+			"width": 468,
+			"height": 60
+		},
+		{
+			"name": "Display portrait",
+			"width": 300,
+			"height": 1050
+		},
+		{
+			"name": "Display panorama",
+			"width": 980,
+			"height": 120
+		},
+		{
+			"name": "Display large mobile banner",
+			"width": 320,
+			"height": 100
+		},
+		{
+			"name": "Display billboard",
+			"width": 970,
+			"height": 250
+		},
+		{
+			"name": "Display vertical rectangle",
+			"width": 240,
+			"height": 400
+		},
+		{
+			"name": "Display half banner",
+			"width": 234,
+			"height": 60
+		},
+		{
+			"name": "Display small square",
+			"width": 200,
+			"height": 200
+		},
+		{
+			"name": "Display wide skyscraper",
+			"width": 160,
+			"height": 600
+		},
+		{
+			"name": "Display large leaderboard",
+			"width": 970,
+			"height": 90
+		},
+		{
+			"name": "Display large mobile banner",
+			"width": 320,
+			"height": 50
+		},
+		{
+			"name": "Display top banner",
+			"width": 930,
+			"height": 180
+		},
+		{
+			"name": "Display square",
+			"width": 250,
+			"height": 250
+		},
+		{
+			"name": "Display medium rectangle",
+			"width": 300,
+			"height": 250
+		},
+		{
+			"name": "Display netboard",
+			"width": 580,
+			"height": 400
+		},
+		{
+			"name": "Display half-page ad",
+			"width": 300,
+			"height": 600
+		},
+		{
+			"name": "Display triple widescreen",
+			"width": 250,
+			"height": 360
+		},
+		{
+			"name": "Display inline rectangle",
+			"width": 300,
+			"height": 250
+		},
+		{
+			"name": "Display large rectangle",
+			"width": 336,
+			"height": 280
+		}
+	]
 }, {
 	"app": "Instagram",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/instagram.svg",
 	"sizes": [{
-		"name": "Profile picture",
-		"width": 320,
-		"height": 320,
-		"simple": true
-	}, {
-		"name": "Square post",
-		"width": 1080,
-		"height": 1080,
-		"simple": true
-	}, {
-		"name": "Stories",
-		"width": 1080,
-		"height": 1920,
-		"simple": true
-	}] 
+			"name": "Profile picture",
+			"width": 320,
+			"height": 320,
+			"simple": true
+		}, {
+			"name": "Square post",
+			"width": 1080,
+			"height": 1080,
+			"simple": true
+		}, {
+			"name": "Stories",
+			"width": 1080,
+			"height": 1920,
+			"simple": true
+		}, {
+			"name": "Ad square",
+			"width": 1080,
+			"height": 1080
+		},
+		{
+			"name": "Ad portrait",
+			"width": 1080,
+			"height": 1350
+		},
+		{
+			"name": "Reels",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Ad landscape",
+			"width": 1080,
+			"height": 566
+		},
+		{
+			"name": "IGTV cover",
+			"width": 420,
+			"height": 654
+		},
+		{
+			"name": "Landscape post",
+			"width": 1080,
+			"height": 566
+		},
+		{
+			"name": "Portrait post",
+			"width": 1080,
+			"height": 1350
+		},
+		{
+			"name": "Photo thumbnails",
+			"width": 161,
+			"height": 161
+		},
+		{
+			"name": "Feed",
+			"width": 1080,
+			"height": 1350
+		}
+	]
 }, {
 	"app": "Twitter",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/twitter.svg",
 	"sizes": [{
-		"name": "Profile photo",
-		"width": 400,
-		"height": 400,
-		"simple": true
-	}, {
-		"name": "Header",
-		"width": 1500,
-		"height": 500,
-		"simple": true
-	}, {
-		"name": "Post image",
-		"width": 1200,
-		"height": 675,
-		"simple": true
-	}] 
+			"name": "Profile photo",
+			"width": 400,
+			"height": 400,
+			"simple": true
+		}, {
+			"name": "Header",
+			"width": 1500,
+			"height": 500,
+			"simple": true
+		}, {
+			"name": "Post image",
+			"width": 1200,
+			"height": 675,
+			"simple": true
+		}, {
+			"name": "Conversation card",
+			"width": 800,
+			"height": 418
+		},
+		{
+			"name": "Fleets images",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Video thumbnail",
+			"width": 640,
+			"height": 360
+		},
+		{
+			"name": "Website card ad",
+			"width": 800,
+			"height": 800
+		},
+		{
+			"name": "Card image (min)",
+			"width": 120,
+			"height": 120
+		},
+		{
+			"name": "Direct message",
+			"width": 800,
+			"height": 418
+		},
+		{
+			"name": "App card ad",
+			"width": 800,
+			"height": 800
+		},
+		{
+			"name": "Carousels",
+			"width": 800,
+			"height": 800
+		}
+	]
 }, {
 	"app": "YouTube",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/youtube.svg",
 	"sizes": [{
-		"name": "Profile picture",
-		"width": 800,
-		"height": 800,
-		"simple": true
-	}, {
-		"name": "Banner",
-		"width": 2560,
-		"height": 1440,
-		"simple": true
-	}, {
-		"name": "Thumbnail",
-		"width": 1280,
-		"height": 720,
-		"simple": true
-	}] 
+			"name": "Profile picture",
+			"width": 800,
+			"height": 800,
+			"simple": true
+		}, {
+			"name": "Banner",
+			"width": 2560,
+			"height": 1440,
+			"simple": true
+		}, {
+			"name": "Thumbnail",
+			"width": 1280,
+			"height": 720,
+			"simple": true
+		}, {
+			"name": "Display ads",
+			"width": 300,
+			"height": 250
+		},
+		{
+			"name": "Companion banner ads",
+			"width": 300,
+			"height": 60
+		},
+		{
+			"name": "Overlay ads",
+			"width": 480,
+			"height": 60
+		},
+		{
+			"name": "Channel Art TV",
+			"width": 2560,
+			"height": 1440
+		},
+		{
+			"name": "Channel Art desktop banner",
+			"width": 2560,
+			"height": 423
+		},
+		{
+			"name": "Channel Art tablet banner",
+			"width": 1855,
+			"height": 423
+		},
+		{
+			"name": "Channel Art mobile banner",
+			"width": 1546,
+			"height": 423
+		}
+	]
 }, {
 	"app": "TikTok",
 	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
 	"logoSrc": "logos/tiktok.svg",
 	"sizes": [{
-		"name": "Profile photo",
-		"width": 200,
-		"height": 200,
-		"simple": true
-	}, {
-		"name": "Vertical video ad",
+			"name": "Profile photo",
+			"width": 200,
+			"height": 200,
+			"simple": true
+		}, {
+			"name": "Vertical video ad",
+			"width": 1080,
+			"height": 1920,
+			"simple": true
+		}, {
+			"name": "In-feed ad image",
+			"width": 1080,
+			"height": 1080
+		},
+		{
+			"name": "Square video ad",
+			"width": 1080,
+			"height": 1080
+		},
+		{
+			"name": "Horizontal video ad",
+			"width": 1920,
+			"height": 1080
+		}
+	]
+}, {
+	"app": "LinkedIn",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/linkedin.svg",
+	"sizes": [{
+			"name": "Logo",
+			"width": 300,
+			"height": 300
+		},
+		{
+			"name": "Background photo",
+			"width": 1584,
+			"height": 396
+		},
+		{
+			"name": "Link post",
+			"width": 1200,
+			"height": 627
+		},
+		{
+			"name": "Stories",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Life tab image",
+			"width": 1128,
+			"height": 376
+		},
+		{
+			"name": "Profile picture",
+			"width": 400,
+			"height": 400
+		},
+		{
+			"name": "Cover photo",
+			"width": 1128,
+			"height": 191
+		},
+		{
+			"name": "Blog post link",
+			"width": 1200,
+			"height": 627
+		},
+		{
+			"name": "Square post",
+			"width": 1200,
+			"height": 1200
+		},
+		{
+			"name": "Dynamic ad",
+			"width": 100,
+			"height": 100
+		},
+		{
+			"name": "Sponsored content",
+			"width": 1200,
+			"height": 627
+		},
+		{
+			"name": "Business banner",
+			"width": 646,
+			"height": 220
+		},
+		{
+			"name": "Portrait post",
+			"width": 1080,
+			"height": 1350
+		}
+	]
+}, {
+	"app": "Pinterest",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/pinterest.svg",
+	"sizes": [{
+			"name": "Portrait carousel",
+			"width": 1000,
+			"height": 1500
+		},
+		{
+			"name": "Story pins",
+			"width": 1080,
+			"height": 1920
+		},
+		{
+			"name": "Profile photo",
+			"width": 165,
+			"height": 165
+		},
+		{
+			"name": "Vertical pin",
+			"width": 1000,
+			"height": 1500
+		},
+		{
+			"name": "Square carousel",
+			"width": 1000,
+			"height": 1000
+		},
+		{
+			"name": "Board display",
+			"width": 222,
+			"height": 150
+		}
+	]
+}, {
+	"app": "Snapchat",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/snapchat.svg",
+	"sizes": [{
+		"name": "Image share",
 		"width": 1080,
-		"height": 1920,
-		"simple": true
-	}] 
+		"height": 1920
+	}]
+}, {
+	"app": "Website",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/website.svg",
+	"sizes": [{
+			"name": "Portrait content",
+			"width": 1000,
+			"height": 1500
+		},
+		{
+			"name": "Full width",
+			"width": 2400,
+			"height": 1600
+		},
+		{
+			"name": "Landscape content",
+			"width": 1500,
+			"height": 1000
+		}
+	]
+}, {
+	"app": "Email",
+	"description": "Et repellendus eligendi labore. Est fugiat deserunt harum. Voluptate itaque cum. Voluptatem cum nihil explicabo eos molestiae ratione voluptate mollitia qui.",
+	"logoSrc": "logos/email.svg",
+	"sizes": [{
+			"name": "Blog image",
+			"width": 750,
+			"height": 750
+		},
+		{
+			"name": "Blog featured",
+			"width": 1200,
+			"height": 600
+		},
+		{
+			"name": "Header image",
+			"width": 600,
+			"height": 200
+		}
+	]
 }]

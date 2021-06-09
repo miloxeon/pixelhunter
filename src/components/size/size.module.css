@@ -63,7 +63,12 @@
 	transform: translateZ(1100px);
 }
 
-:global [data-rmiz-overlay] {
+.fakeImage {
+	border-radius: .5em;
+}
+
+:global [data-rmiz-overlay],
+:global [data-rmiz-overlay] img {
 	transform: translateZ(1000px);
 }
 

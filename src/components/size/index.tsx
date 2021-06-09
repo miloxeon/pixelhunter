@@ -24,7 +24,6 @@ const Size: React.FC<Props> = props => {
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
 
 	const handleZoomChange = React.useCallback(shouldZoom => {
-		console.log(shouldZoom)
 		// if (shouldZoom) tiltWrapperRef.current?.vanillaTilt?.destroy()
 		setIsZoomed(shouldZoom)
 	}, [])
@@ -65,14 +64,13 @@ const Size: React.FC<Props> = props => {
 			</h3>
 
 			<div className={css.imageWrapper} id={id}>
-				
 				<div className={css.imgTiltWrapper} ref={tiltWrapperRef} data-tilt>
 					<div
 						ref={zoomRef as React.Ref<HTMLDivElement>}
 						className={!isZoomed ? css.fakeImageWrapper : css.fakeImageWrapperZoomed}
 					>
 						<img
-							// className={!isZoomed ? css.image : css.imageZoomed}
+							className={css.fakeImage}
 							src={url}
 							width={props.width}
 							height={props.height}

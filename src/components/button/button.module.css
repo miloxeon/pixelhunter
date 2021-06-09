@@ -19,7 +19,8 @@
 
 .root:focus,
 .root:active {
-	outline: 3px solid var(--a1-translucent);
+	outline: none;
+	box-shadow: 0 0 0 3px var(--a1-translucent);
 	border-color: transparent;
 }
 

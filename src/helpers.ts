@@ -56,3 +56,19 @@ export const downloadSizes = (sizes: SizeWithSrc[], compress: boolean): Promise<
 		}).catch(reject)
 	}).catch(reject)
 })
+
+export const mimeToExtension = (mime: string | null): string => {
+	if (!mime) return 'jpg'
+	const lowercaseMime = mime.toLowerCase()
+	if (lowercaseMime === 'image/gif') return 'gif'
+	if (['image/jpeg', 'image/pjpeg'].includes(lowercaseMime)) return 'jpg'
+	if (lowercaseMime === 'image/png') return 'png'
+	if (lowercaseMime === 'image/svg+xml') return 'svg'
+	if (lowercaseMime === 'image/tiff') return 'tiff'
+	if (lowercaseMime === 'image/vnd.microsoft.icon') return 'ico'
+	if (lowercaseMime === 'image/vnd.wap.wbmp') return 'wbmp'
+	if (lowercaseMime === 'image/webp') return 'webp'
+
+	const mimeTuple = lowercaseMime.split('/')
+	return mimeTuple[mimeTuple.length - 1]
+}

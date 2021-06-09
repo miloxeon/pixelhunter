@@ -1,14 +1,14 @@
 import React from 'react'
 import sizes from './sizes.json'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
-import { downloadSizes } from './helpers'
+import { downloadSizes, mimeToExtension } from './helpers'
 
 import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 
-// support proper mime types
-// preview
+// text info about simple mode sizes
+// simple mode sizes' positions
 // tabs
 // checkboxes
 // download all
@@ -24,9 +24,12 @@ const App: React.FC = () => {
 	
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [compress, setCompress] = React.useState<boolean>(false)
+	const [extension, setExtension] = React.useState<string>('jpg')
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
+		console.log(fileInfo)
 		setSrc(fileInfo.cdnUrl)
+		setExtension(mimeToExtension(fileInfo.mimeType))
 	}, [])
 
 	// demo
@@ -73,6 +76,7 @@ const App: React.FC = () => {
 						key={target.app}
 						compress={compress}
 						src={src}
+						extension={extension}
 						{...target}
 					/>
 				)

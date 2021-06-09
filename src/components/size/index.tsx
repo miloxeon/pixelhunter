@@ -9,6 +9,7 @@ import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
 interface Props extends SizeWithSrc {
 	compress: boolean,
 	app: string,
+	extension: string,
 }
 
 const zoomDuration = 300
@@ -95,16 +96,16 @@ const Size: React.FC<Props> = props => {
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>
 							<p className={css.infoOverlayText}>
-								PNG, {props.width}x{props.height}
+								{props.extension.toUpperCase()}, {props.width}x{props.height}
 							</p>
 							<a
 								className={css.download}
 								href={url}
 								target='_blank'
 								rel='noreferrer'
-								download={`${alt}.png`}
-								aria-label={`Download ${alt}.png`}
-								title={`Download ${alt}.png`}
+								download={`${alt}.${props.extension}`}
+								aria-label={`Download ${alt}.${props.extension}`}
+								title={`Download ${alt}.${props.extension}`}
 							>
 								<FiArrowDown aria-hidden={true} />
 							</a>

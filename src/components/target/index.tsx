@@ -9,6 +9,7 @@ import butter from 'image-butter'
 interface Props extends TargetApp {
 	compress: boolean,
 	src: string,
+	extension: string,
 }
 
 const Target: React.FC<Props> = props => {
@@ -56,6 +57,7 @@ const Target: React.FC<Props> = props => {
 							key={key}
 							compress={props.compress}
 							src={props.src}
+							extension={props.extension}
 							app={props.app}
 							{...size}
 						/>

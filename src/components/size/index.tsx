@@ -41,8 +41,6 @@ const Size: React.FC<Props> = props => {
 				perspective: 2000,
 				scale: 1.02,
 				easing: 'cubic-bezier(.17, .67, .24, 1.01)',
-				glare: true,
-				'max-glare': 0.5,
 				'mouse-event-element': `#${id}`,
 				speed: tiltSpeed,
 				transition: false,

@@ -8,7 +8,6 @@ import Container from './components/container'
 import Target from './components/target'
 
 // support proper mime types
-// fix glare on tall images
 // preview
 // tabs
 // checkboxes

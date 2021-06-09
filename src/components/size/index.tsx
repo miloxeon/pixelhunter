@@ -23,12 +23,8 @@ const Size: React.FC<Props> = props => {
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
 	const [loaded, setLoaded] = React.useState<boolean>(false)
 
-	const handleZoomChange = React.useCallback(shouldZoom => {
-		setIsZoomed(shouldZoom)
-	}, [])
-
 	const { ref: zoomRef } = useImageZoom({
-		onZoomChange: handleZoomChange,
+		onZoomChange: setIsZoomed,
 		transitionDuration: zoomDuration,
 		overlayBgColor: 'var(--b)',
 		zoomMargin: 30,

@@ -3,11 +3,12 @@ import { getSizeKey } from '../../helpers'
 import Size from '../size'
 import css from './target.module.css'
 import { TargetApp } from '../../sizes'
+import { UCMeta } from '../../types'
 
 // @ts-ignore
 import butter from 'image-butter'
 interface Props extends TargetApp {
-	compress: boolean,
+	ucMeta: UCMeta,
 	src: string,
 	extension: string,
 }
@@ -55,7 +56,7 @@ const Target: React.FC<Props> = props => {
 					return (
 						<Size
 							key={key}
-							compress={props.compress}
+							ucMeta={props.ucMeta}
 							src={props.src}
 							extension={props.extension}
 							app={props.app}

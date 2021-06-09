@@ -3,11 +3,11 @@ import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import { useImageZoom } from 'react-medium-image-zoom'
 import { FiArrowDown } from 'react-icons/fi'
 import css from './size.module.css'
-import { SizeWithSrc } from '../../types'
+import { SizeWithSrc, UCMeta } from '../../types'
 import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
 
 interface Props extends SizeWithSrc {
-	compress: boolean,
+	ucMeta: UCMeta,
 	app: string,
 	extension: string,
 }
@@ -16,16 +16,19 @@ const zoomDuration = 300
 const tiltSpeed = zoomDuration
 
 const Size: React.FC<Props> = props => {
-	const url = getUrl(props.src, props.width, props.height, props.compress)
-	const previewUrl = getCrookedUrl(props.src, props.width, props.height, props.compress)
+	const url = getUrl(props.src, props.width, props.height, props.ucMeta)
+	const previewUrl = getCrookedUrl(props.src, props.width, props.height, props.ucMeta)
 	const alt = getSizeKey(props)
 	const id = `${props.app}${props.name}${props.width}x${props.height}`.replaceAll(' ', '').replaceAll('(', '').replaceAll(')', '')
 	const tiltWrapperRef = React.useRef<HTMLDivElement & HTMLVanillaTiltElement>(null)
 
 	const [isZoomed, setIsZoomed] = React.useState<boolean>(false)
 	const [loaded, setLoaded] = React.useState<boolean>(true)
+	const [error, setError] = React.useState<boolean>(false)
 
 	const { ref: zoomRef } = useImageZoom({
+		// @ts-ignore
+		zoomed: error ? false : isZoomed,
 		onZoomChange: setIsZoomed,
 		transitionDuration: zoomDuration,
 		overlayBgColor: 'var(--b)',
@@ -68,6 +71,10 @@ const Size: React.FC<Props> = props => {
 		}
 	}
 
+	const handleLoadError = React.useCallback(() => {
+		setError(true)
+	}, [])
+
 	return (
 		<div className={css.root}>
 			<h3 className={css.heading}>
@@ -75,7 +82,11 @@ const Size: React.FC<Props> = props => {
 			</h3>
 
 			<div className={loaded ? css.imageWrapper : css.imageWrapperGhost} id={id}>
-				<div className={css.imgTiltWrapper} ref={tiltWrapperRef} data-tilt>
+				<div
+					className={!error ? css.imgTiltWrapper : css.imgTiltWrapperError}
+					ref={tiltWrapperRef}
+					data-tilt
+				>
 					<div
 						ref={zoomRef as React.Ref<HTMLDivElement>}
 						className={!isZoomed ? css.fakeImageWrapper : css.fakeImageWrapperZoomed}
@@ -92,7 +103,16 @@ const Size: React.FC<Props> = props => {
 						className={css.image}
 						alt={alt}
 						onAnimationEnd={detectButterLoading}
+						onError={handleLoadError}
 					/>
+					{ error && (
+						<div className={css.errorContainer} style={{
+							width: props.width,
+							paddingBottom: `${(props.height / props.width) * 100}%`
+						}}>
+							Error
+						</div>
+					)}
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>
 							<p className={css.infoOverlayText}>

@@ -15,10 +15,13 @@
 }
 
 .grid {
+	display: flex;
+	flex-wrap: wrap;
 	margin: -.5rem;
 }
 
 .grid > * {
+	flex-shrink: 2;
 	margin: .5rem;
 }
 

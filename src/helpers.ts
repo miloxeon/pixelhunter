@@ -1,5 +1,5 @@
 import JSZip from 'jszip'
-import { StandaloneSize, SizeWithSrc, SizeWithBlob } from './types'
+import { StandaloneSize, SizeWithSrc, SizeWithBlob, UCMeta } from './types'
 
 const ensureEndingWithSlash = (str: string): string => {
 	const lastSymbol = str[str.length - 1]
@@ -7,19 +7,19 @@ const ensureEndingWithSlash = (str: string): string => {
 	return `${str}/`
 }
 
-export const getUrl = (src: string, width: number, height: number, compress: boolean): string => {
+export const getUrl = (src: string, width: number, height: number, ucMeta: UCMeta): string => {
 	const srcWithSlash = ensureEndingWithSlash(src)
-	return compress
+	return ucMeta.compress
 		? `${srcWithSlash}-/scale_crop/${width}x${height}/smart/-/quality/smart/`
 		: `${srcWithSlash}-/scale_crop/${width}x${height}/smart/`
 }
 
-export const getCrookedUrl = (src: string, width: number, height: number, compress: boolean) => getUrl(src, width + 1, height + 1, compress)
+export const getCrookedUrl = (src: string, width: number, height: number, ucMeta: UCMeta) => getUrl(src, width, height, ucMeta)
 
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
-export const downloadSize = (size: SizeWithSrc, compress: boolean): Promise<SizeWithBlob> => {
-	const url = getUrl(size.src, size.width, size.height, compress)
+export const downloadSize = (size: SizeWithSrc, ucMeta: UCMeta): Promise<SizeWithBlob> => {
+	const url = getUrl(size.src, size.width, size.height, ucMeta)
 	return fetch(url).then(response => response.blob()).then(blob => ({
 		...size,
 		blob,
@@ -37,11 +37,11 @@ export const downloadAbstractContent = (href: string, filename: string): void =>
 export const downloadFile = (base64content: string, filename: string): void =>
 	downloadAbstractContent(`data:application/zip;base64,${base64content}`, filename)
 
-export const downloadSizes = (sizes: SizeWithSrc[], compress: boolean): Promise<void> => new Promise((resolve, reject) => {
-	const downloadSizeWithCompress =
-		(compress: boolean) => (size: SizeWithSrc) => downloadSize(size, compress)
+export const downloadSizes = (sizes: SizeWithSrc[], ucMeta: UCMeta): Promise<void> => new Promise((resolve, reject) => {
+	const downloadSizeWithMeta =
+		(meta: UCMeta) => (size: SizeWithSrc) => downloadSize(size, meta)
 
-	Promise.all(sizes.map(downloadSizeWithCompress(compress))).then(sizesWithBlobs => {
+	Promise.all(sizes.map(downloadSizeWithMeta(ucMeta))).then(sizesWithBlobs => {
 		const zip = new JSZip()
 		sizesWithBlobs.forEach(sizeWithBlob => {
 			const fileName = `${getSizeKey(sizeWithBlob)}.png`

@@ -15,3 +15,7 @@ export interface SizeWithSrc extends StandaloneSize {
 export interface SizeWithBlob extends StandaloneSize {
 	blob: Blob,
 }
+
+export interface UCMeta {
+	compress: boolean
+}

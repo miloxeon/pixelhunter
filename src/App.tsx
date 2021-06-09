@@ -4,6 +4,7 @@ import css from './app.module.css'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
 import { downloadSizes, mimeToExtension } from './helpers'
+import { UCMeta } from './types'
 
 import Button from './components/button'
 import Container from './components/container'
@@ -45,9 +46,12 @@ const App: React.FC = () => {
 	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
 
 	const [loading, setLoading] = React.useState<boolean>(false)
-	const [compress, setCompress] = React.useState<boolean>(false)
 	const [extension, setExtension] = React.useState<string>('jpg')
 	const [activeTab, setActiveTab] = React.useState<Tabs>(Tabs.simple)
+
+	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
+		compress: false
+	})
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		console.log(fileInfo)
@@ -66,8 +70,15 @@ const App: React.FC = () => {
 			})
 		)]).flat()
 		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
-		downloadSizes(sizesToDownload, compress).finally(() => setLoading(false))
-	}, [compress, src])
+		downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
+	}, [ucMeta, src])
+
+	const onCompressCheck = React.useCallback(e => {
+		setUcMeta({
+			...ucMeta,
+			compress: e.target.checked
+		})
+	}, [ucMeta])
 
 	return (
 		<>
@@ -80,8 +91,8 @@ const App: React.FC = () => {
 				<label>
 					<input
 						type='checkbox'
-						checked={compress}
-						onChange={e => setCompress(e.target.checked)}
+						checked={ucMeta.compress}
+						onChange={onCompressCheck}
 					/>
 					Apply smart compression
 				</label>
@@ -138,7 +149,7 @@ const App: React.FC = () => {
 								return (
 									<Target
 										key={target.app}
-										compress={compress}
+										ucMeta={ucMeta}
 										src={src}
 										extension={extension}
 										{...target}
@@ -158,7 +169,7 @@ const App: React.FC = () => {
 								return (
 									<Target
 										key={target.app}
-										compress={compress}
+										ucMeta={ucMeta}
 										src={src}
 										extension={extension}
 										{...target}

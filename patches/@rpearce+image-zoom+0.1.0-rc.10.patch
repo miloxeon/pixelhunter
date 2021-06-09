@@ -1,5 +1,5 @@
 diff --git a/node_modules/@rpearce/image-zoom/dist/esm/index.js b/node_modules/@rpearce/image-zoom/dist/esm/index.js
-index 987d491..888f3ed 100644
+index 987d491..b7799d2 100644
 --- a/node_modules/@rpearce/image-zoom/dist/esm/index.js
 +++ b/node_modules/@rpearce/image-zoom/dist/esm/index.js
 @@ -55,7 +55,7 @@ var WIDTH = 'width';
@@ -11,19 +11,42 @@ index 987d491..888f3ed 100644
      var isImgEl = targetEl.tagName === 'IMG';
      var isSvgSrc = isImgEl && SVG_REGEX.test(targetEl.currentSrc);
      var isImg = !isSvgSrc && isImgEl;
-@@ -131,10 +131,12 @@ var ImageZoom = function (_a, targetEl) {
-             : getScaleToWindow(width, height, zoomMargin);
-         if (currentScale > 1) {
-             // create openBtnEl
+@@ -124,26 +124,18 @@ var ImageZoom = function (_a, targetEl) {
+     var handleLoad = function () {
+         if (!targetEl || state !== UNLOADED)
+             return;
+-        var _a = getBoundingClientRect(targetEl), height = _a.height, width = _a.width;
+-        var _b = targetEl, naturalHeight = _b.naturalHeight, naturalWidth = _b.naturalWidth;
+-        var currentScale = isImg && naturalHeight && naturalWidth
+-            ? getScaleToWindowMax(width, naturalWidth, height, naturalHeight, zoomMargin)
+-            : getScaleToWindow(width, height, zoomMargin);
+-        if (currentScale > 1) {
+-            // create openBtnEl
 -            openBtnEl = createElement(BUTTON);
 -            setAttribute(ARIA_LABEL, openText, openBtnEl);
-+            openBtnEl = createElement(DIV);
-+            setAttribute('aria-hidden', 'true', openBtnEl);
-+            setAttribute('tabindex', '-1', openBtnEl);
-             setAttribute(STYLE, styleZoomBtnIn, openBtnEl);
+-            setAttribute(STYLE, styleZoomBtnIn, openBtnEl);
 -            setAttribute(TYPE, BUTTON, openBtnEl);
-+            setAttribute('data-rmiz-trigger', 'true', openBtnEl)
-+            // setAttribute(TYPE, BUTTON, openBtnEl);
-             adjustOpenBtnEl();
-             addEventListener(CLICK, handleOpenBtnClick, openBtnEl);
-             // insert openBtnEl after targetEl
+-            adjustOpenBtnEl();
+-            addEventListener(CLICK, handleOpenBtnClick, openBtnEl);
+-            // insert openBtnEl after targetEl
+-            targetEl.insertAdjacentElement('afterend', openBtnEl);
+-        }
+-        else {
+-            cleanupZoom();
+-            cleanupDOMMutations();
+-        }
++        // create openBtnEl
++        openBtnEl = createElement(DIV);
++        setAttribute('aria-hidden', 'true', openBtnEl);
++        setAttribute('tabindex', '-1', openBtnEl);
++        setAttribute(STYLE, styleZoomBtnIn, openBtnEl);
++        setAttribute('data-rmiz-trigger', 'true', openBtnEl)
++        // setAttribute(TYPE, BUTTON, openBtnEl);
++        adjustOpenBtnEl();
++        addEventListener(CLICK, handleOpenBtnClick, openBtnEl);
++        // insert openBtnEl after targetEl
++        targetEl.insertAdjacentElement('afterend', openBtnEl);
++
+         initMutationObservers();
+     };
+     var reset = function () {

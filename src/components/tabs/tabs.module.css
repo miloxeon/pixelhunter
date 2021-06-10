@@ -53,6 +53,7 @@
 
 .infoLogo {
 	display: inline-block;
+	filter: grayscale() brightness(0);
 }
 
 .tab {
@@ -87,9 +88,7 @@
 }
 
 .tab:not([data-active="true"]):hover::before {
-	box-shadow:
-		.5em .5em 1em var(--b-stronger),
-		-.5em -.5em 10px var(--b-weaker);
+	box-shadow: var(--neumorphic);
 }
 
 .tab:not([data-active="true"]):focus {

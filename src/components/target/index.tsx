@@ -29,8 +29,9 @@ const Target: React.FC<Props> = props => {
 
 	return (
 		<article className={css.root} aria-labelledby={targetId}>
-			<header className={css.header}>
+			<header>
 				<img
+					className={css.image}
 					src={props.logoSrc}
 					width={40}
 					height={40}
@@ -38,7 +39,7 @@ const Target: React.FC<Props> = props => {
 					aria-hidden={true}
 				/>
 				<h2 className={css.heading} id={targetId}>
-					{props.app}
+					Pictures for {props.app}
 				</h2>
 			</header>
 

@@ -101,7 +101,7 @@ const Tabs: React.FC<Props> = props => {
 				aria-label={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
 				title={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
 			>
-				More sites
+				More sizes
 			</button>
 			<button
 				className={css.tab}

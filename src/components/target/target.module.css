@@ -2,16 +2,18 @@
 	margin-top: 4rem;
 }
 
-.header {
-	display: inline-grid;
-	grid-template-columns: auto auto;
-	align-items: center;
-	gap: 1em;
-}
-
 .heading {
 	margin-top: 0;
 	margin-bottom: 0;
+	display: inline;
+	vertical-align: top;
+	line-height: 40px;
+}
+
+.image {
+	display: inline;
+	margin-right: 1em;
+	line-height: 1;
 }
 
 .grid {

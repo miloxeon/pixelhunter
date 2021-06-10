@@ -1,5 +1,6 @@
 import JSZip from 'jszip'
 import { StandaloneSize, SizeWithSrc, SizeWithBlob, UCMeta } from './types'
+import { Sizes } from './sizes'
 
 const ensureEndingWithSlash = (str: string): string => {
 	const lastSymbol = str[str.length - 1]
@@ -73,3 +74,10 @@ export const mimeToExtension = (mime: string | null): string => {
 	const mimeTuple = lowercaseMime.split('/')
 	return mimeTuple[mimeTuple.length - 1]
 }
+
+export const getSimpleModeSizes = (targets: Sizes) => targets.map(target => ({
+	...target,
+	sizes: target.sizes.filter(size => size.simple)
+})).filter(
+	target => target.sizes.length > 0
+)

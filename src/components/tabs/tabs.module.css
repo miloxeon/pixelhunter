@@ -1,16 +1,91 @@
 .root {
 	position: relative;
-	padding: .5em;
-	margin: 2rem -1rem;
+	padding: .5em 0;
+	display: grid;
+	gap: 1em;
+	width: max-content;
+	grid-template-columns: auto auto auto;
+	grid-template-areas:
+		"simpleTab advancedTab customTab"
+		"simpleInfo advancedInfo customInfo";
+}
+
+@media (max-width: 35rem) {
+	.root {
+		width: initial;
+		grid-template-columns: max-content auto;
+		align-items: start;
+		grid-template-areas:
+			"simpleTab simpleInfo"
+			"advancedTab advancedInfo"
+			"customTab customInfo";
+	}
+}
+
+.tab:nth-child(1) { grid-area: simpleTab; }
+.tab:nth-child(2) { grid-area: advancedTab; }
+.tab:nth-child(3) { grid-area: customTab; }
+
+.infoCommons {
+	font-size: small;
+	padding: 0 1em;
+
+	display: grid;
+	width: 100%;
+	gap: 1em;
+	grid-template-columns: repeat(auto-fill, minmax(20px, auto));
+	justify-content: center;
+}
+
+@media (max-width: 35rem) {
+	.infoCommons {
+		align-items: center;
+		height: 100%;
+		padding-top: .5em;
+		padding-bottom: .5em;
+		justify-content: start;
+	}
+}
+
+.simpleModeInfo {
+	composes: infoCommons;
+	grid-area: simpleInfo;
+}
+
+.advancedModeInfo {
+	composes: infoCommons;
+	grid-area: advancedInfo;
+}
+
+.customModeInfo {
+	composes: infoCommons;
+	grid-area: customInfo;
+	grid-template-columns: auto;
+}
+
+.customModeInfo svg {
+	width: 30px;
+	height: 30px;
+}
+
+@media (max-width: 35rem) {
+	.customModeInfo svg {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+.infoLogo {
+	display: inline-block;
 }
 
 .tab {
 	position: relative;
 	background: none;
 	border: none;
-	margin: .5rem;
 	color: var(--t);
 	font-weight: 500;
+	width: max-content;
 	transition:
 		color .3s,
 		box-shadow .3s;
@@ -62,10 +137,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	will-change: transform, width;
+	will-change: transform, width, height;
 	transition:
 		transform .5s,
 		width .5s,
+		height .5s,
 		filter .5s;
 
 	transition-timing-function: var(--elevate-bezier);

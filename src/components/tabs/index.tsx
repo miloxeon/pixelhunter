@@ -1,12 +1,27 @@
 import React from 'react'
-import css from './tabs.module.css'
+import { FaCropAlt } from 'react-icons/fa'
 import { debounce } from 'lodash'
+import css from './tabs.module.css'
+import sizes from '../../sizes.json'
+import { getSimpleModeSizes } from '../../helpers'
 
 export enum TabsEnum {
 	simple,
 	advanced,
 	custom,
 }
+
+const simpleModeTargets = getSimpleModeSizes(sizes)
+
+const simpleModeLogos = simpleModeTargets.map(target => ({
+	logoSrc: target.logoSrc,
+	app: target.app,
+}))
+
+const advancedModeLogos = sizes.map(target => ({
+	logoSrc: target.logoSrc,
+	app: target.app,
+}))
 
 interface Props {
 	onChange: (selectedTab: TabsEnum) => void
@@ -73,6 +88,8 @@ const Tabs: React.FC<Props> = props => {
 				type="button"
 				data-active={value === TabsEnum.simple}
 				onClick={() => setActiveTab(TabsEnum.simple)}
+				aria-label={`This mode supports ${simpleModeLogos.map(info => info.app).join(', ')}`}
+				title={`This mode supports ${simpleModeLogos.map(info => info.app).join(', ')}`}
 			>
 				Simple
 			</button>
@@ -81,6 +98,8 @@ const Tabs: React.FC<Props> = props => {
 				type="button"
 				onClick={() => setActiveTab(TabsEnum.advanced)}
 				data-active={value === TabsEnum.advanced}
+				aria-label={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
+				title={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
 			>
 				Advanced
 			</button>
@@ -89,9 +108,48 @@ const Tabs: React.FC<Props> = props => {
 				type="button"
 				onClick={() => setActiveTab(TabsEnum.custom)}
 				data-active={value === TabsEnum.custom}
+				aria-label='This mode supports cropping your image to any size'
+				title='This mode supports cropping your image to any size'
 			>
 				Custom
 			</button>
+
+			<div className={css.simpleModeInfo}>
+				{simpleModeLogos.map(appInfo => {
+					return (
+						<img
+							className={css.infoLogo}
+							key={appInfo.app}
+							src={appInfo.logoSrc}
+							width={20}
+							height={20}
+							alt=''
+							aria-hidden={true}
+						/>
+					)
+				})}
+			</div>
+
+			<div className={css.advancedModeInfo}>
+				{advancedModeLogos.map(appInfo => {
+					return (
+						<img
+							className={css.infoLogo}
+							key={appInfo.app}
+							src={appInfo.logoSrc}
+							width={20}
+							height={20}
+							alt=''
+							aria-hidden={true}
+						/>
+					)
+				})}
+			</div>
+
+			<div className={css.customModeInfo}>
+				<FaCropAlt />
+			</div>
+
 			<div className={css.pill} ref={pillRef} />
 		</div>
 	)

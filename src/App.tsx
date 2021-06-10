@@ -3,7 +3,7 @@ import sizes from './sizes.json'
 import css from './app.module.css'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
-import { downloadSizes, mimeToExtension } from './helpers'
+import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
 import { UCMeta } from './types'
 
 import Button from './components/button'
@@ -24,10 +24,7 @@ const timeouts = {
 	exit: 500,
 }
 
-const simpleModeImages = sizes.map(target => ({
-	...target,
-	sizes: target.sizes.filter(size => size.simple)
-})).filter(target => target.sizes.length > 0)
+const simpleModeImages = getSimpleModeSizes(sizes)
 
 const App: React.FC = () => {
 	// bright

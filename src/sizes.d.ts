@@ -39,6 +39,6 @@ export interface TargetApp {
 	sizes: Size[],
 }
 
-type Sizes = TargetApp[]
+export type Sizes = TargetApp[]
 
 export default Sizes

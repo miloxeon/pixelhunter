@@ -102,14 +102,15 @@ const Size: React.FC<Props> = props => {
 							aria-hidden={true}
 						/>
 					</div>
-					<img
-						{...visibleImageCommonProps}
-						className={css.image}
-						alt={alt}
-						onAnimationEnd={detectButterLoading}
-						onError={handleLoadError}
-					/>
-					{ error && (
+					{ !error ? (
+						<img
+							{...visibleImageCommonProps}
+							className={css.image}
+							alt={alt}
+							onAnimationEnd={detectButterLoading}
+							onError={handleLoadError}
+						/>
+					) : (
 						<div className={css.errorContainer} style={{
 							width: props.width,
 							paddingBottom: `${(props.height / props.width) * 100}%`,

@@ -31,9 +31,20 @@
 	box-shadow: var(--neumorphic);
 }
 
+.uploaderWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 0;
+}
+
+.h2 {
+	margin-bottom: 2rem;
+}
+
 .grid {
 	display: grid;
-	gap: 1em;
+	gap: 2rem;
 	grid-template-columns: repeat(auto-fill, minmax(40px, auto));
 	align-items: start;
 	justify-content: start;

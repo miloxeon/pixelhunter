@@ -127,10 +127,12 @@ const App: React.FC = () => {
 						</p>
 
 						<div className={css.upload}>
-							<UploadcareUpload
-								publicKey='3828f4d78b7de9c98461'
-								onChange={uploadOnChange}
-							/>
+							<div className={css.uploaderWrapper}>
+								<UploadcareUpload
+									publicKey='3828f4d78b7de9c98461'
+									onChange={uploadOnChange}
+								/>
+							</div>
 
 							{/* <label>
 								<input

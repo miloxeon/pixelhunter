@@ -10,7 +10,6 @@ import butter from 'image-butter'
 interface Props extends TargetApp {
 	ucMeta: UCMeta,
 	src: string,
-	extension: string,
 }
 
 const Target: React.FC<Props> = props => {
@@ -58,7 +57,6 @@ const Target: React.FC<Props> = props => {
 							key={key}
 							ucMeta={props.ucMeta}
 							src={props.src}
-							extension={props.extension}
 							app={props.app}
 							{...size}
 						/>

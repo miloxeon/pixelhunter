@@ -45,18 +45,21 @@ const App: React.FC = () => {
 	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
 
 	const [loading, setLoading] = React.useState<boolean>(false)
-	const [extension, setExtension] = React.useState<string>('jpg')
 	const [activeTab, setActiveTab] = React.useState<Tabs>(Tabs.simple)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
-		compress: false
+		compress: false,
+		extension: 'jpg'
 	})
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
 		console.log(fileInfo)
 		setSrc(fileInfo.cdnUrl)
-		setExtension(mimeToExtension(fileInfo.mimeType))
-	}, [])
+		setUcMeta({
+			...ucMeta,
+			extension: mimeToExtension(fileInfo.mimeType)
+		})
+	}, [ucMeta])
 
 	// demo
 	const downloadAll = React.useCallback(() => {
@@ -150,7 +153,6 @@ const App: React.FC = () => {
 										key={target.app}
 										ucMeta={ucMeta}
 										src={src}
-										extension={extension}
 										{...target}
 									/>
 								)
@@ -170,7 +172,6 @@ const App: React.FC = () => {
 										key={target.app}
 										ucMeta={ucMeta}
 										src={src}
-										extension={extension}
 										{...target}
 									/>
 								)

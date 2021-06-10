@@ -10,7 +10,6 @@ import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
 interface Props extends SizeWithSrc {
 	ucMeta: UCMeta,
 	app: string,
-	extension: string,
 }
 
 const zoomDuration = 300
@@ -19,7 +18,8 @@ const tiltSpeed = zoomDuration
 const Size: React.FC<Props> = props => {
 	const url = getUrl(props.src, props.width, props.height, props.ucMeta)
 	const fallbackUrl = getUrl(props.src, 10, 10, {
-		compress: false
+		...props.ucMeta,
+		compress: false,
 	})
 	const previewUrl = getCrookedUrl(props.src, props.width, props.height, props.ucMeta)
 	const alt = getSizeKey(props)
@@ -126,9 +126,9 @@ const Size: React.FC<Props> = props => {
 										href={url}
 										target='_blank'
 										rel='noreferrer'
-										download={`${alt}.${props.extension}`}
-										aria-label={`Download ${alt}.${props.extension}`}
-										title={`Download ${alt}.${props.extension}`}
+										download={`${alt}.${props.ucMeta.extension}`}
+										aria-label={`Download ${alt}.${props.ucMeta.extension}`}
+										title={`Download ${alt}.${props.ucMeta.extension}`}
 									>
 										<FiArrowDown aria-hidden={true} />
 									</a>
@@ -143,16 +143,16 @@ const Size: React.FC<Props> = props => {
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>
 							<p className={css.infoOverlayText}>
-								{props.extension.toUpperCase()}, {props.width}x{props.height}
+								{props.ucMeta.extension.toUpperCase()}, {props.width}x{props.height}
 							</p>
 							<a
 								className={css.download}
 								href={url}
 								target='_blank'
 								rel='noreferrer'
-								download={`${alt}.${props.extension}`}
-								aria-label={`Download ${alt}.${props.extension}`}
-								title={`Download ${alt}.${props.extension}`}
+								download={`${alt}.${props.ucMeta.extension}`}
+								aria-label={`Download ${alt}.${props.ucMeta.extension}`}
+								title={`Download ${alt}.${props.ucMeta.extension}`}
 							>
 								<FiArrowDown aria-hidden={true} />
 							</a>

@@ -17,5 +17,6 @@ export interface SizeWithBlob extends StandaloneSize {
 }
 
 export interface UCMeta {
-	compress: boolean
+	compress: boolean,
+	extension: string,
 }

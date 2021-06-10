@@ -95,7 +95,7 @@ const App: React.FC = () => {
 		}
 
 		Tilt.init(likeImage, { ...commons, max: 3 })
-		Tilt.init(instagramImage, { ...commons, max: 4 })
+		Tilt.init(instagramImage, { ...commons, max: 3 })
 		Tilt.init(heartImage, { ...commons, max: 4 })
 
 		return () => {

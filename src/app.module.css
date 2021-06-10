@@ -53,13 +53,44 @@
 	composes: wrapperCommons;
 	margin-top: 4rem;
 	display: inline-block;
-	transform: rotate(20deg);
 }
 
 .heartImageWrapper {
 	composes: wrapperCommons;
 	align-self: flex-end;
-	margin-top: 6rem;
+}
+
+@media not prefers-reduced-motion {
+	.wrapperCommons {
+		animation: levitate 15s infinite;
+	}
+
+	.likeImageWrapper {
+		animation-delay: 2s;
+		animation-timing-function: var(--elevate-bezier);
+	}
+	
+	.instagramImageWrapper {
+		animation-duration: 15s, 180s;
+		animation-name: levitate, rotate;
+		animation-timing-function: var(--elevate-bezier), linear;
+	}
+	
+	.heartImageWrapper {
+		animation-delay: 4s;
+	}
+}
+
+@keyframes levitate {
+	0%		{ transform: translateY(0) }
+	50%	{ transform: translateY(20px) }
+	100%	{ transform: translateY(0) }
+}
+
+@keyframes rotate {
+	0%		{ transform: rotate(0deg) }
+	50%	{ transform: rotate(180deg) }
+	100%	{ transform: rotate(360deg) }
 }
 
 .tabsWrapper {

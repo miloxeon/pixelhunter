@@ -40,11 +40,11 @@
 		-.5em -.5em 10px var(--b-weaker);
 }
 
-.tab:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px var(--a1-translucent-weaker);
+.tab:not([data-active="true"]):focus {
+	box-shadow: inset 0 0 0 3px var(--a1-translucent-weaker);
 }
 
+.tab:focus,
 .tab:active {
 	outline: none;
 }

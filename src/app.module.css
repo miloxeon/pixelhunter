@@ -125,7 +125,7 @@
 	display: none;
 }
 
-:global .tab-appear-active {
+/* :global .tab-appear-active {
 	transform: translateY(20px) scale(0.97);
 	opacity: 0;
 	pointer-events: none;
@@ -141,7 +141,7 @@
 :global .tab-appear-done {
 	transform: none;
 	opacity: 1;
-}
+} */
 
 :global .tab-enter {
 	position: absolute;

@@ -1,5 +1,6 @@
 import React from 'react'
 import css from './tabs.module.css'
+import { debounce } from 'lodash'
 
 export enum TabsEnum {
 	simple,
@@ -28,7 +29,10 @@ const Tabs: React.FC<Props> = props => {
 		onChange(selectedTab)
 	}, [onChange])
 
-	React.useEffect(() => {
+	// CAUTION: don't forget to specify deps yourself
+	// because React can't detect them in debounced callback
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const recalculatePill = React.useCallback(debounce(() => {
 		const root = rootRef.current
 		const pill = pillRef.current
 		if (!root || !pill) return
@@ -44,7 +48,23 @@ const Tabs: React.FC<Props> = props => {
 		pill.style.width = `${selectedTabRect.width + gapX * 2}px`
 		pill.style.height = `${selectedTabRect.height + gapY * 2}px`
 		pill.style.transform = `translate(${offsetX - gapX}px, ${offsetY - gapY}px)`
+		
+		// pill needs recalculation on value change
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, 100, {
+		leading: true,
+		trailing: true,
+	}), [value])
+
+	React.useEffect(() => {
+		recalculatePill()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [value])
+
+	React.useEffect(() => {
+		window.addEventListener('resize', recalculatePill)
+		return () => window.removeEventListener('resize', recalculatePill)
+	}, [recalculatePill])
 
 	return (
 		<div className={css.root} ref={rootRef}>

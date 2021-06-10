@@ -29,6 +29,11 @@ const timeouts = {
 
 const simpleModeImages = getSimpleModeSizes(sizes)
 
+const advancedModeLogos = sizes.map(target => ({
+	logoSrc: target.logoSrc,
+	app: target.app,
+}))
+
 const App: React.FC = () => {
 	// bright
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
@@ -127,7 +132,7 @@ const App: React.FC = () => {
 								onChange={uploadOnChange}
 							/>
 
-							<label>
+							{/* <label>
 								<input
 									type='checkbox'
 									checked={ucMeta.compress}
@@ -140,7 +145,28 @@ const App: React.FC = () => {
 								<Button onClick={downloadAll} aria-busy={loading}>
 									{ loading ? 'Loading...' : 'Download all'}
 								</Button>
-							)}
+							)} */}
+
+							<div className={css.support}>
+								<h2 className={css.h2}>
+									We support:
+								</h2>
+								<div className={css.grid}>
+									{advancedModeLogos.map(appInfo => {
+										return (
+											<img
+												className={css.infoLogo}
+												key={appInfo.app}
+												src={appInfo.logoSrc}
+												width={40}
+												height={40}
+												alt={`Images for ${appInfo.app}`}
+												title={`Images for ${appInfo.app}`}
+											/>
+										)
+									})}
+								</div>
+							</div>
 						</div>
 						<Tabs
 							onChange={setActiveTab}

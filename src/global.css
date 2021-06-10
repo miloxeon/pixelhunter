@@ -63,11 +63,16 @@
 		0 9px 9px rgba(0, 0, 0, 0.05), 
 		0 13px 13px rgba(0, 0, 0, 0.05),
 		0 21px 21px rgba(0, 0, 0, 0.05);
+
+	--neumorphic:
+		.5em .5em 1em var(--b-stronger),
+		-.5em -.5em 10px var(--b-weaker);
 }
 
 body {
 	color: var(--t);
 	background-color: var(--b);
+	overflow-x: hidden;
 }
 
 /*! normilio v1.0.0 | BSL-1.0 License | https://github.com/mvoloskov/normilio */

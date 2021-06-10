@@ -49,6 +49,14 @@
 		0 8px 8px rgba(0, 0, 0, 0.03),
 		0 16px 16px rgba(0, 0, 0, 0.03);
 
+	--separate:
+		1px 0 1px 1px var(--b),
+		2px 0 2px 2px var(--b), 
+		4px 0 4px 4px var(--b), 
+		8px 0 8px 8px var(--b),
+		32px 0 32px 32px var(--b),
+		64px 0 64px 64px var(--b);
+
 	--elevate-after:
 		0 6px 6px rgba(0, 0, 0, 0.05),
 		0 7px 7px rgba(0, 0, 0, 0.05), 

@@ -2,9 +2,11 @@
 	position: relative;
 	padding: .5em 0;
 	display: grid;
+	max-width: 35rem;
 	gap: 1em;
 	grid-template-columns: max-content auto;
 	align-items: start;
+	background-color: var(--b);
 	grid-template-areas:
 		"simpleTab simpleInfo"
 		"advancedTab advancedInfo"
@@ -67,6 +69,7 @@
 
 	padding: .5em 1em;
 	border-radius: 9999px;
+	z-index: 2;
 }
 
 .tab::before {
@@ -121,7 +124,6 @@
 	transition-timing-function: var(--elevate-bezier);
 	border-radius: 9999px;
 	pointer-events: none;
-	z-index: -1;
 	box-shadow: var(--elevate-before);
 	background-image: var(--a1-gradient);
 	border: none;

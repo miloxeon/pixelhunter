@@ -1,3 +1,67 @@
+.hero {
+	position: relative;
+}
+
+.content {
+	position: relaive;
+	max-width: 35rem;
+	background-color: var(--b);
+	margin: 1rem 0 4rem -1em;
+	padding-left: 1em;
+	z-index: 2;
+	box-shadow: var(--separate);
+}
+
+.h1 {
+	font-size: 4rem;
+	text-shadow: var(--elevate-before);
+}
+
+.p {
+	font-size: large;
+	text-shadow: var(--elevate-weak);
+}
+
+.upload {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	z-index: 2;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: -1;
+	max-width: 35rem;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapperCommons {
+	max-width: 20rem;
+}
+
+.likeImageWrapper {
+	composes: wrapperCommons;
+	align-self: flex-end;
+}
+
+.instagramImageWrapper {
+	composes: wrapperCommons;
+	margin-top: 4rem;
+	display: inline-block;
+	transform: rotate(20deg);
+}
+
+.heartImageWrapper {
+	composes: wrapperCommons;
+	align-self: flex-end;
+	margin-top: 6rem;
+}
+
 .tabsWrapper {
 	position: relative;
 	overflow: hidden;

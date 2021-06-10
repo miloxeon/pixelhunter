@@ -1,18 +1,19 @@
 import React from 'react'
-import sizes from './sizes.json'
-import css from './app.module.css'
+import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
 import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
 import { UCMeta } from './types'
+import sizes from './sizes.json'
+import css from './app.module.css'
 
 import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
 
+// prefetch link
 // hero
-// tabs
 // checkboxes
 // download all
 // footer
@@ -40,6 +41,9 @@ const App: React.FC = () => {
 
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
+	const likeImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
+	const instagramImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
+	const heartImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
 		compress: false,
@@ -76,33 +80,103 @@ const App: React.FC = () => {
 		})
 	}, [ucMeta])
 
+	React.useEffect(() => {
+		const likeImage = likeImageRef.current
+		const instagramImage = instagramImageRef.current
+		const heartImage = heartImageRef.current
+		if (!likeImage || !instagramImage || !heartImage) return
+
+		const commons = {
+			'mouse-event-element': '#hero',
+			perspective: 2000,
+			easing: 'cubic-bezier(.17, .67, .24, 1.01)',
+			speed: 500,
+			transition: false,
+		}
+
+		Tilt.init(likeImage, { ...commons, max: 3 })
+		Tilt.init(instagramImage, { ...commons, max: 4 })
+		Tilt.init(heartImage, { ...commons, max: 4 })
+
+		return () => {
+			likeImage?.vanillaTilt?.destroy()
+			instagramImage?.vanillaTilt?.destroy()
+			heartImage?.vanillaTilt?.destroy()
+		}
+	}, [])
+
 	return (
 		<>
 			<Container>
-				<UploadcareUpload
-					publicKey='3828f4d78b7de9c98461'
-					onChange={uploadOnChange}
-				/>
+				<div className={css.hero} id='hero'>
+					<div className={css.content}>
+						<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for social media.</h1>
+						<p className={css.p}>
+							Sed in fuga illo. Deleniti dicta est nihil et quia doloribus dignissimos assumenda est. Animi ut nesciunt nostrum nostrum et adipisci sapiente. Voluptates ut non sapiente distinctio ut et.
+						</p>
+						<p className={css.p}>
+							Ea ducimus autem debitis et. Sed qui esse qui. Quia corporis perferendis nostrum corporis error. Mollitia maxime dolorem labore inventore.
+						</p>
+						<p className={css.p}>
+							Illum animi at. Voluptatem tempora ut et ducimus velit quibusdam quo et esse. Voluptatem pariatur et. Qui quas sit autem. Quaerat architecto consectetur.
+						</p>
 
-				<label>
-					<input
-						type='checkbox'
-						checked={ucMeta.compress}
-						onChange={onCompressCheck}
-					/>
-					Apply smart compression
-				</label>
+						<div className={css.upload}>
+							<UploadcareUpload
+								publicKey='3828f4d78b7de9c98461'
+								onChange={uploadOnChange}
+							/>
 
-				{ src !== null && (
-					<Button onClick={downloadAll} aria-busy={loading}>
-						{ loading ? 'Loading...' : 'Download all'}
-					</Button>
-				)}
+							<label>
+								<input
+									type='checkbox'
+									checked={ucMeta.compress}
+									onChange={onCompressCheck}
+								/>
+								Apply smart compression
+							</label>
 
-				<Tabs
-					onChange={setActiveTab}
-					value={activeTab}
-				/>
+							{ src !== null && (
+								<Button onClick={downloadAll} aria-busy={loading}>
+									{ loading ? 'Loading...' : 'Download all'}
+								</Button>
+							)}
+						</div>
+						<Tabs
+							onChange={setActiveTab}
+							value={activeTab}
+						/>
+					</div>
+					<div className={css.background}>
+						<div className={css.likeImageWrapper}>
+							<img
+								ref={likeImageRef}
+								width={1000}
+								height={910}
+								src="like.png"
+								alt=''
+							/>
+						</div>
+						<div className={css.instagramImageWrapper}>
+							<img
+								ref={instagramImageRef}
+								width={1000}
+								height={1000}
+								src="instagram.png"
+								alt=''
+							/>
+						</div>
+						<div className={css.heartImageWrapper}>
+							<img
+								ref={heartImageRef}
+								width={1000}
+								height={860}
+								src="heart.png"
+								alt=''
+							/>
+						</div>
+					</div>
+				</div>
 			</Container>
 			
 			{src !== null && (

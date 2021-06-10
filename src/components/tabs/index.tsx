@@ -114,7 +114,11 @@ const Tabs: React.FC<Props> = props => {
 				Custom size
 			</button>
 
-			<div className={css.simpleModeInfo}>
+			<div
+				title={`This mode supports ${simpleModeLogos.map(info => info.app).join(', ')}`}
+				className={css.simpleModeInfo}
+				aria-hidden={true}
+			>
 				{simpleModeLogos.map(appInfo => {
 					return (
 						<img
@@ -124,13 +128,16 @@ const Tabs: React.FC<Props> = props => {
 							width={20}
 							height={20}
 							alt=''
-							aria-hidden={true}
 						/>
 					)
 				})}
 			</div>
 
-			<div className={css.advancedModeInfo}>
+			<div
+				title={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
+				className={css.advancedModeInfo}
+				aria-hidden={true}
+			>
 				{advancedModeLogos.map(appInfo => {
 					return (
 						<img
@@ -140,13 +147,16 @@ const Tabs: React.FC<Props> = props => {
 							width={20}
 							height={20}
 							alt=''
-							aria-hidden={true}
 						/>
 					)
 				})}
 			</div>
 
-			<div className={css.customModeInfo}>
+			<div
+				title='This mode supports cropping your image to any size'
+				className={css.customModeInfo}
+				aria-hidden={true}
+			>
 				<FaCropAlt />
 			</div>
 

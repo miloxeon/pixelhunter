@@ -1,0 +1,48 @@
+.root {
+	position: relative;
+	padding: 7px;
+	margin: -.5rem;
+
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.tab {
+	background: none;
+	border: none;
+	margin: .5rem;
+	color: var(--t);
+	font-weight: 500;
+	transition-property: color;
+	transition-duration: .3s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+.tabActive {
+	composes: tab;
+	color: var(--a1-c);
+}
+
+.pill {
+	composes: accent from '../button/button.module.css';
+	position: absolute;
+	top: 0;
+	left: 0;
+	will-change: transform, width;
+	transition:
+		transform .5s,
+		width .5s,
+		border-color .5s,
+		background-color .5s;
+
+	transition-timing-function: var(--elevate-bezier);
+	border-radius: 9999px;
+	pointer-events: none;
+	z-index: -1;
+	box-shadow: var(--elevate-before);
+}
+
+.tabActive:hover:not(.tabActive:active) ~ .pill {
+	border-color: var(--a1-strong);
+	background-color: var(--a1-strong);
+}

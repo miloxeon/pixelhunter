@@ -9,6 +9,7 @@ import { UCMeta } from './types'
 import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
+import Tabs, { TabsEnum } from './components/tabs'
 
 // text info about simple mode sizes
 // simple mode sizes' positions
@@ -16,12 +17,6 @@ import Target from './components/target'
 // checkboxes
 // download all
 // footer
-
-enum Tabs {
-	simple,
-	advanced,
-	custom,
-}
 
 const timeouts = {
 	appear: 2000,
@@ -45,7 +40,7 @@ const App: React.FC = () => {
 	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
 
 	const [loading, setLoading] = React.useState<boolean>(false)
-	const [activeTab, setActiveTab] = React.useState<Tabs>(Tabs.simple)
+	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
 		compress: false,
@@ -99,35 +94,10 @@ const App: React.FC = () => {
 					Apply smart compression
 				</label>
 
-				<div className={css.tabsControls}>
-					<button
-						type="button"
-						onClick={() => setActiveTab(Tabs.simple)}
-						style={{
-							color: activeTab === Tabs.simple ? 'red' : 'black'
-						}}
-					>
-						Simple
-					</button>
-					<button
-						type="button"
-						onClick={() => setActiveTab(Tabs.advanced)}
-						style={{
-							color: activeTab === Tabs.advanced ? 'red' : 'black'
-						}}
-					>
-						Advanced
-					</button>
-					<button
-						type="button"
-						onClick={() => setActiveTab(Tabs.custom)}
-						style={{
-							color: activeTab === Tabs.custom ? 'red' : 'black'
-						}}
-					>
-						Custom
-					</button>
-				</div>
+				<Tabs
+					onChange={setActiveTab}
+					value={activeTab}
+				/>
 
 				<div>
 					{ src !== null && (
@@ -142,7 +112,7 @@ const App: React.FC = () => {
 				<div className={css.tabsWrapper}>
 					<CSSTransition
 						classNames="tab"
-						in={activeTab === Tabs.simple}
+						in={activeTab === TabsEnum.simple}
 						timeout={timeouts}
 						appear
 					>
@@ -161,7 +131,7 @@ const App: React.FC = () => {
 					</CSSTransition>
 					<CSSTransition
 						classNames="tab"
-						in={activeTab === Tabs.advanced}
+						in={activeTab === TabsEnum.advanced}
 						timeout={timeouts}
 						appear
 					>

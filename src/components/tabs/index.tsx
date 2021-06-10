@@ -13,8 +13,8 @@ interface Props {
 	value: TabsEnum
 }
 
-const gapX = 7
-const gapY = 7
+const gapX = 0
+const gapY = 0
 
 const Tabs: React.FC<Props> = props => {
 	const {
@@ -69,7 +69,7 @@ const Tabs: React.FC<Props> = props => {
 	return (
 		<div className={css.root} ref={rootRef}>
 			<button
-				className={value === TabsEnum.simple ? css.tabActive : css.tab}
+				className={css.tab}
 				type="button"
 				data-active={value === TabsEnum.simple}
 				onClick={() => setActiveTab(TabsEnum.simple)}
@@ -77,7 +77,7 @@ const Tabs: React.FC<Props> = props => {
 				Simple
 			</button>
 			<button
-				className={value === TabsEnum.advanced ? css.tabActive : css.tab}
+				className={css.tab}
 				type="button"
 				onClick={() => setActiveTab(TabsEnum.advanced)}
 				data-active={value === TabsEnum.advanced}
@@ -85,7 +85,7 @@ const Tabs: React.FC<Props> = props => {
 				Advanced
 			</button>
 			<button
-				className={value === TabsEnum.custom ? css.tabActive : css.tab}
+				className={css.tab}
 				type="button"
 				onClick={() => setActiveTab(TabsEnum.custom)}
 				data-active={value === TabsEnum.custom}

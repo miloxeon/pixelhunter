@@ -1,26 +1,60 @@
 .root {
 	position: relative;
-	padding: 7px;
-	margin: -.5rem;
-
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	padding: .5em;
+	margin: 2rem -1rem;
 }
 
 .tab {
+	position: relative;
 	background: none;
 	border: none;
 	margin: .5rem;
 	color: var(--t);
 	font-weight: 500;
-	transition-property: color;
-	transition-duration: .3s;
+	transition:
+		color .3s,
+		box-shadow .3s;
 	transition-timing-function: var(--elevate-bezier);
+
+	padding: .5em 1em;
+	border-radius: 9999px;
 }
 
-.tabActive {
-	composes: tab;
+.tab::before {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: inherit;
+	transition: box-shadow .3s;
+	transition-timing-function: var(--elevate-bezier);
+	z-index: -2;
+}
+
+.tab:not([data-active="true"]):hover::before {
+	box-shadow:
+		.5em .5em 1em var(--b-stronger),
+		-.5em -.5em 10px var(--b-weaker);
+}
+
+.tab:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--a1-translucent-weaker);
+}
+
+.tab:active {
+	outline: none;
+}
+
+.tab[data-active="true"] {
 	color: var(--a1-c);
+}
+
+.tab[data-active="true"]:hover ~ .pill {
+	filter: brightness(90%);
 }
 
 .pill {
@@ -32,17 +66,13 @@
 	transition:
 		transform .5s,
 		width .5s,
-		border-color .5s,
-		background-color .5s;
+		filter .5s;
 
 	transition-timing-function: var(--elevate-bezier);
 	border-radius: 9999px;
 	pointer-events: none;
 	z-index: -1;
 	box-shadow: var(--elevate-before);
-}
-
-.tabActive:hover:not(.tabActive:active) ~ .pill {
-	border-color: var(--a1-strong);
-	background-color: var(--a1-strong);
+	background-image: var(--a1-gradient);
+	border: none;
 }

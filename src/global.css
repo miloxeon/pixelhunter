@@ -3,21 +3,26 @@
 	--t-weak: #767676;
 	--t: #37352f;
 	--t-strong: #1d1c1b;
-	--t-stroger: #000000;
+	--t-stronger: #000000;
 
 	--b-weaker: #ffffff;
 	--b-weak: #f8f8f7;
 	--b: #f2f1ed;
 	--b-strong: #e8e7e0;
-	--b-stroger: #f2f1ed;
+	--b-stronger: #c1c1c1;
 
 	--a1-weaker: #a7e2bf;
 	--a1-weak: #71d099;
 	--a1: #3cb46e;
 	--a1-strong: #37a465;
-	--a1-stroger: #2a7e4d;
+	--a1-stronger: #2a7e4d;
+
+	--a1-gradient: linear-gradient(-45deg, #3fa86b, #42c478);
+	--a1-gradient-strong: linear-gradient(-45deg, #37a465, #37a465);
 
 	--a1-translucent: #3cb46eaa;
+	--a1-translucent-weaker: #3cb46e77;
+
 	--a1-c: #ffffff;
 
 	--shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.04);

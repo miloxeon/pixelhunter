@@ -64,7 +64,7 @@
 	border-radius: .5em;
 	background-color: var(--b);
 	color: var(--t);
-	padding: .25em .5em 1em;
+	padding: .5em .5em 1em;
 	font-size: small;
 	margin: .5em;
 }

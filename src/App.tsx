@@ -11,12 +11,14 @@ import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
 
-// text info about simple mode sizes
-// simple mode sizes' positions
+// hero
 // tabs
 // checkboxes
 // download all
 // footer
+
+// text info about simple mode sizes
+// simple mode sizes' positions
 
 const timeouts = {
 	appear: 2000,
@@ -91,18 +93,16 @@ const App: React.FC = () => {
 					Apply smart compression
 				</label>
 
+				{ src !== null && (
+					<Button onClick={downloadAll} aria-busy={loading}>
+						{ loading ? 'Loading...' : 'Download all'}
+					</Button>
+				)}
+
 				<Tabs
 					onChange={setActiveTab}
 					value={activeTab}
 				/>
-
-				<div>
-					{ src !== null && (
-						<Button onClick={downloadAll} aria-busy={loading}>
-							{ loading ? 'Loading...' : 'Download all'}
-						</Button>
-					)}
-				</div>
 			</Container>
 			
 			{src !== null && (

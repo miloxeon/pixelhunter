@@ -101,7 +101,7 @@ const Tabs: React.FC<Props> = props => {
 				aria-label={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
 				title={`This mode supports ${advancedModeLogos.map(info => info.app).join(', ')}`}
 			>
-				Advanced
+				More sites
 			</button>
 			<button
 				className={css.tab}
@@ -111,7 +111,7 @@ const Tabs: React.FC<Props> = props => {
 				aria-label='This mode supports cropping your image to any size'
 				title='This mode supports cropping your image to any size'
 			>
-				Custom
+				Custom size
 			</button>
 
 			<div className={css.simpleModeInfo}>

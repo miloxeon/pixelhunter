@@ -3,23 +3,12 @@
 	padding: .5em 0;
 	display: grid;
 	gap: 1em;
-	width: max-content;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: max-content auto;
+	align-items: start;
 	grid-template-areas:
-		"simpleTab advancedTab customTab"
-		"simpleInfo advancedInfo customInfo";
-}
-
-@media (max-width: 35rem) {
-	.root {
-		width: initial;
-		grid-template-columns: max-content auto;
-		align-items: start;
-		grid-template-areas:
-			"simpleTab simpleInfo"
-			"advancedTab advancedInfo"
-			"customTab customInfo";
-	}
+		"simpleTab simpleInfo"
+		"advancedTab advancedInfo"
+		"customTab customInfo";
 }
 
 .tab:nth-child(1) { grid-area: simpleTab; }
@@ -28,23 +17,15 @@
 
 .infoCommons {
 	font-size: small;
-	padding: 0 1em;
+	padding: .5em 1em;
 
 	display: grid;
 	width: 100%;
+	height: 100%;
 	gap: 1em;
 	grid-template-columns: repeat(auto-fill, minmax(20px, auto));
-	justify-content: center;
-}
-
-@media (max-width: 35rem) {
-	.infoCommons {
-		align-items: center;
-		height: 100%;
-		padding-top: .5em;
-		padding-bottom: .5em;
-		justify-content: start;
-	}
+	align-items: center;
+	justify-content: start;
 }
 
 .simpleModeInfo {
@@ -64,15 +45,8 @@
 }
 
 .customModeInfo svg {
-	width: 30px;
-	height: 30px;
-}
-
-@media (max-width: 35rem) {
-	.customModeInfo svg {
-		width: 20px;
-		height: 20px;
-	}
+	width: 20px;
+	height: 20px;
 }
 
 .infoLogo {

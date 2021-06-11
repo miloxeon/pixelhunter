@@ -99,15 +99,21 @@ const App: React.FC = () => {
 			transition: false,
 		}
 
-		Tilt.init(likeImage, { ...commons, max: 3 })
-		Tilt.init(instagramImage, { ...commons, max: 3 })
-		Tilt.init(heartImage, { ...commons, max: 4 })
+		const init = () => {
+			Tilt.init(likeImage, { ...commons, max: 3 })
+			Tilt.init(instagramImage, { ...commons, max: 3 })
+			Tilt.init(heartImage, { ...commons, max: 4 })
+		}
 
-		return () => {
+		const destroy = () => {
 			likeImage?.vanillaTilt?.destroy()
 			instagramImage?.vanillaTilt?.destroy()
 			heartImage?.vanillaTilt?.destroy()
 		}
+
+		init()
+
+		return destroy
 	}, [])
 
 	return (

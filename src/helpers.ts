@@ -81,3 +81,13 @@ export const getSimpleModeSizes = (targets: Sizes) => targets.map(target => ({
 })).filter(
 	target => target.sizes.length > 0
 )
+
+const isInViewport = (element: HTMLElement) => {
+	const rect = element.getBoundingClientRect()
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+	)
+}

@@ -16,7 +16,6 @@
 	display: inline-block;
 	flex-grow: 0;
 	max-width: 20rem;
-	margin-bottom: .5em;
 	font-size: small;
 }
 
@@ -38,6 +37,7 @@
 
 	max-width: 20rem;
 	border-radius: .5em;
+	margin-top: .5em;
 }
 
 .imageWrapperGhost {

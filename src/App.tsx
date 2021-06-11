@@ -83,7 +83,7 @@ const App: React.FC = () => {
 			<Container>
 				<div className={css.hero} id='hero'>
 					<div className={css.content}>
-						<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for social media.</h1>
+						<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span></h1>
 						<p className={css.p}>
 							Sed in fuga illo. Deleniti dicta est nihil et quia doloribus dignissimos assumenda est. Animi ut nesciunt nostrum nostrum et adipisci sapiente. Voluptates ut non sapiente distinctio ut et.
 						</p>

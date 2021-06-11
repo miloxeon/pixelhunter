@@ -192,6 +192,43 @@
 	z-index: 4;
 	line-height: 1;
 	padding: .3em;
+	cursor: pointer;
+	color: var(--b-weaker);
+}
+
+.checkbox {
+	opacity: 0;
+}
+
+.checkboxBack,
+.checkboxFront {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	line-height: 1;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	transition: opacity .3s, color .1s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+.checkboxFront {
+	opacity: 0;
+}
+
+.checkboxBack {
+	filter: drop-shadow(0 0 4px var(--t));
+}
+
+.checkbox:focus ~ .checkboxFront,
+.checkbox:focus ~ .checkboxBack {
+	color: var(--a1);
+}
+
+.checkbox:checked ~ .checkboxFront {
+	opacity: 1;
+	transition-duration: .1s;
 }
 
 .infoOverlay {

@@ -1,6 +1,8 @@
 import React from 'react'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import { FiArrowDown } from 'react-icons/fi'
 import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
 import { SizeWithSrc, UCMeta } from './types'
 import sizes from './sizes.json'
@@ -85,13 +87,6 @@ const App: React.FC = () => {
 		downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
 	}, [ucMeta, src])
 
-	const onCompressCheck = React.useCallback(e => {
-		setUcMeta({
-			...ucMeta,
-			compress: e.target.checked
-		})
-	}, [ucMeta])
-
 	return (
 		<>
 			<Container>
@@ -119,21 +114,6 @@ const App: React.FC = () => {
 									onChange={uploadOnChange}
 								/>
 							</div>
-
-							<label>
-								<input
-									type='checkbox'
-									checked={ucMeta.compress}
-									onChange={onCompressCheck}
-								/>
-								Apply smart compression
-							</label>
-
-							{ src !== null && (
-								<Button onClick={downloadAll} aria-busy={loading}>
-									{ loading ? 'Loading...' : 'Download all'}
-								</Button>
-							)}
 
 							<div className={css.support}>
 								<h2 className={css.h2}>
@@ -194,6 +174,21 @@ const App: React.FC = () => {
 			
 			{src !== null && (
 				<div className={css.tabsWrapper}>
+					{ src !== null && (
+						<Button
+							className={css.download}
+							onClick={downloadAll}
+							aria-busy={loading}
+						>
+							{ loading ? (
+								<AiOutlineLoading3Quarters className={css.loading} />
+							) : (
+								<FiArrowDown className={css.arrowDown} />
+							)}
+							{ loading ? 'Loading...' : 'Download all'}
+						</Button>
+					)}
+
 					<CSSTransition
 						classNames="tab"
 						in={activeTab === TabsEnum.simple}

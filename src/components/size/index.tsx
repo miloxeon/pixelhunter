@@ -2,7 +2,7 @@ import React from 'react'
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import useImageZoom from '../../vendors/use-image-zoom'
 import { FiArrowDown } from 'react-icons/fi'
-import { IoCloudOfflineOutline } from 'react-icons/io5'
+import { IoCloudOfflineOutline, IoCheckmarkCircle, IoEllipseOutline } from 'react-icons/io5'
 import css from './size.module.css'
 import { SizeWithSrc, UCMeta } from '../../types'
 import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
@@ -163,7 +163,7 @@ const Size: React.FC<Props> = props => {
 						</div>
 					)}
 
-					<div className={css.checkboxWrapper}>
+					<label className={css.checkboxWrapper}>
 						<input
 							type='checkbox'
 							className={css.checkbox}
@@ -173,7 +173,9 @@ const Size: React.FC<Props> = props => {
 							data-height={props.height}
 							data-checkbox
 						/>
-					</div>
+						<IoEllipseOutline className={css.checkboxBack} />
+						<IoCheckmarkCircle className={css.checkboxFront}/>
+					</label>
 
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>

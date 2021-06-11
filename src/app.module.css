@@ -147,7 +147,42 @@
 
 .tabsWrapper {
 	position: relative;
-	overflow: hidden;
+}
+
+.download {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	z-index: 10;
+
+	display: inline-flex;
+	align-items: center;
+}
+
+.download[aria-busy="true"] {
+	pointer-events: none;
+}
+
+.iconCommons {
+	width: 1rem;
+	height: 1rem;
+	margin-right: .5em;
+}
+
+.loading {
+	composes: iconCommons;
+	animation: rotate 1000ms infinite linear;
+}
+
+.arrowDown {
+	composes: iconCommons;
+	transition: transform .5s;
+	transition-timing-function: var(--elevate-bezier);
+}
+
+.download:hover .arrowDown {
+	transform: translateY(2px);
+	transition: transform .1s;
 }
 
 .tab:not(:global [class*='tab-']) {

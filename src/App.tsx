@@ -10,12 +10,12 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
+import target from './components/target'
 
+// powered by UC
 // checkboxes
 // download all
 // footer
-
-// hero texts
 
 const timeouts = {
 	appear: 2000,
@@ -29,6 +29,8 @@ const advancedModeLogos = sizes.map(target => ({
 	logoSrc: target.logoSrc,
 	app: target.app,
 }))
+
+const sizesCount = sizes.map(target => target.sizes.length).reduce((a, b) => a + b, 0)
 
 const App: React.FC = () => {
 	// bright
@@ -85,13 +87,13 @@ const App: React.FC = () => {
 					<div className={css.content}>
 						<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span></h1>
 						<p className={css.p}>
-							Sed in fuga illo. Deleniti dicta est nihil et quia doloribus dignissimos assumenda est. Animi ut nesciunt nostrum nostrum et adipisci sapiente. Voluptates ut non sapiente distinctio ut et.
+							Cropping each and every image by hand may be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
-							Ea ducimus autem debitis et. Sed qui esse qui. Quia corporis perferendis nostrum corporis error. Mollitia maxime dolorem labore inventore.
+							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} sizes</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.
 						</p>
 						<p className={css.p}>
-							Illum animi at. Voluptatem tempora ut et ducimus velit quibusdam quo et esse. Voluptatem pariatur et. Qui quas sit autem. Quaerat architecto consectetur.
+							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to actually help you and not just to fill up the space.
 						</p>
 
 						<div className={css.upload}>

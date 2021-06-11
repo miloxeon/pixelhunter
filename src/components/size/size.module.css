@@ -194,6 +194,7 @@
 	padding: .3em;
 	cursor: pointer;
 	color: var(--b-weaker);
+	user-select: none;
 }
 
 .checkbox {

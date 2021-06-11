@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCropAlt } from 'react-icons/fa'
+// import { FaCropAlt } from 'react-icons/fa'
 import { debounce } from 'lodash'
 import css from './tabs.module.css'
 import sizes from '../../sizes.json'
@@ -103,7 +103,7 @@ const Tabs: React.FC<Props> = props => {
 			>
 				More sizes
 			</button>
-			<button
+			{/* <button
 				className={css.tab}
 				type="button"
 				onClick={() => setActiveTab(TabsEnum.custom)}
@@ -112,7 +112,7 @@ const Tabs: React.FC<Props> = props => {
 				title='This mode supports cropping your image to any size'
 			>
 				Custom size
-			</button>
+			</button> */}
 
 			<div
 				title={`This mode supports ${simpleModeLogos.map(info => info.app).join(', ')}`}
@@ -152,13 +152,13 @@ const Tabs: React.FC<Props> = props => {
 				})}
 			</div>
 
-			<div
+			{/* <div
 				title='This mode supports cropping your image to any size'
 				className={css.customModeInfo}
 				aria-hidden={true}
 			>
 				<FaCropAlt />
-			</div>
+			</div> */}
 
 			<div className={css.pill} ref={pillRef} />
 		</div>

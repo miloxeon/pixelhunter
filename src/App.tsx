@@ -15,9 +15,6 @@ import Tabs, { TabsEnum } from './components/tabs'
 // import target from './components/target'
 import PoweredBy from './components/poweredBy'
 
-// checkboxes
-// download all
-
 const timeouts = {
 	appear: 2000,
 	enter: 500,

@@ -6,6 +6,7 @@ import { IoCloudOfflineOutline, IoCheckmarkCircle, IoEllipseOutline } from 'reac
 import css from './size.module.css'
 import { SizeWithSrc, UCMeta } from '../../types'
 import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
+import { detect } from 'detect-browser'
 
 interface Props extends SizeWithSrc {
 	ucMeta: UCMeta,
@@ -42,6 +43,8 @@ const Size: React.FC<Props> = props => {
 	})
 
 	React.useEffect(() => {
+		const browserName = detect()
+		if (!browserName || browserName.name === 'safari' || browserName.name === 'ios') return
 		const current = tiltWrapperRef.current
 		if (!current) return
 

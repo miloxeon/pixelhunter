@@ -153,6 +153,7 @@
 
 	display: inline-flex;
 	align-items: center;
+	box-shadow: var(--elevate-before) !important;
 }
 
 .download[aria-busy="true"] {

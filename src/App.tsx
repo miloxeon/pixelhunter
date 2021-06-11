@@ -1,5 +1,4 @@
 import React from 'react'
-import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
 import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
@@ -46,9 +45,6 @@ const App: React.FC = () => {
 
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
-	const likeImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
-	const instagramImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
-	const heartImageRef = React.useRef<HTMLImageElement & HTMLVanillaTiltElement>(null)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
 		compress: false,
@@ -84,37 +80,6 @@ const App: React.FC = () => {
 			compress: e.target.checked
 		})
 	}, [ucMeta])
-
-	// React.useEffect(() => {
-	// 	const likeImage = likeImageRef.current
-	// 	const instagramImage = instagramImageRef.current
-	// 	const heartImage = heartImageRef.current
-	// 	if (!likeImage || !instagramImage || !heartImage) return
-
-	// 	const commons = {
-	// 		'mouse-event-element': '#hero',
-	// 		perspective: 2000,
-	// 		easing: 'cubic-bezier(.17, .67, .24, 1.01)',
-	// 		speed: 500,
-	// 		transition: false,
-	// 	}
-
-	// 	const init = () => {
-	// 		Tilt.init(likeImage, { ...commons, max: 3 })
-	// 		Tilt.init(instagramImage, { ...commons, max: 3 })
-	// 		Tilt.init(heartImage, { ...commons, max: 4 })
-	// 	}
-
-	// 	const destroy = () => {
-	// 		likeImage?.vanillaTilt?.destroy()
-	// 		instagramImage?.vanillaTilt?.destroy()
-	// 		heartImage?.vanillaTilt?.destroy()
-	// 	}
-
-	// 	init()
-
-	// 	return destroy
-	// }, [])
 
 	return (
 		<>
@@ -184,7 +149,6 @@ const App: React.FC = () => {
 					<div className={css.background}>
 						<div className={css.likeImageWrapper}>
 							<img
-								ref={likeImageRef}
 								width={1000}
 								height={910}
 								src="like.png"
@@ -193,7 +157,6 @@ const App: React.FC = () => {
 						</div>
 						<div className={css.instagramImageWrapper}>
 							<img
-								ref={instagramImageRef}
 								width={1000}
 								height={1000}
 								src="instagram.png"
@@ -202,7 +165,6 @@ const App: React.FC = () => {
 						</div>
 						<div className={css.heartImageWrapper}>
 							<img
-								ref={heartImageRef}
 								width={1000}
 								height={860}
 								src="heart.png"

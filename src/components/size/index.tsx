@@ -1,6 +1,6 @@
 import React from 'react'
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt'
-import { useImageZoom } from 'react-medium-image-zoom'
+import useImageZoom from '../../vendors/use-image-zoom'
 import { FiArrowDown } from 'react-icons/fi'
 import { IoCloudOfflineOutline } from 'react-icons/io5'
 import css from './size.module.css'

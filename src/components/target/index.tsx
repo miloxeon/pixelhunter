@@ -4,12 +4,13 @@ import Size from '../size'
 import css from './target.module.css'
 import { TargetApp } from '../../sizes'
 import { UCMeta } from '../../types'
-
+import { TabsEnum } from '../tabs'
 // @ts-ignore
 import butter from 'image-butter'
 interface Props extends TargetApp {
 	ucMeta: UCMeta,
 	src: string,
+	mode: TabsEnum
 }
 
 const Target: React.FC<Props> = props => {
@@ -53,13 +54,20 @@ const Target: React.FC<Props> = props => {
 						...size,
 						app: props.app
 					})
+
+					const sizeRest = {
+						...size,
+						description: props.mode === TabsEnum.simple ? size.description : undefined,
+						positionSrc: props.mode === TabsEnum.simple ? size.positionSrc : undefined,
+					}
+
 					return (
 						<Size
 							key={key}
 							ucMeta={props.ucMeta}
 							src={props.src}
 							app={props.app}
-							{...size}
+							{...sizeRest}
 						/>
 					)
 				})}

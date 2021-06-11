@@ -10,6 +10,8 @@ import { getUrl, getCrookedUrl, getSizeKey } from '../../helpers'
 interface Props extends SizeWithSrc {
 	ucMeta: UCMeta,
 	app: string,
+	description?: string,
+	positionSrc?: string,
 }
 
 const zoomDuration = 300
@@ -84,6 +86,25 @@ const Size: React.FC<Props> = props => {
 			<h3 className={css.heading}>
 				{props.name}
 			</h3>
+
+			{(props.description || props.positionSrc) && (
+				<div className={css.description}>
+					{ props.positionSrc && (
+						<img
+							src={props.positionSrc}
+							className={css.descriptionImage}
+							alt=''
+							aria-hidden="true"
+							width={60}
+						/>
+					)}
+					{ props.description && (
+						<p className={css.p}>
+							{props.description}
+						</p>
+					)}
+				</div>
+			)}
 
 			<div className={loaded ? css.imageWrapper : css.imageWrapperGhost} id={id}>
 				<div

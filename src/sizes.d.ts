@@ -18,6 +18,13 @@ export interface Size {
 	 * @description should this target size be featured in "Simple mode"
 	 */
 	simple?: boolean,
+
+	/**
+	 * @description a src of the image that explains where this size will be displayed on the corresponding social media. Will be put in an img tag and inserted as-is.
+	 */
+	positionSrc?: string,
+
+	description?: string,
 }
 
 export interface TargetApp {

@@ -14,13 +14,8 @@ import Tabs, { TabsEnum } from './components/tabs'
 // checkboxes
 // download all
 // footer
-// resizer
 
-// texts
-// quora
-
-// text info about simple mode sizes
-// simple mode sizes' positions
+// hero texts
 
 const timeouts = {
 	appear: 2000,
@@ -191,6 +186,7 @@ const App: React.FC = () => {
 							{simpleModeImages.map(target => {
 								return (
 									<Target
+										mode={TabsEnum.simple}
 										key={target.app}
 										ucMeta={ucMeta}
 										src={src}
@@ -210,6 +206,7 @@ const App: React.FC = () => {
 							{sizes.map(target => {
 								return (
 									<Target
+										mode={TabsEnum.advanced}
 										key={target.app}
 										ucMeta={ucMeta}
 										src={src}

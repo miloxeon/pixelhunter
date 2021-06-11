@@ -85,36 +85,36 @@ const App: React.FC = () => {
 		})
 	}, [ucMeta])
 
-	React.useEffect(() => {
-		const likeImage = likeImageRef.current
-		const instagramImage = instagramImageRef.current
-		const heartImage = heartImageRef.current
-		if (!likeImage || !instagramImage || !heartImage) return
+	// React.useEffect(() => {
+	// 	const likeImage = likeImageRef.current
+	// 	const instagramImage = instagramImageRef.current
+	// 	const heartImage = heartImageRef.current
+	// 	if (!likeImage || !instagramImage || !heartImage) return
 
-		const commons = {
-			'mouse-event-element': '#hero',
-			perspective: 2000,
-			easing: 'cubic-bezier(.17, .67, .24, 1.01)',
-			speed: 500,
-			transition: false,
-		}
+	// 	const commons = {
+	// 		'mouse-event-element': '#hero',
+	// 		perspective: 2000,
+	// 		easing: 'cubic-bezier(.17, .67, .24, 1.01)',
+	// 		speed: 500,
+	// 		transition: false,
+	// 	}
 
-		const init = () => {
-			Tilt.init(likeImage, { ...commons, max: 3 })
-			Tilt.init(instagramImage, { ...commons, max: 3 })
-			Tilt.init(heartImage, { ...commons, max: 4 })
-		}
+	// 	const init = () => {
+	// 		Tilt.init(likeImage, { ...commons, max: 3 })
+	// 		Tilt.init(instagramImage, { ...commons, max: 3 })
+	// 		Tilt.init(heartImage, { ...commons, max: 4 })
+	// 	}
 
-		const destroy = () => {
-			likeImage?.vanillaTilt?.destroy()
-			instagramImage?.vanillaTilt?.destroy()
-			heartImage?.vanillaTilt?.destroy()
-		}
+	// 	const destroy = () => {
+	// 		likeImage?.vanillaTilt?.destroy()
+	// 		instagramImage?.vanillaTilt?.destroy()
+	// 		heartImage?.vanillaTilt?.destroy()
+	// 	}
 
-		init()
+	// 	init()
 
-		return destroy
-	}, [])
+	// 	return destroy
+	// }, [])
 
 	return (
 		<>

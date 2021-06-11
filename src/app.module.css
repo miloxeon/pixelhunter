@@ -50,6 +50,10 @@
 	justify-content: start;
 }
 
+.infoLogo {
+	border-radius: .5em;
+}
+
 .background {
 	position: absolute;
 	top: 0;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
-import { downloadSizes, mimeToExtension, getSimpleModeSizes, getSizeKey } from './helpers'
+import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
 import { UCMeta } from './types'
 import sizes from './sizes.json'
 import css from './app.module.css'
@@ -64,26 +64,14 @@ const App: React.FC = () => {
 	const downloadAll = React.useCallback(() => {
 		if (!src) return
 		setLoading(true)
-
-		const allSizes = sizes.map(target => [...target.sizes.map(
+		const sizesForSimpleMode = sizes.map(target => [...target.sizes.map(
 			size => ({
 				...size,
 				app: target.app
 			})
-		)]).flat().map(
-			size => getSizeKey(size)
-		)
-		
-
-		const imgs = allSizes.map(key => document.querySelector(`[data-image="${key}"]`)).slice(0, 20)
-
-		console.log(allSizes, imgs)
-		
-		setLoading(true)
-		downloadSizes(allSizes, ucMeta).finally(() => setLoading(false))
-
-		// const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
-		// downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
+		)]).flat()
+		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
+		downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
 	}, [ucMeta, src])
 
 	const onCompressCheck = React.useCallback(e => {

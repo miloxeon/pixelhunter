@@ -69,11 +69,11 @@ const Size: React.FC<Props> = props => {
 	}, [])
 
 	const visibleImageCommonProps = {
-		width: props.width,
-		height: props.height,
+		width: props.width + 1,
+		height: props.height + 1,
 		src: previewUrl,
 		style: {
-			width: `${props.width}px`,
+			width: `${props.width + 1}px`,
 		}
 	}
 
@@ -126,7 +126,6 @@ const Size: React.FC<Props> = props => {
 					{ !error ? (
 						<img
 							{...visibleImageCommonProps}
-							data-image={alt}
 							className={css.image}
 							alt={alt}
 							onAnimationEnd={detectButterLoading}

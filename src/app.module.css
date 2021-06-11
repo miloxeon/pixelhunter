@@ -142,6 +142,7 @@
 
 .tabsWrapper {
 	position: relative;
+	overflow: hidden;
 }
 
 .download {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSizeKey } from '../../helpers'
+import { getSizeKey, nameToId } from '../../helpers'
 import Size from '../size'
 import css from './target.module.css'
 import { TargetApp } from '../../sizes'
@@ -25,7 +25,7 @@ const Target: React.FC<Props> = props => {
 		return b.height - a.height
 	})
 
-	const targetId = props.app
+	const targetId = nameToId(props.app)
 
 	return (
 		<article className={css.root} aria-labelledby={targetId}>

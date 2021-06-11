@@ -15,11 +15,6 @@
 	text-shadow: var(--elevate-before);
 }
 
-.logo {
-	float: left;
-	margin-right: 1em;
-}
-
 .rose {
 	background-image: radial-gradient(
 		circle farthest-corner at 20% 200%, 

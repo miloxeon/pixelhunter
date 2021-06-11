@@ -5,6 +5,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { FiArrowDown } from 'react-icons/fi'
 import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
 import { SizeWithSrc, UCMeta } from './types'
+import { detect } from 'detect-browser'
 import sizes from './sizes.json'
 import css from './app.module.css'
 
@@ -31,6 +32,9 @@ const advancedModeLogos = sizes.map(target => ({
 const sizesCount = sizes.map(target => target.sizes.length).reduce((a, b) => a + b, 0)
 
 const sizePlural = sizesCount.toString().split('').pop() === '1' ? 'size' : 'sizes'
+
+const browserInfo = detect()
+const isSafari = !browserInfo || browserInfo.name === 'safari' || browserInfo.name === 'ios'
 
 const App: React.FC = () => {
 	// bright
@@ -89,9 +93,16 @@ const App: React.FC = () => {
 			<Container>
 				<div className={css.hero} id='hero'>
 					<div className={css.content}>
-						<h1 className={css.h1}>
-							Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span>
-						</h1>
+						{!isSafari ? (
+							<h1 className={css.h1}>
+								Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span>
+							</h1>
+						) : (
+							<h1 className={css.h1}>
+								Pixel&shy;hunter&nbsp;— free AI image resizer for social media.
+							</h1>
+						)}
+
 						<p className={css.p}>
 							Cropping each and every image by hand can be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>

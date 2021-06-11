@@ -81,7 +81,6 @@ const App: React.FC = () => {
 		})
 	}, [ucMeta])
 
-
 	return (
 		<>
 			<Container>

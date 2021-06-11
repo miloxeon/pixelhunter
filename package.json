@@ -49,5 +49,6 @@
   },
   "devDependencies": {
     "patch-package": "^6.4.7"
-  }
+  },
+  "proxy": "https://ucarecdn.com/"
 }

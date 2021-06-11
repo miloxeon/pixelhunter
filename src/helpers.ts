@@ -21,7 +21,7 @@ export const getCrookedUrl = (src: string, width: number, height: number, ucMeta
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
 export const downloadSize = (size: SizeWithSrc, ucMeta: UCMeta): Promise<SizeWithBlob> => {
-	const url = getUrl(size.src, size.width, size.height, ucMeta)
+	const url = getUrl(size.src, size.width, size.height, ucMeta).replace('https://ucarecdn.com/', '')
 	return fetch(url).then(response => response.blob()).then(blob => ({
 		...size,
 		blob,
@@ -43,10 +43,12 @@ export const downloadSizes = (sizes: SizeWithSrc[], ucMeta: UCMeta): Promise<voi
 	const downloadSizeWithMeta =
 		(meta: UCMeta) => (size: SizeWithSrc) => downloadSize(size, meta)
 
-	Promise.all(sizes.map(downloadSizeWithMeta(ucMeta))).then(sizesWithBlobs => {
+	Promise.allSettled(sizes.map(downloadSizeWithMeta(ucMeta))).then(descs => {
 		const zip = new JSZip()
-		sizesWithBlobs.forEach(sizeWithBlob => {
-			const fileName = `${getSizeKey(sizeWithBlob)}.png`
+		descs.forEach(desc => {
+			if (desc.status !== 'fulfilled') return
+			const sizeWithBlob = desc.value
+			const fileName = `${getSizeKey(sizeWithBlob)}.${ucMeta.extension}`
 			zip.file(fileName, sizeWithBlob.blob)
 		})
 

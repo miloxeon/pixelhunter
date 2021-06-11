@@ -1,6 +1,9 @@
 import JSZip from 'jszip'
-import { StandaloneSize, SizeWithSrc, SizeWithBlob, UCMeta } from './types'
+import { StandaloneSize, UCMeta } from './types'
 import { Sizes } from './sizes'
+
+// @ts-ignore
+import Metalevel from 'metalevel'
 
 const ensureEndingWithSlash = (str: string): string => {
 	const lastSymbol = str[str.length - 1]
@@ -16,17 +19,18 @@ export const getUrl = (src: string, width: number, height: number, ucMeta: UCMet
 }
 
 // needed to prevent adblocks from blocking common ad sizes images
+// disabled because cors
 export const getCrookedUrl = (src: string, width: number, height: number, ucMeta: UCMeta) => getUrl(src, width, height, ucMeta)
 
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
-export const downloadSize = (size: SizeWithSrc, ucMeta: UCMeta): Promise<SizeWithBlob> => {
-	const url = getUrl(size.src, size.width, size.height, ucMeta)
-	return fetch(url).then(response => response.blob()).then(blob => ({
-		...size,
-		blob,
-	}))
-}
+// export const downloadSize = (size: SizeWithSrc, ucMeta: UCMeta): Promise<SizeWithBlob> => {
+// 	const url = getUrl(size.src, size.width, size.height, ucMeta)
+// 	return fetch(url).then(response => response.blob()).then(blob => ({
+// 		...size,
+// 		blob,
+// 	}))
+// }
 
 export const downloadAbstractContent = (href: string, filename: string): void => {
 	const a = document.createElement('a')
@@ -39,24 +43,57 @@ export const downloadAbstractContent = (href: string, filename: string): void =>
 export const downloadFile = (base64content: string, filename: string): void =>
 	downloadAbstractContent(`data:application/zip;base64,${base64content}`, filename)
 
-export const downloadSizes = (sizes: SizeWithSrc[], ucMeta: UCMeta): Promise<void> => new Promise((resolve, reject) => {
-	const downloadSizeWithMeta =
-		(meta: UCMeta) => (size: SizeWithSrc) => downloadSize(size, meta)
+export const getImgByKey = (key: string): HTMLImageElement | null => {
+	return document.querySelector(`[data-image="${key}"]`)
+}
 
-	Promise.all(sizes.map(downloadSizeWithMeta(ucMeta))).then(sizesWithBlobs => {
-		const zip = new JSZip()
-		sizesWithBlobs.forEach(sizeWithBlob => {
-			const fileName = `${getSizeKey(sizeWithBlob)}.png`
-			zip.file(fileName, sizeWithBlob.blob)
+interface ImageDescriptor {
+	base64: string,
+	filename: string
+}
+
+export const imgToBase64 = (img: HTMLImageElement, filename: string, extension: string): ImageDescriptor => {
+	const canvas = document.createElement('canvas')
+	canvas.width = img.width
+	canvas.height = img.height
+	const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+	ctx.drawImage(img, 0, 0)
+	const dataURL = canvas.toDataURL(`image/${extension}`)
+	return {
+		base64: dataURL.replace(/^data:image\/(png|jpg|jpeg|pdf);base64,/, ''),
+		filename: `${filename}.${extension}`,
+	}
+}
+
+export const downloadSizes = (sizes: string[], ucMeta: UCMeta): Promise<void> => new Promise((resolve, reject) => {
+	const zip = new JSZip()
+
+	const queue = new Metalevel({
+		bias: 1,
+		interval: 100
+	})
+
+	sizes.map(getImgByKey).forEach((img, index) => {
+		const filename = sizes[index]
+		if (img) {
+			queue.push(imgToBase64, [img, filename, ucMeta.extension])
+		}
+	})
+
+	queue.on('tick', (desc: ImageDescriptor) => {
+		zip.file(desc.filename, desc.base64, {
+			base64: true
 		})
+	})
 
+	queue.on('stop', () => {
 		zip.generateAsync({
 			type: 'base64'
 		}).then(content => {
 			resolve()
 			downloadFile(content, 'pixelhunter-social-media-images.zip')
 		}).catch(reject)
-	}).catch(reject)
+	})
 })
 
 export const mimeToExtension = (mime: string | null): string => {

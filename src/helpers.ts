@@ -21,7 +21,7 @@ export const getCrookedUrl = (src: string, width: number, height: number, ucMeta
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 
 export const downloadSize = (size: SizeWithSrc, ucMeta: UCMeta): Promise<SizeWithBlob> => {
-	const url = getUrl(size.src, size.width, size.height, ucMeta).replace('https://ucarecdn.com/', 'ucare/')
+	const url = getUrl(size.src, size.width, size.height, ucMeta).replace('https://ucarecdn.com/', '')
 	return fetch(url).then(response => response.blob()).then(blob => ({
 		...size,
 		blob,

@@ -10,7 +10,7 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
-import target from './components/target'
+// import target from './components/target'
 import PoweredBy from './components/poweredBy'
 
 // checkboxes

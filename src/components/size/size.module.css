@@ -185,6 +185,15 @@
 	transition-timing-function: var(--elevate-bezier) !important;
 }
 
+.checkboxWrapper {
+	position: absolute;
+	top: .5rem;
+	left: .5rem;
+	z-index: 4;
+	line-height: 1;
+	padding: .3em;
+}
+
 .infoOverlay {
 	position: absolute;
 	top: 0;

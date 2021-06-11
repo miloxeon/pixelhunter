@@ -162,6 +162,19 @@ const Size: React.FC<Props> = props => {
 							<div className={css.errorContainerBgFallback} />
 						</div>
 					)}
+
+					<div className={css.checkboxWrapper}>
+						<input
+							type='checkbox'
+							className={css.checkbox}
+							data-app={props.app}
+							data-name={props.name}
+							data-width={props.width}
+							data-height={props.height}
+							data-checkbox
+						/>
+					</div>
+
 					<div className={css.infoOverlay}>
 						<div className={css.infoOverlayContent}>
 							<p className={css.infoOverlayText}>

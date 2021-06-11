@@ -2,7 +2,7 @@ import React from 'react'
 import { FileInfo, Widget as UploadcareUpload } from '@uploadcare/react-widget'
 import { CSSTransition } from 'react-transition-group'
 import { downloadSizes, mimeToExtension, getSimpleModeSizes } from './helpers'
-import { UCMeta } from './types'
+import { SizeWithSrc, UCMeta } from './types'
 import sizes from './sizes.json'
 import css from './app.module.css'
 
@@ -52,7 +52,6 @@ const App: React.FC = () => {
 	})
 
 	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
-		console.log(fileInfo)
 		setSrc(fileInfo.cdnUrl)
 		setUcMeta({
 			...ucMeta,
@@ -63,14 +62,26 @@ const App: React.FC = () => {
 	// demo
 	const downloadAll = React.useCallback(() => {
 		if (!src) return
+
+		const sizesToDownload = Array.from(
+			document.querySelectorAll('[data-checkbox]:checked')
+		).map(node => {
+			const checkbox = node as HTMLInputElement
+			const { app, name, width, height } = checkbox.dataset
+			if (!app || !name || !width || !height) return null
+
+			return {
+				app,
+				name,
+				width: parseInt(width, 10),
+				height: parseInt(height, 10),
+				src
+			}
+		}).filter(Boolean) as SizeWithSrc[]
+
+		if (sizesToDownload.length === 0) return
+
 		setLoading(true)
-		const sizesForSimpleMode = sizes.map(target => [...target.sizes.map(
-			size => ({
-				...size,
-				app: target.app
-			})
-		)]).flat()
-		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
 		downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
 	}, [ucMeta, src])
 
@@ -86,9 +97,11 @@ const App: React.FC = () => {
 			<Container>
 				<div className={css.hero} id='hero'>
 					<div className={css.content}>
-						<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span></h1>
+						<h1 className={css.h1}>
+							Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span>
+						</h1>
 						<p className={css.p}>
-							Cropping each and every image by hand may be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
+							Cropping each and every image by hand can be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
 							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} {sizePlural}</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.

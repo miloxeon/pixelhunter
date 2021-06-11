@@ -11,11 +11,10 @@ import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
 import target from './components/target'
+import PoweredBy from './components/poweredBy'
 
-// powered by UC
 // checkboxes
 // download all
-// footer
 
 const timeouts = {
 	appear: 2000,
@@ -31,6 +30,8 @@ const advancedModeLogos = sizes.map(target => ({
 }))
 
 const sizesCount = sizes.map(target => target.sizes.length).reduce((a, b) => a + b, 0)
+
+const sizePlural = sizesCount.toString().split('').pop() === '1' ? 'size' : 'sizes'
 
 const App: React.FC = () => {
 	// bright
@@ -80,6 +81,7 @@ const App: React.FC = () => {
 	// 	})
 	// }, [ucMeta])
 
+
 	return (
 		<>
 			<Container>
@@ -90,11 +92,13 @@ const App: React.FC = () => {
 							Cropping each and every image by hand may be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
-							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} sizes</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.
+							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} {sizePlural}</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.
 						</p>
 						<p className={css.p}>
 							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to actually help you and not just to fill up the space.
 						</p>
+
+						<PoweredBy />
 
 						<div className={css.upload}>
 							<div className={css.uploaderWrapper}>

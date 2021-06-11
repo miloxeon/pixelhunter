@@ -1,0 +1,57 @@
+.root {
+	display: grid;
+	grid-template-columns: min-content 59px 2fr min-content 59px;
+	grid-template-areas:
+		"ucInfo ucLogo space mvInfo mvLogo";
+
+	gap: 1em 1em;
+	margin-top: 2rem;
+
+	align-items: center;
+	justify-content: start;
+}
+
+@media (max-width: 35rem) {
+	.root {
+		grid-template-columns: auto 59px;
+		grid-template-areas:
+			"ucInfo ucLogo"
+			"mvInfo mvLogo";
+	}
+}
+
+.logoCommons {
+	filter: var(--elevate-before-filter);
+}
+
+.ucInfo {
+	grid-area: ucInfo;
+}
+
+.ucLogo {
+	composes: logoCommons;
+	grid-area: ucLogo;
+}
+
+.mvInfo {
+	grid-area: mvInfo;
+	margin-left: auto;
+}
+
+.mvLogo {
+	composes: logoCommons;
+	grid-area: mvLogo;
+}
+
+.p {
+	margin-top: 0;
+	margin-bottom: 0;
+	display: inline-block;
+	font-weight: 500;
+}
+
+@media (max-width: 35rem) {
+	.p {
+		width: 100%;
+	}
+}

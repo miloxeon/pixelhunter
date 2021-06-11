@@ -43,7 +43,7 @@ const App: React.FC = () => {
 	// demo (cat on blue background)
 	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
 
-	// const [loading, setLoading] = React.useState<boolean>(false)
+	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
@@ -61,25 +61,25 @@ const App: React.FC = () => {
 	}, [ucMeta])
 
 	// demo
-	// const downloadAll = React.useCallback(() => {
-	// 	if (!src) return
-	// 	setLoading(true)
-	// 	const sizesForSimpleMode = sizes.map(target => [...target.sizes.map(
-	// 		size => ({
-	// 			...size,
-	// 			app: target.app
-	// 		})
-	// 	)]).flat()
-	// 	const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
-	// 	downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
-	// }, [ucMeta, src])
+	const downloadAll = React.useCallback(() => {
+		if (!src) return
+		setLoading(true)
+		const sizesForSimpleMode = sizes.map(target => [...target.sizes.map(
+			size => ({
+				...size,
+				app: target.app
+			})
+		)]).flat()
+		const sizesToDownload = sizesForSimpleMode.map(size => ({ ...size, src }))
+		downloadSizes(sizesToDownload, ucMeta).finally(() => setLoading(false))
+	}, [ucMeta, src])
 
-	// const onCompressCheck = React.useCallback(e => {
-	// 	setUcMeta({
-	// 		...ucMeta,
-	// 		compress: e.target.checked
-	// 	})
-	// }, [ucMeta])
+	const onCompressCheck = React.useCallback(e => {
+		setUcMeta({
+			...ucMeta,
+			compress: e.target.checked
+		})
+	}, [ucMeta])
 
 
 	return (
@@ -108,7 +108,7 @@ const App: React.FC = () => {
 								/>
 							</div>
 
-							{/* <label>
+							<label>
 								<input
 									type='checkbox'
 									checked={ucMeta.compress}
@@ -121,7 +121,7 @@ const App: React.FC = () => {
 								<Button onClick={downloadAll} aria-busy={loading}>
 									{ loading ? 'Loading...' : 'Download all'}
 								</Button>
-							)} */}
+							)}
 
 							<div className={css.support}>
 								<h2 className={css.h2}>

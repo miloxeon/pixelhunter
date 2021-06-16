@@ -104,7 +104,7 @@ const App: React.FC = () => {
 						)}
 
 						<p className={css.p}>
-							Cropping each and every image by hand can be tiresome. Pixelhunter utulizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
+							Cropping each and every image by hand can be tiresome. Pixelhunter utilizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
 							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} {sizePlural}</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.

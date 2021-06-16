@@ -19,7 +19,7 @@ const Target: React.FC<Props> = props => {
 		butter()
 	}, [props.src])
 
-	// sort sizes by aspect ratio — taller ones come first
+	// sort sizes by aspect ratio — taller ones come first
 	const sortedSizes = [...props.sizes].sort((a, b) => {
 		const byRatio = (a.width / a.height) - (b.width / b.height)
 		if (byRatio !== 0) return byRatio

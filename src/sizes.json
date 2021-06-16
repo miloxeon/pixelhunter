@@ -22,7 +22,7 @@
 			"height": 630,
 			"simple": true,
 			"positionSrc": "positions/facebook-image-post.svg",
-			"description": "Pro Tip: Because posts with singular images take full width, you may use text as well as highly-detailed images. They will be easily recognizeable and noticeable."
+			"description": "Pro Tip: Because posts with singular images take full width, you may use text as well as highly-detailed images. They will be easily recognizable and noticeable."
 		}, {
 			"name": "Marketplace",
 			"width": 1200,
@@ -71,7 +71,7 @@
 	]
 }, {
 	"app": "Facebook Ads",
-	"description": "Remember that your ads will be cut by adblockers. After that, they will be displayed among many others. Sometimes your ad will be put into a rotator that will switch between your ad and other people's ads several times each minute, so it's better to keep them recognizeable and straightforward.",
+	"description": "Remember that your ads will be cut by ad blockers. After that, they will be displayed among many others. Sometimes your ad will be put into a rotator that will switch between your ad and other people's ads several times each minute, so it's better to keep them recognizeable and straightforward.",
 	"logoSrc": "logos/facebook-ads.svg",
 	"sizes": [{
 			"name": "Image ad",
@@ -292,7 +292,7 @@
 	]
 }, {
 	"app": "Twitter",
-	"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. However, Twitter provides every way for you to design your profile to make it sleek and appealing.",
+	"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. However, Twitter provides every way for you to design your profile to make it sleek and appealing.",
 	"logoSrc": "logos/twitter.svg",
 	"sizes": [{
 			"name": "Profile photo",
@@ -380,7 +380,7 @@
 			"height": 720,
 			"simple": true,
 			"positionSrc": "positions/youtube-thumbnail.svg",
-			"description": "Pro Tip: Clickbait is a thing of the past. Nowadays it may damage how your audience percieves your channel. It's better to refrain from blank, filler thumbnails and instead choose the one that would be straight to the point."
+			"description": "Pro Tip: Clickbait is a thing of the past. Nowadays it may damage how your audience perceives your channel. It's better to refrain from blank, filler thumbnails and instead choose the one that would be straight to the point."
 		}, {
 			"name": "Display ads",
 			"width": 300,
@@ -419,7 +419,7 @@
 	]
 }, {
 	"app": "TikTok",
-	"description": "This fast-paced social media was so influential that even YouTube made every attemt to catch on. Because of the speed of content consumption and its variety it's pretty much impossible to predict trends on TikTok, so the key is building the loyal audience that watches what you do because of who you are.",
+	"description": "This fast-paced social media was so influential that even YouTube made every attempt to catch on. Because of the speed of content consumption and its variety it's pretty much impossible to predict trends on TikTok, so the key is building the loyal audience that watches what you do because of who you are.",
 	"logoSrc": "logos/tiktok.svg",
 	"sizes": [{
 			"name": "Profile photo",
@@ -556,7 +556,7 @@
 	]
 }, {
 	"app": "Snapchat",
-	"description": "Being slower than expected to grow on international markets, Snapchat has the most of its presence in the U.S. According to Insider and contrary to a popular belief, Snapchat user base isn’t as young as some might think.",
+	"description": "Being slower than expected to grow on international markets, Snapchat has the most of its presence in the U.S. According to Insider and contrary to a popular belief, Snapchat user base isn't as young as some might think.",
 	"logoSrc": "logos/snapchat.svg",
 	"sizes": [{
 		"name": "Image share",
@@ -575,7 +575,7 @@
 	}]
 }, {
 	"app": "Email",
-	"description": "Fine-tuned image sizes for different mail clients including Gmail, Outlook, Yahoo Mail, Apple Mail App, iCloud Mail and others.",
+	"description": "Fine-tuned image sizes for different mail clients including GMail, Outlook, Yahoo Mail, Apple Mail App, iCloud Mail and others.",
 	"logoSrc": "logos/email.svg",
 	"sizes": [{
 			"name": "Blog image",

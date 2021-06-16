@@ -16,7 +16,7 @@ export const getUrl = (src: string, width: number, height: number, ucMeta: UCMet
 }
 
 // needed to prevent adblocks from blocking common ad sizes images
-export const getCrookedUrl = (src: string, width: number, height: number, ucMeta: UCMeta) => getUrl(src, width, height, ucMeta)
+export const getCrookedUrl = (src: string, width: number, height: number, ucMeta: UCMeta) => getUrl(src, width + 1, height + 1, ucMeta)
 
 export const getSizeKey = (size: StandaloneSize): string => `${size.app} ${size.name} (${size.width}x${size.height})`
 

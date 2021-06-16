@@ -1,6 +1,6 @@
 [{
 	"app": "Facebook",
-	"description": "Because the size of this social network, Facebook images are mostly utilitarian. Don't expect people to passionately explore them and pin them to their moodboards. Hovewer, Facebook supports a wide variety of sizes, so you can utilize them to build a solid brand image.",
+	"description": "Because the size of this social network, Facebook images are mostly utilitarian. Don't expect people to passionately explore them and pin them to their moodboards. However, Facebook supports a wide variety of sizes, so you can utilize them to build a solid brand image.",
 	"logoSrc": "logos/facebook.svg",
 	"sizes": [{
 			"name": "Profile picture",
@@ -292,7 +292,7 @@
 	]
 }, {
 	"app": "Twitter",
-	"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. Hovewer, Twitter provides every way for you to design your profile to make it sleek and appealing.",
+	"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. However, Twitter provides every way for you to design your profile to make it sleek and appealing.",
 	"logoSrc": "logos/twitter.svg",
 	"sizes": [{
 			"name": "Profile photo",
@@ -366,7 +366,7 @@
 			"height": 800,
 			"simple": true,
 			"positionSrc": "positions/youtube-profile-picture.svg",
-			"description": "Pro Tip: You can color-match your Profile picture with your Channel art to ensure premium experience. Hovewer, it's best not to leave your profile picture blank because it would also be displayed on its own."
+			"description": "Pro Tip: You can color-match your Profile picture with your Channel art to ensure premium experience. However, it's best not to leave your profile picture blank because it would also be displayed on its own."
 		}, {
 			"name": "Channel art",
 			"width": 2560,

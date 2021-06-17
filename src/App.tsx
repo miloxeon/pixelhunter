@@ -239,6 +239,30 @@ const App: React.FC = () => {
 					</CSSTransition>
 				</div>
 			)}
+
+			<Container>
+				<div id="mc_embed_signup">
+					<form action="https://pixelhunter.us6.list-manage.com/subscribe/post?u=4f82317843a41b375db41b629&amp;id=c7d23d6936" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+						<div id="mc_embed_signup_scroll">
+							<label htmlFor="mce-EMAIL">Newsletter (no spam ever)</label>
+							<input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
+							<div style={{ position: 'absolute', left: '-5000px'}} aria-hidden="true">
+								<input type="text" name="b_4f82317843a41b375db41b629_c7d23d6936" tabIndex={-1} />
+							</div>
+							<div className="clear">
+								<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</Container>
+			
+			<Container>
+				<a className={css.a} href="https://uploadcare.com/about/privacy_policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
+			</Container>
+			<Container>
+				<a className={css.a} href="mailto:hello@pixelhunter.io">hello@pixelhunter.io</a>
+			</Container>
 		</>
 	)
 }

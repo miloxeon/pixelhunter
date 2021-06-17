@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1306 1305" width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="square" stroke-miterlimit="1.5">
+  <circle cx="657.81" cy="656.601" r="548.707" fill="url(#_Radial1)"/>
+  <path fill="none" stroke="#000" stroke-width="8.33" stroke-dasharray="8.33,16.67,16.67,0" d="M109.103 107.894h1099.96v1097.41H109.103z"/>
+  <circle cx="657.81" cy="656.601" r="548.707" fill="none" stroke="#000" stroke-width="8.33" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1"/>
+  <path d="M725.591 99.478a71.315 71.315 0 00-71.316-71.317h-.006a71.317 71.317 0 00-71.316 71.317v.005a71.314 71.314 0 0071.316 71.317h.006a71.314 71.314 0 0071.316-71.317v-.005z" fill="#fff" stroke="#000" stroke-width="8.45" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" style="filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, .4))"/>
+  <path d="M725.591 1205.31a71.314 71.314 0 00-71.316-71.317h-.006a71.314 71.314 0 00-71.316 71.317v.005a71.315 71.315 0 0071.316 71.317h.006a71.317 71.317 0 0071.316-71.317v-.005z" fill="#fff" stroke="#000" stroke-width="8.45" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" style="filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, .4))"/>
+  <path d="M99.478 581.075a71.315 71.315 0 00-71.317 71.316v.006a71.317 71.317 0 0071.317 71.316h.005a71.314 71.314 0 0071.317-71.316v-.006a71.314 71.314 0 00-71.317-71.316h-.005z" fill="#fff" stroke="#000" stroke-width="8.45" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" style="filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, .4))"/>
+  <path d="M1206.51 581.075a71.313 71.313 0 00-71.316 71.316v.006a71.313 71.313 0 0071.316 71.316h.006a71.313 71.313 0 0071.316-71.316v-.006a71.313 71.313 0 00-71.316-71.316h-.006z" fill="#fff" stroke="#000" stroke-width="8.45" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" style="filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, .4))"/>
+  <defs>
+    <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-921.045 548.704 -631.841 -1060.6 1402.48 656.601)">
+      <stop offset="0" stop-color="#ffc700"/>
+      <stop offset="1" stop-color="#ffedab"/>
+    </radialGradient>
+  </defs>
+</svg>

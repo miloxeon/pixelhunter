@@ -240,7 +240,7 @@ const App: React.FC = () => {
 				</div>
 			)}
 
-			<Container>
+			<Container style={{ marginTop: '4rem'}}>
 				<div id="mc_embed_signup">
 					<form action="https://pixelhunter.us6.list-manage.com/subscribe/post?u=4f82317843a41b375db41b629&amp;id=c7d23d6936" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
 						<div id="mc_embed_signup_scroll">
@@ -256,11 +256,10 @@ const App: React.FC = () => {
 					</form>
 				</div>
 			</Container>
-			
 			<Container>
 				<a className={css.a} href="https://uploadcare.com/about/privacy_policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
 			</Container>
-			<Container>
+			<Container style={{ marginBottom: '3rem' }}>
 				<a className={css.a} href="mailto:hello@pixelhunter.io">hello@pixelhunter.io</a>
 			</Container>
 		</>

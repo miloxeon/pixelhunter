@@ -44,7 +44,7 @@ const App: React.FC = () => {
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
 
 	// demo (cat on blue background)
-	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b2f5992e-49bb-4fe4-b0e3-ad78dfa109e9/')
+	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b555ca32-eee0-48cf-a943-175bc1498367/')
 
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)

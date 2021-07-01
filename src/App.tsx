@@ -36,7 +36,11 @@ const sizePlural = sizesCount.toString() === '1' ? 'size' : 'sizes'
 const browserInfo = detect()
 const isSafari = !browserInfo || browserInfo.name === 'safari' || browserInfo.name === 'ios'
 
-const App: React.FC = () => {
+interface Props {
+	cookieConsent: any
+}
+
+const App: React.FC<Props> = (props) => {
 	// bright
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
 
@@ -261,6 +265,9 @@ const App: React.FC = () => {
 			</Container>
 			<Container style={{ marginBottom: '3rem' }}>
 				<a className={css.a} href="mailto:hello@pixelhunter.io">hello@pixelhunter.io</a>
+			</Container>
+			<Container>
+				<Button onClick={() => props.cookieConsent?.reset()}>Manage cookies</Button>
 			</Container>
 		</>
 	)

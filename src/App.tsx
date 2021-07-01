@@ -31,7 +31,7 @@ const advancedModeLogos = sizes.map(target => ({
 
 const sizesCount = sizes.map(target => target.sizes.length).reduce((a, b) => a + b, 0)
 
-const sizePlural = sizesCount.toString().split('').pop() === '1' ? 'size' : 'sizes'
+const sizePlural = sizesCount.toString() === '1' ? 'size' : 'sizes'
 
 const browserInfo = detect()
 const isSafari = !browserInfo || browserInfo.name === 'safari' || browserInfo.name === 'ios'

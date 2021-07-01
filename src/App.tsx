@@ -262,15 +262,15 @@ const App: React.FC<Props> = (props) => {
 			</Container>
 			<Container>
 				{/* eslint-disable-next-line react/jsx-no-target-blank, jsx-a11y/img-redundant-alt */}
-				<a href="https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light" aria-label="Pixel­hunter - Free AI image resizing tool for social media | Product Hunt" alt="" style={{width: 250, height: 54}} width="250" height="54"/></a>
+				<a href="https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light" aria-label="Pixel­hunter - Free AI image resizing tool for social media | Product Hunt" alt="" style={{width: 250, height: 54, display: 'inline-block'}} width="250" height="54"/></a>
 			</Container>
 			<Container>
 				<a className={css.a} href="https://uploadcare.com/about/privacy_policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
 			</Container>
-			<Container style={{ marginBottom: '3rem' }}>
+			<Container>
 				<a className={css.a} href="mailto:hello@pixelhunter.io">hello@pixelhunter.io</a>
 			</Container>
-			<Container>
+			<Container style={{ marginBottom: '3rem' }}>
 				<Button onClick={() => props.cookieConsent?.reset()}>Manage cookies</Button>
 			</Container>
 		</>

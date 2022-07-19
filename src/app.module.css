@@ -17,17 +17,14 @@
 
 .rose {
 	background-image: radial-gradient(
-		circle farthest-corner at 20% 200%, 
-		rgb(255, 225, 125) 0%,
-		rgb(255, 205, 105) 10%,
-		rgb(250, 145, 55) 28%,
-		rgb(235, 65, 65) 42%,
-		transparent 82%
-	), linear-gradient(
-		135deg, 
-		rgb(35, 75, 215) 12%, 
-		rgb(195, 60, 190) 58%
-	);
+			circle farthest-corner at 20% 200%,
+			rgb(255, 225, 125) 0%,
+			rgb(255, 205, 105) 10%,
+			rgb(250, 145, 55) 28%,
+			rgb(235, 65, 65) 42%,
+			transparent 82%
+		),
+		linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
 
 	border-radius: 1rem;
 	background-clip: text;
@@ -72,7 +69,7 @@
 }
 
 .infoLogo {
-	border-radius: .5em;
+	border-radius: 0.5em;
 }
 
 .background {
@@ -116,28 +113,40 @@
 		animation-delay: 2s;
 		animation-timing-function: var(--elevate-bezier);
 	}
-	
+
 	.instagramImageWrapper {
 		animation-duration: 15s, 180s;
 		animation-name: levitate, rotate;
 		animation-timing-function: var(--elevate-bezier), linear;
 	}
-	
+
 	.heartImageWrapper {
 		animation-delay: 4s;
 	}
 }
 
 @keyframes levitate {
-	0%		{ transform: translateY(0) }
-	50%	{ transform: translateY(20px) }
-	100%	{ transform: translateY(0) }
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
 @keyframes rotate {
-	0%		{ transform: rotate(0deg) }
-	50%	{ transform: rotate(180deg) }
-	100%	{ transform: rotate(360deg) }
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .tabsWrapper {
@@ -156,14 +165,14 @@
 	box-shadow: var(--elevate-before) !important;
 }
 
-.download[aria-busy="true"] {
+.download[aria-busy='true'] {
 	pointer-events: none;
 }
 
 .iconCommons {
 	width: 1rem;
 	height: 1rem;
-	margin-right: .5em;
+	margin-right: 0.5em;
 }
 
 .loading {
@@ -173,13 +182,13 @@
 
 .arrowDown {
 	composes: iconCommons;
-	transition: transform .5s;
+	transition: transform 0.5s;
 	transition-timing-function: var(--elevate-bezier);
 }
 
 .download:hover .arrowDown {
 	transform: translateY(2px);
-	transition: transform .1s;
+	transition: transform 0.1s;
 }
 
 .tab:not(:global [class*='tab-']) {
@@ -215,7 +224,7 @@
 
 :global .tab-enter-active {
 	opacity: 1;
-	transition: opacity .5s;
+	transition: opacity 0.5s;
 	transition-timing-function: var(--elevate-bezier);
 }
 
@@ -225,7 +234,7 @@
 
 :global .tab-exit-active {
 	opacity: 0;
-	transition: opacity .5s;
+	transition: opacity 0.5s;
 	transition-timing-function: var(--elevate-bezier);
 }
 
@@ -234,13 +243,21 @@
 }
 
 @keyframes appear-position {
-	from { transform: translateY(20px) scale(0.97) }
-	to   { transform: translateY(0) scale(1) }
+	from {
+		transform: translateY(20px) scale(0.97);
+	}
+	to {
+		transform: translateY(0) scale(1);
+	}
 }
 
 @keyframes appear-opacity {
-	from { opacity: 0 } 
-	to   { opacity: 1 }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .a {
@@ -251,10 +268,10 @@
 	background-repeat: repeat-x;
 	background-position: left bottom;
 
-	transition: color .3s;
+	transition: color 0.3s;
 }
 
-.a[href^="http"]::after {
+.a[href^='http']::after {
 	content: ' ↗';
 	user-select: none;
 	pointer-events: none;
@@ -273,4 +290,12 @@
 	color: var(--a1);
 	background-image: none;
 	transition-duration: 0s;
+}
+
+.banner {
+	position: relative;
+	padding: 1em;
+	background-color: rgb(255, 205, 105);
+	z-index: 5;
+	text-align: center;
 }

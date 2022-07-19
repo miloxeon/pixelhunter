@@ -40,7 +40,7 @@ interface Props {
 	cookieConsent: any
 }
 
-const App: React.FC<Props> = (props) => {
+const App: React.FC<Props> = props => {
 	// bright
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
 
@@ -48,43 +48,48 @@ const App: React.FC<Props> = (props) => {
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
 
 	// demo (cat on blue background)
-	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b555ca32-eee0-48cf-a943-175bc1498367/')
+	const [src, setSrc] = React.useState<string | null>(
+		'https://ucarecdn.com/b555ca32-eee0-48cf-a943-175bc1498367/'
+	)
 
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
 
 	const [ucMeta, setUcMeta] = React.useState<UCMeta>({
 		compress: false,
-		extension: 'jpg'
+		extension: 'jpg',
 	})
 
-	const uploadOnChange = React.useCallback((fileInfo: FileInfo) => {
-		setSrc(fileInfo.cdnUrl)
-		setUcMeta({
-			...ucMeta,
-			extension: mimeToExtension(fileInfo.mimeType)
-		})
-	}, [ucMeta])
+	const uploadOnChange = React.useCallback(
+		(fileInfo: FileInfo) => {
+			setSrc(fileInfo.cdnUrl)
+			setUcMeta({
+				...ucMeta,
+				extension: mimeToExtension(fileInfo.mimeType),
+			})
+		},
+		[ucMeta]
+	)
 
 	// demo
 	const downloadAll = React.useCallback(() => {
 		if (!src) return
 
-		const sizesToDownload = Array.from(
-			document.querySelectorAll('[data-checkbox]:checked')
-		).map(node => {
-			const checkbox = node as HTMLInputElement
-			const { app, name, width, height } = checkbox.dataset
-			if (!app || !name || !width || !height) return null
+		const sizesToDownload = Array.from(document.querySelectorAll('[data-checkbox]:checked'))
+			.map(node => {
+				const checkbox = node as HTMLInputElement
+				const { app, name, width, height } = checkbox.dataset
+				if (!app || !name || !width || !height) return null
 
-			return {
-				app,
-				name,
-				width: parseInt(width, 10),
-				height: parseInt(height, 10),
-				src
-			}
-		}).filter(Boolean) as SizeWithSrc[]
+				return {
+					app,
+					name,
+					width: parseInt(width, 10),
+					height: parseInt(height, 10),
+					src,
+				}
+			})
+			.filter(Boolean) as SizeWithSrc[]
 
 		if (sizesToDownload.length === 0) return
 
@@ -94,12 +99,14 @@ const App: React.FC<Props> = (props) => {
 
 	return (
 		<>
+			<div className={css.banner}>The project is under maintenance.</div>
 			<Container>
 				<div className={css.hero} id='hero'>
 					<div className={css.content}>
 						{!isSafari ? (
 							<h1 className={css.h1}>
-								Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span>
+								Pixel&shy;hunter&nbsp;— free AI image resizer for{' '}
+								<span className={css.rose}>social media.</span>
 							</h1>
 						) : (
 							<h1 className={css.h1}>
@@ -108,29 +115,33 @@ const App: React.FC<Props> = (props) => {
 						)}
 
 						<p className={css.p}>
-							Cropping each and every image by hand can be tiresome. Pixelhunter utilizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
+							Cropping each and every image by hand can be tiresome. Pixelhunter utilizes amazing{' '}
+							<strong>Uploadcare Intelligence API</strong> to{' '}
+							<strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
-							Just upload your image of any size and it will be automatically resized to each and every of <strong>{sizesCount} {sizePlural}</strong> we support. AI is there to ensure that your image is resized in the best way that a robot can do.
+							Just upload your image of any size and it will be automatically resized to each and
+							every of{' '}
+							<strong>
+								{sizesCount} {sizePlural}
+							</strong>{' '}
+							we support. AI is there to ensure that your image is resized in the best way that a
+							robot can do.
 						</p>
 						<p className={css.p}>
-							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to actually help you and not just to fill up the space.
+							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to
+							actually help you and not just to fill up the space.
 						</p>
 
 						<PoweredBy />
 
 						<div className={css.upload}>
 							<div className={css.uploaderWrapper}>
-								<UploadcareUpload
-									publicKey='3828f4d78b7de9c98461'
-									onChange={uploadOnChange}
-								/>
+								<UploadcareUpload publicKey='3828f4d78b7de9c98461' onChange={uploadOnChange} />
 							</div>
 
 							<div className={css.support}>
-								<h2 className={css.h2}>
-									We support:
-								</h2>
+								<h2 className={css.h2}>We support:</h2>
 								<div className={css.grid}>
 									{advancedModeLogos.map(appInfo => {
 										return (
@@ -148,61 +159,37 @@ const App: React.FC<Props> = (props) => {
 								</div>
 							</div>
 						</div>
-						{ src !== null && (
-							<Tabs
-								onChange={setActiveTab}
-								value={activeTab}
-							/>
-						)}
+						{src !== null && <Tabs onChange={setActiveTab} value={activeTab} />}
 					</div>
 					<div className={css.background}>
 						<div className={css.likeImageWrapper}>
-							<img
-								width={1000}
-								height={910}
-								src="like.png"
-								alt=''
-							/>
+							<img width={1000} height={910} src='like.png' alt='' />
 						</div>
 						<div className={css.instagramImageWrapper}>
-							<img
-								width={1000}
-								height={1000}
-								src="instagram.png"
-								alt=''
-							/>
+							<img width={1000} height={1000} src='instagram.png' alt='' />
 						</div>
 						<div className={css.heartImageWrapper}>
-							<img
-								width={1000}
-								height={860}
-								src="heart.png"
-								alt=''
-							/>
+							<img width={1000} height={860} src='heart.png' alt='' />
 						</div>
 					</div>
 				</div>
 			</Container>
-			
+
 			{src !== null && (
 				<div className={css.tabsWrapper}>
-					{ src !== null && (
-						<Button
-							className={css.download}
-							onClick={downloadAll}
-							aria-busy={loading}
-						>
-							{ loading ? (
+					{src !== null && (
+						<Button className={css.download} onClick={downloadAll} aria-busy={loading}>
+							{loading ? (
 								<AiOutlineLoading3Quarters className={css.loading} />
 							) : (
 								<FiArrowDown className={css.arrowDown} />
 							)}
-							{ loading ? 'Loading...' : 'Download all'}
+							{loading ? 'Loading...' : 'Download all'}
 						</Button>
 					)}
 
 					<CSSTransition
-						classNames="tab"
+						classNames='tab'
 						in={activeTab === TabsEnum.simple}
 						timeout={timeouts}
 						appear
@@ -222,7 +209,7 @@ const App: React.FC<Props> = (props) => {
 						</Container>
 					</CSSTransition>
 					<CSSTransition
-						classNames="tab"
+						classNames='tab'
 						in={activeTab === TabsEnum.advanced}
 						timeout={timeouts}
 						appear
@@ -244,17 +231,38 @@ const App: React.FC<Props> = (props) => {
 				</div>
 			)}
 
-			<Container style={{ marginTop: '4rem'}}>
-				<div id="mc_embed_signup">
-					<form action="https://pixelhunter.us6.list-manage.com/subscribe/post?u=4f82317843a41b375db41b629&amp;id=c7d23d6936" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-						<div id="mc_embed_signup_scroll">
-							<label htmlFor="mce-EMAIL">Newsletter (no spam ever)</label>
-							<input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
-							<div style={{ position: 'absolute', left: '-5000px'}} aria-hidden="true">
-								<input type="text" name="b_4f82317843a41b375db41b629_c7d23d6936" tabIndex={-1} />
+			<Container style={{ marginTop: '4rem' }}>
+				<div id='mc_embed_signup'>
+					<form
+						action='https://pixelhunter.us6.list-manage.com/subscribe/post?u=4f82317843a41b375db41b629&amp;id=c7d23d6936'
+						method='post'
+						id='mc-embedded-subscribe-form'
+						name='mc-embedded-subscribe-form'
+						className='validate'
+						target='_blank'
+						noValidate
+					>
+						<div id='mc_embed_signup_scroll'>
+							<label htmlFor='mce-EMAIL'>Newsletter (no spam ever)</label>
+							<input
+								type='email'
+								name='EMAIL'
+								className='email'
+								id='mce-EMAIL'
+								placeholder='email address'
+								required
+							/>
+							<div style={{ position: 'absolute', left: '-5000px' }} aria-hidden='true'>
+								<input type='text' name='b_4f82317843a41b375db41b629_c7d23d6936' tabIndex={-1} />
 							</div>
-							<div className="clear">
-								<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
+							<div className='clear'>
+								<input
+									type='submit'
+									value='Subscribe'
+									name='subscribe'
+									id='mc-embedded-subscribe'
+									className='button'
+								/>
 							</div>
 						</div>
 					</form>
@@ -262,13 +270,34 @@ const App: React.FC<Props> = (props) => {
 			</Container>
 			<Container>
 				{/* eslint-disable-next-line react/jsx-no-target-blank, jsx-a11y/img-redundant-alt */}
-				<a href="https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light" aria-label="Pixel­hunter - Free AI image resizing tool for social media | Product Hunt" alt="" style={{width: 250, height: 54, display: 'inline-block'}} width="250" height="54"/></a>
+				<a
+					href='https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter'
+					target='_blank'
+				>
+					<img
+						src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light'
+						aria-label='Pixel­hunter - Free AI image resizing tool for social media | Product Hunt'
+						alt=''
+						style={{ width: 250, height: 54, display: 'inline-block' }}
+						width='250'
+						height='54'
+					/>
+				</a>
 			</Container>
 			<Container>
-				<a className={css.a} href="https://uploadcare.com/about/privacy_policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
+				<a
+					className={css.a}
+					href='https://uploadcare.com/about/privacy_policy/'
+					target='_blank'
+					rel='noreferrer'
+				>
+					Privacy Policy
+				</a>
 			</Container>
 			<Container>
-				<a className={css.a} href="mailto:hello@pixelhunter.io">hello@pixelhunter.io</a>
+				<a className={css.a} href='mailto:hello@pixelhunter.io'>
+					hello@pixelhunter.io
+				</a>
 			</Container>
 			<Container style={{ marginBottom: '3rem' }}>
 				<Button onClick={() => props.cookieConsent?.reset()}>Manage cookies</Button>

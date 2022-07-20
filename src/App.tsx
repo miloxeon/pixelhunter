@@ -99,7 +99,6 @@ const App: React.FC<Props> = props => {
 
 	return (
 		<>
-			<div className={css.dsaoifasnflk}>The project is under maintenance.</div>
 			<Container>
 				<div className={css.hero} id='hero'>
 					<div className={css.content}>

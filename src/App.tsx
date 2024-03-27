@@ -13,34 +13,21 @@ import Button from './components/button'
 import Container from './components/container'
 import Target from './components/target'
 import Tabs, { TabsEnum } from './components/tabs'
-// import target from './components/target'
 import PoweredBy from './components/poweredBy'
 
-const timeouts = {
-	appear: 2000,
-	enter: 500,
-	exit: 500,
-}
-
+const timeouts = { appear: 2000, enter: 500, exit: 500 }
 const simpleModeImages = getSimpleModeSizes(sizes)
-
 const advancedModeLogos = sizes.map(target => ({
 	logoSrc: target.logoSrc,
 	app: target.app,
 }))
 
 const sizesCount = sizes.map(target => target.sizes.length).reduce((a, b) => a + b, 0)
-
 const sizePlural = sizesCount.toString() === '1' ? 'size' : 'sizes'
-
 const browserInfo = detect()
 const isSafari = !browserInfo || browserInfo.name === 'safari' || browserInfo.name === 'ios'
 
-interface Props {
-	cookieConsent: any
-}
-
-const App: React.FC<Props> = props => {
+const App: React.FC = () => {
 	// bright
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/15f79d17-2619-46e6-b120-8fc7f58f50a4/')
 
@@ -48,9 +35,7 @@ const App: React.FC<Props> = props => {
 	// const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/0c17d734-460a-4d79-9824-30b6e6378181/')
 
 	// demo (cat on blue background)
-	const [src, setSrc] = React.useState<string | null>(
-		'https://ucarecdn.com/b555ca32-eee0-48cf-a943-175bc1498367/'
-	)
+	const [src, setSrc] = React.useState<string | null>('https://ucarecdn.com/b555ca32-eee0-48cf-a943-175bc1498367/')
 
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const [activeTab, setActiveTab] = React.useState<TabsEnum>(TabsEnum.simple)
@@ -68,7 +53,7 @@ const App: React.FC<Props> = props => {
 				extension: mimeToExtension(fileInfo.mimeType),
 			})
 		},
-		[ucMeta]
+		[ucMeta],
 	)
 
 	// demo
@@ -104,32 +89,24 @@ const App: React.FC<Props> = props => {
 					<div className={css.content}>
 						{!isSafari ? (
 							<h1 className={css.h1}>
-								Pixel&shy;hunter&nbsp;— free AI image resizer for{' '}
-								<span className={css.rose}>social media.</span>
+								Pixel&shy;hunter&nbsp;— free AI image resizer for <span className={css.rose}>social media.</span>
 							</h1>
 						) : (
-							<h1 className={css.h1}>
-								Pixel&shy;hunter&nbsp;— free AI image resizer for social media.
-							</h1>
+							<h1 className={css.h1}>Pixel&shy;hunter&nbsp;— free AI image resizer for social media.</h1>
 						)}
 
 						<p className={css.p}>
-							Cropping each and every image by hand can be tiresome. Pixelhunter utilizes amazing{' '}
-							<strong>Uploadcare Intelligence API</strong> to{' '}
-							<strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
+							Cropping each and every image by hand can be tiresome. Pixelhunter utilizes amazing <strong>Uploadcare Intelligence API</strong> to <strong>recognize objects and crop pictures automatically</strong>, in a smarter way.
 						</p>
 						<p className={css.p}>
-							Just upload your image of any size and it will be automatically resized to each and
-							every of{' '}
+							Just upload your image of any size and it will be automatically resized to each and every of{' '}
 							<strong>
 								{sizesCount} {sizePlural}
 							</strong>{' '}
-							we support. AI is there to ensure that your image is resized in the best way that a
-							robot can do.
+							we support. AI is there to ensure that your image is resized in the best way that a robot can do.
 						</p>
 						<p className={css.p}>
-							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to
-							actually help you and not just to fill up the space.
+							Other than that, Pixelhunter features <strong>real pro-tips</strong> that are there to actually help you and not just to fill up the visual space.
 						</p>
 
 						<PoweredBy />
@@ -143,17 +120,7 @@ const App: React.FC<Props> = props => {
 								<h2 className={css.h2}>We support:</h2>
 								<div className={css.grid}>
 									{advancedModeLogos.map(appInfo => {
-										return (
-											<img
-												className={css.infoLogo}
-												key={appInfo.app}
-												src={appInfo.logoSrc}
-												width={40}
-												height={40}
-												alt={`Images for ${appInfo.app}`}
-												title={`Images for ${appInfo.app}`}
-											/>
-										)
+										return <img className={css.infoLogo} key={appInfo.app} src={appInfo.logoSrc} width={40} height={40} alt={`Images for ${appInfo.app}`} title={`Images for ${appInfo.app}`} />
 									})}
 								</div>
 							</div>
@@ -178,128 +145,37 @@ const App: React.FC<Props> = props => {
 				<div className={css.tabsWrapper}>
 					{src !== null && (
 						<Button className={css.download} onClick={downloadAll} aria-busy={loading}>
-							{loading ? (
-								<AiOutlineLoading3Quarters className={css.loading} />
-							) : (
-								<FiArrowDown className={css.arrowDown} />
-							)}
+							{loading ? <AiOutlineLoading3Quarters className={css.loading} /> : <FiArrowDown className={css.arrowDown} />}
 							{loading ? 'Loading...' : 'Download all'}
 						</Button>
 					)}
 
-					<CSSTransition
-						classNames='tab'
-						in={activeTab === TabsEnum.simple}
-						timeout={timeouts}
-						appear
-					>
+					<CSSTransition classNames='tab' in={activeTab === TabsEnum.simple} timeout={timeouts} appear>
 						<Container className={css.tab}>
 							{simpleModeImages.map(target => {
-								return (
-									<Target
-										mode={TabsEnum.simple}
-										key={target.app}
-										ucMeta={ucMeta}
-										src={src}
-										{...target}
-									/>
-								)
+								return <Target mode={TabsEnum.simple} key={target.app} ucMeta={ucMeta} src={src} {...target} />
 							})}
 						</Container>
 					</CSSTransition>
-					<CSSTransition
-						classNames='tab'
-						in={activeTab === TabsEnum.advanced}
-						timeout={timeouts}
-						appear
-					>
+					<CSSTransition classNames='tab' in={activeTab === TabsEnum.advanced} timeout={timeouts} appear>
 						<Container className={css.tab}>
 							{sizes.map(target => {
-								return (
-									<Target
-										mode={TabsEnum.advanced}
-										key={target.app}
-										ucMeta={ucMeta}
-										src={src}
-										{...target}
-									/>
-								)
+								return <Target mode={TabsEnum.advanced} key={target.app} ucMeta={ucMeta} src={src} {...target} />
 							})}
 						</Container>
 					</CSSTransition>
 				</div>
 			)}
-
-			<Container style={{ marginTop: '4rem' }}>
-				<div id='mc_embed_signup'>
-					<form
-						action='https://pixelhunter.us6.list-manage.com/subscribe/post?u=4f82317843a41b375db41b629&amp;id=c7d23d6936'
-						method='post'
-						id='mc-embedded-subscribe-form'
-						name='mc-embedded-subscribe-form'
-						className='validate'
-						target='_blank'
-						noValidate
-					>
-						<div id='mc_embed_signup_scroll'>
-							<label htmlFor='mce-EMAIL'>Newsletter (no spam ever)</label>
-							<input
-								type='email'
-								name='EMAIL'
-								className='email'
-								id='mce-EMAIL'
-								placeholder='email address'
-								required
-							/>
-							<div style={{ position: 'absolute', left: '-5000px' }} aria-hidden='true'>
-								<input type='text' name='b_4f82317843a41b375db41b629_c7d23d6936' tabIndex={-1} />
-							</div>
-							<div className='clear'>
-								<input
-									type='submit'
-									value='Subscribe'
-									name='subscribe'
-									id='mc-embedded-subscribe'
-									className='button'
-								/>
-							</div>
-						</div>
-					</form>
-				</div>
-			</Container>
 			<Container>
 				{/* eslint-disable-next-line react/jsx-no-target-blank, jsx-a11y/img-redundant-alt */}
-				<a
-					href='https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter'
-					target='_blank'
-				>
-					<img
-						src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light'
-						aria-label='Pixel­hunter - Free AI image resizing tool for social media | Product Hunt'
-						alt=''
-						style={{ width: 250, height: 54, display: 'inline-block' }}
-						width='250'
-						height='54'
-					/>
+				<a href='https://www.producthunt.com/posts/pixel-hunter?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pixel-hunter' target='_blank'>
+					<img src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=302527&theme=light' aria-label='Pixel­hunter - Free AI image resizing tool for social media | Product Hunt' alt='' style={{ width: 250, height: 54, display: 'inline-block' }} width='250' height='54' />
 				</a>
 			</Container>
 			<Container>
-				<a
-					className={css.a}
-					href='https://uploadcare.com/about/privacy_policy/'
-					target='_blank'
-					rel='noreferrer'
-				>
-					Privacy Policy
+				<a className={css.a} href='mailto:pixelhunter@miloxeon.com'>
+					pixelhunter@miloxeon.com
 				</a>
-			</Container>
-			<Container>
-				<a className={css.a} href='mailto:hello@pixelhunter.io'>
-					hello@pixelhunter.io
-				</a>
-			</Container>
-			<Container style={{ marginBottom: '3rem' }}>
-				<Button onClick={() => props.cookieConsent?.reset()}>Manage cookies</Button>
 			</Container>
 		</>
 	)

@@ -1,0 +1,4 @@
+ignoredBuiltDependencies:
+  - core-js
+  - ejs
+  - es5-ext

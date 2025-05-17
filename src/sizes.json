@@ -1,596 +1,645 @@
-[{
-	"app": "Facebook",
-	"description": "Because the size of this social network, Facebook images are mostly utilitarian. Don't expect people to passionately explore them and pin them to their moodboards. However, Facebook supports a wide variety of sizes, so you can utilize them to build a solid brand image.",
-	"logoSrc": "logos/facebook.svg",
-	"sizes": [{
-			"name": "Profile picture",
-			"width": 180,
-			"height": 180,
-			"simple": true,
-			"positionSrc": "positions/facebook-profile-picture.svg",
-			"description": "Pro Tip: People see this picture everywhere they stumble upon your page. Make sure it's a good one."
-		}, {
-			"name": "Cover photo",
-			"width": 820,
-			"height": 312,
-			"simple": true,
-			"positionSrc": "positions/facebook-cover-photo.svg",
-			"description": "Pro Tip: Treat this like a billboard. Changing this picture regularly is usually a good decision. Experiment with images to see what your audience responds to best."
-		}, {
-			"name": "Image post",
-			"width": 1200,
-			"height": 630,
-			"simple": true,
-			"positionSrc": "positions/facebook-image-post.svg",
-			"description": "Pro Tip: Because posts with singular images take full width, you may use text as well as highly-detailed images. They will be easily recognizable and noticeable."
-		}, {
-			"name": "Marketplace",
-			"width": 1200,
-			"height": 1200
-		},
-		{
-			"name": "Stories",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Link image",
-			"width": 1200,
-			"height": 630
-		},
-		{
-			"name": "Event image",
-			"width": 1920,
-			"height": 1005
-		},
-		{
-			"name": "Instant articles",
-			"width": 1200,
-			"height": 1200
-		},
-		{
-			"name": "Right column",
-			"width": 1200,
-			"height": 1200
-		},
-		{
-			"name": "Group cover",
-			"width": 1640,
-			"height": 856
-		},
-		{
-			"name": "Highlighted image",
-			"width": 1200,
-			"height": 717
-		},
-		{
-			"name": "Feed",
-			"width": 1080,
-			"height": 1350
-		}
-	]
-}, {
-	"app": "Facebook Ads",
-	"description": "Remember that your ads will be cut by ad blockers. After that, they will be displayed among many others. Sometimes your ad will be put into a rotator that will switch between your ad and other people's ads several times each minute, so it's better to keep them recognizeable and straightforward.",
-	"logoSrc": "logos/facebook-ads.svg",
-	"sizes": [{
-			"name": "Image ad",
-			"width": 1200,
-			"height": 628
-		},
-		{
-			"name": "Story ad",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Audience network",
-			"width": 1200,
-			"height": 628
-		},
-		{
-			"name": "Carousel image",
-			"width": 1200,
-			"height": 1200
-		},
-		{
-			"name": "Messenger image",
-			"width": 1200,
-			"height": 628
-		},
-		{
-			"name": "Audience link",
-			"width": 398,
-			"height": 208
-		}
-	]
-}, {
-	"app": "Google Banner Ads",
-	"description": "Your ads will be displayed across countless websites that are part of Google Ad Network. Always test your images on different backgrounds to ensure they work in all circumstances.",
-	"logoSrc": "logos/google.svg",
-	"sizes": [{
-			"name": "Skyscraper",
-			"width": 120,
-			"height": 600
-		},
-		{
-			"name": "Leaderboard",
-			"width": 728,
-			"height": 90
-		},
-		{
-			"name": "Mobile banner 1",
-			"width": 300,
-			"height": 50
-		},
-		{
-			"name": "Banner",
-			"width": 468,
-			"height": 60
-		},
-		{
-			"name": "Portrait",
-			"width": 300,
-			"height": 1050
-		},
-		{
-			"name": "Panorama",
-			"width": 980,
-			"height": 120
-		},
-		{
-			"name": "Mobile banner 2",
-			"width": 320,
-			"height": 100
-		},
-		{
-			"name": "Billboard",
-			"width": 970,
-			"height": 250
-		},
-		{
-			"name": "Vertical rectangle",
-			"width": 240,
-			"height": 400
-		},
-		{
-			"name": "Half banner",
-			"width": 234,
-			"height": 60
-		},
-		{
-			"name": "Small square",
-			"width": 200,
-			"height": 200
-		},
-		{
-			"name": "Wide skyscraper",
-			"width": 160,
-			"height": 600
-		},
-		{
-			"name": "Large leaderboard",
-			"width": 970,
-			"height": 90
-		},
-		{
-			"name": "Mobile banner 3",
-			"width": 320,
-			"height": 50
-		},
-		{
-			"name": "Top banner",
-			"width": 930,
-			"height": 180
-		},
-		{
-			"name": "Square",
-			"width": 250,
-			"height": 250
-		},
-		{
-			"name": "Medium rectangle",
-			"width": 300,
-			"height": 250
-		},
-		{
-			"name": "Netboard",
-			"width": 580,
-			"height": 400
-		},
-		{
-			"name": "Half-page ad",
-			"width": 300,
-			"height": 600
-		},
-		{
-			"name": "Triple widescreen",
-			"width": 250,
-			"height": 360
-		},
-		{
-			"name": "Inline rectangle",
-			"width": 300,
-			"height": 250
-		},
-		{
-			"name": "Large rectangle",
-			"width": 336,
-			"height": 280
-		}
-	]
-}, {
-	"app": "Instagram",
-	"description": "It's a part Facebook but it works different than Facebook itself. Today's Instagram is all about color palettes and visual aesthetics. People even design multiple images in a way that they look good together put into grid. Keep your images as visually appealing as possible.",
-	"logoSrc": "logos/instagram.svg",
-	"sizes": [{
-			"name": "Profile picture",
-			"width": 320,
-			"height": 320,
-			"simple": true,
-			"positionSrc": "positions/instagram-profile-picture.svg",
-			"description": "Pro Tip: Keep your profile picture evergreen updating it as you travel or as the season changes. Try to match the palette and the overall visual aesthetic of your whole profile."
-		}, {
-			"name": "Square post",
-			"width": 1080,
-			"height": 1080,
-			"simple": true,
-			"positionSrc": "positions/instagram-square-post.svg",
-			"description": "Pro Tip: It takes the full width, so you can use text and details. They will be seen. Consider not only that but the palette of the whole image as well because it will be shown both large and small."
-		}, {
-			"name": "Stories",
-			"width": 1080,
-			"height": 1920,
-			"simple": true,
-			"positionSrc": "positions/instagram-stories.svg",
-			"description": "Pro Tip: Because Instagram supports additional interactive Stories features such as stickers and polls, you can design your Stories cover with that in mind, carefully placing blank areas where interactive elements would be."
-		}, {
-			"name": "Ad square",
-			"width": 1080,
-			"height": 1080
-		},
-		{
-			"name": "Ad portrait",
-			"width": 1080,
-			"height": 1350
-		},
-		{
-			"name": "Reels",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Ad landscape",
-			"width": 1080,
-			"height": 566
-		},
-		{
-			"name": "IGTV cover",
-			"width": 420,
-			"height": 654
-		},
-		{
-			"name": "Landscape post",
-			"width": 1080,
-			"height": 566
-		},
-		{
-			"name": "Portrait post",
-			"width": 1080,
-			"height": 1350
-		},
-		{
-			"name": "Photo thumbnails",
-			"width": 161,
-			"height": 161
-		},
-		{
-			"name": "Feed",
-			"width": 1080,
-			"height": 1350
-		}
-	]
-}, {
-	"app": "Twitter",
-	"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. However, Twitter provides every way for you to design your profile to make it sleek and appealing.",
-	"logoSrc": "logos/twitter.svg",
-	"sizes": [{
-			"name": "Profile photo",
-			"width": 400,
-			"height": 400,
-			"simple": true,
-			"positionSrc": "positions/twitter-profile-photo.svg",
-			"description": "Pro Tip: Create the whole new profile experience by matching your profile photo with your Header picture."
-		}, {
-			"name": "Header",
-			"width": 1500,
-			"height": 500,
-			"simple": true,
-			"positionSrc": "positions/twitter-header.svg",
-			"description": "Pro Tip: Because it will be displayed really wide, you can freely experiment with the layout. However, sometimes this image is cropped vertically, so don't put anything important to the very bottom of this image."
-		}, {
-			"name": "Post image",
-			"width": 1200,
-			"height": 675,
-			"simple": true,
-			"positionSrc": "positions/twitter-post-image.svg",
-			"description": "Pro Tip: It's slightly taller than an Open Graph image, but you may use Open Graph if you're designing a picture for the Twitter Card."
-		}, {
-			"name": "Conversation card",
-			"width": 800,
-			"height": 418
-		},
-		{
-			"name": "Fleets images",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Video thumbnail",
-			"width": 640,
-			"height": 360
-		},
-		{
-			"name": "Website card ad",
-			"width": 800,
-			"height": 800
-		},
-		{
-			"name": "Card image (min)",
-			"width": 120,
-			"height": 120
-		},
-		{
-			"name": "Direct message",
-			"width": 800,
-			"height": 418
-		},
-		{
-			"name": "App card ad",
-			"width": 800,
-			"height": 800
-		},
-		{
-			"name": "Carousels",
-			"width": 800,
-			"height": 800
-		}
-	]
-}, {
-	"app": "YouTube",
-	"description": "On the world's largest hosting for videos, pictures are still very important. On YouTube, they are the instrument of attracting new audience, less so of keeping the existing one entertained. As the platform changes and clickbait falls out of grace, it's better to keep video thumbnails informative and truthful.",
-	"logoSrc": "logos/youtube.svg",
-	"sizes": [{
-			"name": "Profile picture",
-			"width": 800,
-			"height": 800,
-			"simple": true,
-			"positionSrc": "positions/youtube-profile-picture.svg",
-			"description": "Pro Tip: You can color-match your Profile picture with your Channel art to ensure premium experience. However, it's best not to leave your profile picture blank because it would also be displayed on its own."
-		}, {
-			"name": "Channel art",
-			"width": 2560,
-			"height": 1440,
-			"simple": true,
-			"positionSrc": "positions/youtube-channel-art.svg",
-			"description": "Pro Tip: Unlike in Twitter, on YouTube the channel art is not cropped vertically, so you can freely experiment with what content you put there."
-		}, {
-			"name": "Thumbnail",
-			"width": 1280,
-			"height": 720,
-			"simple": true,
-			"positionSrc": "positions/youtube-thumbnail.svg",
-			"description": "Pro Tip: Clickbait is a thing of the past. Nowadays it may damage how your audience perceives your channel. It's better to refrain from blank, filler thumbnails and instead choose the one that would be straight to the point."
-		}, {
-			"name": "Display ads",
-			"width": 300,
-			"height": 250
-		},
-		{
-			"name": "Companion banner",
-			"width": 300,
-			"height": 60
-		},
-		{
-			"name": "Overlay ads",
-			"width": 480,
-			"height": 60
-		},
-		{
-			"name": "Channel Art TV",
-			"width": 2560,
-			"height": 1440
-		},
-		{
-			"name": "Channel Art PC",
-			"width": 2560,
-			"height": 423
-		},
-		{
-			"name": "Channel Art tablet",
-			"width": 1855,
-			"height": 423
-		},
-		{
-			"name": "Channel Art mobile",
-			"width": 1546,
-			"height": 423
-		}
-	]
-}, {
-	"app": "TikTok",
-	"description": "This fast-paced social media was so influential that even YouTube made every attempt to catch on. Because of the speed of content consumption and its variety it's pretty much impossible to predict trends on TikTok, so the key is building the loyal audience that watches what you do because of who you are.",
-	"logoSrc": "logos/tiktok.svg",
-	"sizes": [{
-			"name": "Profile photo",
-			"width": 200,
-			"height": 200,
-			"simple": true,
-			"description": "Pro Tip: It's really small. Be careful with the details because they may not be recognizeable."
-		}, {
-			"name": "Vertical video ad",
-			"width": 1080,
-			"height": 1920,
-			"simple": true,
-			"description": "Pro Tip: Keep meaningful content away from edges and corners of the picture because TikTok UI features may obscure it."
-		}, {
-			"name": "In-feed ad",
-			"width": 1080,
-			"height": 1080
-		},
-		{
-			"name": "Square video",
-			"width": 1080,
-			"height": 1080
-		},
-		{
-			"name": "Horizontal video",
-			"width": 1920,
-			"height": 1080
-		}
-	]
-}, {
-	"app": "LinkedIn",
-	"description": "The number one professional social network even consider inappropriate some types of communication that are perfectly okay elsewhere. Because of its flexibility, LinkedIn allows you to customize your profile in every way you need to build your brand image while keeping it strictly professional.",
-	"logoSrc": "logos/linkedin.svg",
-	"sizes": [{
-			"name": "Logo",
-			"width": 300,
-			"height": 300
-		},
-		{
-			"name": "Background photo",
-			"width": 1584,
-			"height": 396
-		},
-		{
-			"name": "Link post",
-			"width": 1200,
-			"height": 627
-		},
-		{
-			"name": "Stories",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Life tab image",
-			"width": 1128,
-			"height": 376
-		},
-		{
-			"name": "Profile picture",
-			"width": 400,
-			"height": 400
-		},
-		{
-			"name": "Cover photo",
-			"width": 1128,
-			"height": 191
-		},
-		{
-			"name": "Blog post link",
-			"width": 1200,
-			"height": 627
-		},
-		{
-			"name": "Square post",
-			"width": 1200,
-			"height": 1200
-		},
-		{
-			"name": "Dynamic ad",
-			"width": 100,
-			"height": 100
-		},
-		{
-			"name": "Sponsored content",
-			"width": 1200,
-			"height": 627
-		},
-		{
-			"name": "Business banner",
-			"width": 646,
-			"height": 220
-		},
-		{
-			"name": "Portrait post",
-			"width": 1080,
-			"height": 1350
-		}
-	]
-}, {
-	"app": "Pinterest",
-	"description": "Visual aesthetics is importnat on any social media, but on Pinterest it's the only thing that matters. Even more than Instagram, Pinterest is focused entirely around visuals. This is the place where people build moodboards and design portfolios.",
-	"logoSrc": "logos/pinterest.svg",
-	"sizes": [{
-			"name": "Portrait carousel",
-			"width": 1000,
-			"height": 1500
-		},
-		{
-			"name": "Story pins",
-			"width": 1080,
-			"height": 1920
-		},
-		{
-			"name": "Profile photo",
-			"width": 165,
-			"height": 165
-		},
-		{
-			"name": "Vertical pin",
-			"width": 1000,
-			"height": 1500
-		},
-		{
-			"name": "Square carousel",
-			"width": 1000,
-			"height": 1000
-		},
-		{
-			"name": "Board display",
-			"width": 222,
-			"height": 150
-		}
-	]
-}, {
-	"app": "Snapchat",
-	"description": "Being slower than expected to grow on international markets, Snapchat has the most of its presence in the U.S. According to Insider and contrary to a popular belief, Snapchat user base isn't as young as some might think.",
-	"logoSrc": "logos/snapchat.svg",
-	"sizes": [{
-		"name": "Image share",
-		"width": 1080,
-		"height": 1920
-	}]
-}, {
-	"app": "Open Graph",
-	"description": "Open Graph is your one stop shop for making your shared links beautiful whenever they're posted. Basically any social media, messenger and modern note-taking app supports it. If you have to choose just one image of one size, Open Graph is the way to go.",
-	"logoSrc": "logos/open-graph.svg",
-	"sizes": [{
-		"name": "Universal",
-		"width": 1200,
-		"height": 630,
-		"simple": true
-	}]
-}, {
-	"app": "Email",
-	"description": "Fine-tuned image sizes for different mail clients including GMail, Outlook, Yahoo Mail, Apple Mail App, iCloud Mail and others.",
-	"logoSrc": "logos/email.svg",
-	"sizes": [{
-			"name": "Blog image",
-			"width": 750,
-			"height": 750
-		},
-		{
-			"name": "Blog featured",
-			"width": 1200,
-			"height": 600
-		},
-		{
-			"name": "Header image",
-			"width": 600,
-			"height": 200
-		}
-	]
-}]
+[
+	{
+		"app": "Facebook",
+		"description": "Because the size of this social network, Facebook images are mostly utilitarian. Don't expect people to passionately explore them and pin them to their moodboards. However, Facebook supports a wide variety of sizes, so you can utilize them to build a solid brand image.",
+		"logoSrc": "logos/facebook.svg",
+		"sizes": [
+			{
+				"name": "Profile picture",
+				"width": 180,
+				"height": 180,
+				"simple": true,
+				"positionSrc": "positions/facebook-profile-picture.svg",
+				"description": "Pro Tip: People see this picture everywhere they stumble upon your page. Make sure it's a good one."
+			},
+			{
+				"name": "Cover photo",
+				"width": 820,
+				"height": 312,
+				"simple": true,
+				"positionSrc": "positions/facebook-cover-photo.svg",
+				"description": "Pro Tip: Treat this like a billboard. Changing this picture regularly is usually a good decision. Experiment with images to see what your audience responds to best."
+			},
+			{
+				"name": "Image post",
+				"width": 1200,
+				"height": 630,
+				"simple": true,
+				"positionSrc": "positions/facebook-image-post.svg",
+				"description": "Pro Tip: Because posts with singular images take full width, you may use text as well as highly-detailed images. They will be easily recognizable and noticeable."
+			},
+			{
+				"name": "Marketplace",
+				"width": 1200,
+				"height": 1200
+			},
+			{
+				"name": "Stories",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Link image",
+				"width": 1200,
+				"height": 630
+			},
+			{
+				"name": "Event image",
+				"width": 1920,
+				"height": 1005
+			},
+			{
+				"name": "Instant articles",
+				"width": 1200,
+				"height": 1200
+			},
+			{
+				"name": "Right column",
+				"width": 1200,
+				"height": 1200
+			},
+			{
+				"name": "Group cover",
+				"width": 1640,
+				"height": 856
+			},
+			{
+				"name": "Highlighted image",
+				"width": 1200,
+				"height": 717
+			},
+			{
+				"name": "Feed",
+				"width": 1080,
+				"height": 1350
+			}
+		]
+	},
+	{
+		"app": "Facebook Ads",
+		"description": "Remember that your ads will be cut by ad blockers. After that, they will be displayed among many others. Sometimes your ad will be put into a rotator that will switch between your ad and other people's ads several times each minute, so it's better to keep them recognizeable and straightforward.",
+		"logoSrc": "logos/facebook-ads.svg",
+		"sizes": [
+			{
+				"name": "Image ad",
+				"width": 1200,
+				"height": 628
+			},
+			{
+				"name": "Story ad",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Audience network",
+				"width": 1200,
+				"height": 628
+			},
+			{
+				"name": "Carousel image",
+				"width": 1200,
+				"height": 1200
+			},
+			{
+				"name": "Messenger image",
+				"width": 1200,
+				"height": 628
+			},
+			{
+				"name": "Audience link",
+				"width": 398,
+				"height": 208
+			}
+		]
+	},
+	{
+		"app": "Google Banner Ads",
+		"description": "Your ads will be displayed across countless websites that are part of Google Ad Network. Always test your images on different backgrounds to ensure they work in all circumstances.",
+		"logoSrc": "logos/google.svg",
+		"sizes": [
+			{
+				"name": "Skyscraper",
+				"width": 120,
+				"height": 600
+			},
+			{
+				"name": "Leaderboard",
+				"width": 728,
+				"height": 90
+			},
+			{
+				"name": "Mobile banner 1",
+				"width": 300,
+				"height": 50
+			},
+			{
+				"name": "Banner",
+				"width": 468,
+				"height": 60
+			},
+			{
+				"name": "Portrait",
+				"width": 300,
+				"height": 1050
+			},
+			{
+				"name": "Panorama",
+				"width": 980,
+				"height": 120
+			},
+			{
+				"name": "Mobile banner 2",
+				"width": 320,
+				"height": 100
+			},
+			{
+				"name": "Billboard",
+				"width": 970,
+				"height": 250
+			},
+			{
+				"name": "Vertical rectangle",
+				"width": 240,
+				"height": 400
+			},
+			{
+				"name": "Half banner",
+				"width": 234,
+				"height": 60
+			},
+			{
+				"name": "Small square",
+				"width": 200,
+				"height": 200
+			},
+			{
+				"name": "Wide skyscraper",
+				"width": 160,
+				"height": 600
+			},
+			{
+				"name": "Large leaderboard",
+				"width": 970,
+				"height": 90
+			},
+			{
+				"name": "Mobile banner 3",
+				"width": 320,
+				"height": 50
+			},
+			{
+				"name": "Top banner",
+				"width": 930,
+				"height": 180
+			},
+			{
+				"name": "Square",
+				"width": 250,
+				"height": 250
+			},
+			{
+				"name": "Medium rectangle",
+				"width": 300,
+				"height": 250
+			},
+			{
+				"name": "Netboard",
+				"width": 580,
+				"height": 400
+			},
+			{
+				"name": "Half-page ad",
+				"width": 300,
+				"height": 600
+			},
+			{
+				"name": "Triple widescreen",
+				"width": 250,
+				"height": 360
+			},
+			{
+				"name": "Inline rectangle",
+				"width": 300,
+				"height": 250
+			},
+			{
+				"name": "Large rectangle",
+				"width": 336,
+				"height": 280
+			}
+		]
+	},
+	{
+		"app": "Instagram",
+		"description": "It's a part Facebook but it works different than Facebook itself. Today's Instagram is all about color palettes and visual aesthetics. People even design multiple images in a way that they look good together put into grid. Keep your images as visually appealing as possible.",
+		"logoSrc": "logos/instagram.svg",
+		"sizes": [
+			{
+				"name": "Profile picture",
+				"width": 320,
+				"height": 320,
+				"simple": true,
+				"positionSrc": "positions/instagram-profile-picture.svg",
+				"description": "Pro Tip: Keep your profile picture evergreen updating it as you travel or as the season changes. Try to match the palette and the overall visual aesthetic of your whole profile."
+			},
+			{
+				"name": "New post",
+				"width": 1080,
+				"height": 1350,
+				"simple": true,
+				"positionSrc": "positions/instagram-square-post.svg",
+				"description": "Pro Tip: this is the new Instagram post format. You should probably use it instead of the old one from the now on."
+			},
+			{
+				"name": "Square post",
+				"width": 1080,
+				"height": 1080,
+				"simple": true,
+				"positionSrc": "positions/instagram-square-post.svg",
+				"description": "Pro Tip: It takes the full width, so you can use text and details. They will be seen. Consider not only that but the palette of the whole image as well because it will be shown both large and small."
+			},
+			{
+				"name": "Stories",
+				"width": 1080,
+				"height": 1920,
+				"simple": true,
+				"positionSrc": "positions/instagram-stories.svg",
+				"description": "Pro Tip: Because Instagram supports additional interactive Stories features such as stickers and polls, you can design your Stories cover with that in mind, carefully placing blank areas where interactive elements would be."
+			},
+			{
+				"name": "Ad square",
+				"width": 1080,
+				"height": 1080
+			},
+			{
+				"name": "Ad portrait",
+				"width": 1080,
+				"height": 1350
+			},
+			{
+				"name": "Reels",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Ad landscape",
+				"width": 1080,
+				"height": 566
+			},
+			{
+				"name": "IGTV cover",
+				"width": 420,
+				"height": 654
+			},
+			{
+				"name": "Landscape post",
+				"width": 1080,
+				"height": 566
+			},
+			{
+				"name": "Portrait post",
+				"width": 1080,
+				"height": 1350
+			},
+			{
+				"name": "Photo thumbnails",
+				"width": 161,
+				"height": 161
+			},
+			{
+				"name": "Feed",
+				"width": 1080,
+				"height": 1350
+			}
+		]
+	},
+	{
+		"app": "Twitter",
+		"description": "Even though supported, pictures are not the main part of Twitter feeds — text is the king. However, Twitter provides every way for you to design your profile to make it sleek and appealing.",
+		"logoSrc": "logos/twitter.svg",
+		"sizes": [
+			{
+				"name": "Profile photo",
+				"width": 400,
+				"height": 400,
+				"simple": true,
+				"positionSrc": "positions/twitter-profile-photo.svg",
+				"description": "Pro Tip: Create the whole new profile experience by matching your profile photo with your Header picture."
+			},
+			{
+				"name": "Header",
+				"width": 1500,
+				"height": 500,
+				"simple": true,
+				"positionSrc": "positions/twitter-header.svg",
+				"description": "Pro Tip: Because it will be displayed really wide, you can freely experiment with the layout. However, sometimes this image is cropped vertically, so don't put anything important to the very bottom of this image."
+			},
+			{
+				"name": "Post image",
+				"width": 1200,
+				"height": 675,
+				"simple": true,
+				"positionSrc": "positions/twitter-post-image.svg",
+				"description": "Pro Tip: It's slightly taller than an Open Graph image, but you may use Open Graph if you're designing a picture for the Twitter Card."
+			},
+			{
+				"name": "Conversation card",
+				"width": 800,
+				"height": 418
+			},
+			{
+				"name": "Fleets images",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Video thumbnail",
+				"width": 640,
+				"height": 360
+			},
+			{
+				"name": "Website card ad",
+				"width": 800,
+				"height": 800
+			},
+			{
+				"name": "Card image (min)",
+				"width": 120,
+				"height": 120
+			},
+			{
+				"name": "Direct message",
+				"width": 800,
+				"height": 418
+			},
+			{
+				"name": "App card ad",
+				"width": 800,
+				"height": 800
+			},
+			{
+				"name": "Carousels",
+				"width": 800,
+				"height": 800
+			}
+		]
+	},
+	{
+		"app": "YouTube",
+		"description": "On the world's largest hosting for videos, pictures are still very important. On YouTube, they are the instrument of attracting new audience, less so of keeping the existing one entertained. As the platform changes and clickbait falls out of grace, it's better to keep video thumbnails informative and truthful.",
+		"logoSrc": "logos/youtube.svg",
+		"sizes": [
+			{
+				"name": "Profile picture",
+				"width": 800,
+				"height": 800,
+				"simple": true,
+				"positionSrc": "positions/youtube-profile-picture.svg",
+				"description": "Pro Tip: You can color-match your Profile picture with your Channel art to ensure premium experience. However, it's best not to leave your profile picture blank because it would also be displayed on its own."
+			},
+			{
+				"name": "Channel art",
+				"width": 2560,
+				"height": 1440,
+				"simple": true,
+				"positionSrc": "positions/youtube-channel-art.svg",
+				"description": "Pro Tip: Unlike in Twitter, on YouTube the channel art is not cropped vertically, so you can freely experiment with what content you put there."
+			},
+			{
+				"name": "Thumbnail",
+				"width": 1280,
+				"height": 720,
+				"simple": true,
+				"positionSrc": "positions/youtube-thumbnail.svg",
+				"description": "Pro Tip: Clickbait is a thing of the past. Nowadays it may damage how your audience perceives your channel. It's better to refrain from blank, filler thumbnails and instead choose the one that would be straight to the point."
+			},
+			{
+				"name": "Display ads",
+				"width": 300,
+				"height": 250
+			},
+			{
+				"name": "Companion banner",
+				"width": 300,
+				"height": 60
+			},
+			{
+				"name": "Overlay ads",
+				"width": 480,
+				"height": 60
+			},
+			{
+				"name": "Channel Art TV",
+				"width": 2560,
+				"height": 1440
+			},
+			{
+				"name": "Channel Art PC",
+				"width": 2560,
+				"height": 423
+			},
+			{
+				"name": "Channel Art tablet",
+				"width": 1855,
+				"height": 423
+			},
+			{
+				"name": "Channel Art mobile",
+				"width": 1546,
+				"height": 423
+			}
+		]
+	},
+	{
+		"app": "TikTok",
+		"description": "This fast-paced social media was so influential that even YouTube made every attempt to catch on. Because of the speed of content consumption and its variety it's pretty much impossible to predict trends on TikTok, so the key is building the loyal audience that watches what you do because of who you are.",
+		"logoSrc": "logos/tiktok.svg",
+		"sizes": [
+			{
+				"name": "Profile photo",
+				"width": 200,
+				"height": 200,
+				"simple": true,
+				"description": "Pro Tip: It's really small. Be careful with the details because they may not be recognizeable."
+			},
+			{
+				"name": "Vertical video ad",
+				"width": 1080,
+				"height": 1920,
+				"simple": true,
+				"description": "Pro Tip: Keep meaningful content away from edges and corners of the picture because TikTok UI features may obscure it."
+			},
+			{
+				"name": "In-feed ad",
+				"width": 1080,
+				"height": 1080
+			},
+			{
+				"name": "Square video",
+				"width": 1080,
+				"height": 1080
+			},
+			{
+				"name": "Horizontal video",
+				"width": 1920,
+				"height": 1080
+			}
+		]
+	},
+	{
+		"app": "LinkedIn",
+		"description": "The number one professional social network even consider inappropriate some types of communication that are perfectly okay elsewhere. Because of its flexibility, LinkedIn allows you to customize your profile in every way you need to build your brand image while keeping it strictly professional.",
+		"logoSrc": "logos/linkedin.svg",
+		"sizes": [
+			{
+				"name": "Logo",
+				"width": 300,
+				"height": 300
+			},
+			{
+				"name": "Background photo",
+				"width": 1584,
+				"height": 396
+			},
+			{
+				"name": "Link post",
+				"width": 1200,
+				"height": 627
+			},
+			{
+				"name": "Stories",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Life tab image",
+				"width": 1128,
+				"height": 376
+			},
+			{
+				"name": "Profile picture",
+				"width": 400,
+				"height": 400
+			},
+			{
+				"name": "Cover photo",
+				"width": 1128,
+				"height": 191
+			},
+			{
+				"name": "Blog post link",
+				"width": 1200,
+				"height": 627
+			},
+			{
+				"name": "Square post",
+				"width": 1200,
+				"height": 1200
+			},
+			{
+				"name": "Dynamic ad",
+				"width": 100,
+				"height": 100
+			},
+			{
+				"name": "Sponsored content",
+				"width": 1200,
+				"height": 627
+			},
+			{
+				"name": "Business banner",
+				"width": 646,
+				"height": 220
+			},
+			{
+				"name": "Portrait post",
+				"width": 1080,
+				"height": 1350
+			}
+		]
+	},
+	{
+		"app": "Pinterest",
+		"description": "Visual aesthetics is importnat on any social media, but on Pinterest it's the only thing that matters. Even more than Instagram, Pinterest is focused entirely around visuals. This is the place where people build moodboards and design portfolios.",
+		"logoSrc": "logos/pinterest.svg",
+		"sizes": [
+			{
+				"name": "Portrait carousel",
+				"width": 1000,
+				"height": 1500
+			},
+			{
+				"name": "Story pins",
+				"width": 1080,
+				"height": 1920
+			},
+			{
+				"name": "Profile photo",
+				"width": 165,
+				"height": 165
+			},
+			{
+				"name": "Vertical pin",
+				"width": 1000,
+				"height": 1500
+			},
+			{
+				"name": "Square carousel",
+				"width": 1000,
+				"height": 1000
+			},
+			{
+				"name": "Board display",
+				"width": 222,
+				"height": 150
+			}
+		]
+	},
+	{
+		"app": "Snapchat",
+		"description": "Being slower than expected to grow on international markets, Snapchat has the most of its presence in the U.S. According to Insider and contrary to a popular belief, Snapchat user base isn't as young as some might think.",
+		"logoSrc": "logos/snapchat.svg",
+		"sizes": [
+			{
+				"name": "Image share",
+				"width": 1080,
+				"height": 1920
+			}
+		]
+	},
+	{
+		"app": "Open Graph",
+		"description": "Open Graph is your one stop shop for making your shared links beautiful whenever they're posted. Basically any social media, messenger and modern note-taking app supports it. If you have to choose just one image of one size, Open Graph is the way to go.",
+		"logoSrc": "logos/open-graph.svg",
+		"sizes": [
+			{
+				"name": "Universal",
+				"width": 1200,
+				"height": 630,
+				"simple": true
+			}
+		]
+	},
+	{
+		"app": "Email",
+		"description": "Fine-tuned image sizes for different mail clients including GMail, Outlook, Yahoo Mail, Apple Mail App, iCloud Mail and others.",
+		"logoSrc": "logos/email.svg",
+		"sizes": [
+			{
+				"name": "Blog image",
+				"width": 750,
+				"height": 750
+			},
+			{
+				"name": "Blog featured",
+				"width": 1200,
+				"height": 600
+			},
+			{
+				"name": "Header image",
+				"width": 600,
+				"height": 200
+			}
+		]
+	}
+]
